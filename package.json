@@ -1,0 +1,13 @@
+{
+  "name": "bde-cesi-nancy",
+  "version": "1.0.0",
+  "description": "Le site et l'infrastructure du BDE du CESI de Nancy",
+  "author": "Julien W <julien.wolff1@viacesi.fr>",
+  "license": "GPLv3",
+  "workspaces": [],
+  "engines": {
+    "node": ">=16.15.0",
+    "pnpm": ">=7.3.0"
+  },
+  "packageManager": "pnpm@7.6.0"
+}
