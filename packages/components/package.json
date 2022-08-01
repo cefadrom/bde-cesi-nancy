@@ -1,0 +1,36 @@
+{
+  "name": "@bde-cesi-nancy/components",
+  "version": "1.0.0",
+  "description": "La librairie de composants du BDE de CESI Nancy",
+  "author": "Julien W <julien.wolff1@viacesi.fr>",
+  "license": "GPLv3",
+  "scripts": {
+    "storybook:dev": "start-storybook -p 6006",
+    "storybook:build": "build-storybook",
+    "svelte:check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "svelte": "^3.49.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@hover/storybook-addon-pseudo-states": "^1.1.3",
+    "@storybook/addon-a11y": "^6.5.9",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/addon-svelte-csf": "^2.0.6",
+    "@storybook/builder-webpack4": "^6.5.9",
+    "@storybook/jest": "^0.0.10",
+    "@storybook/manager-webpack4": "^6.5.9",
+    "@storybook/svelte": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "@tsconfig/svelte": "^3.0.0",
+    "babel-loader": "^8.2.5",
+    "svelte-check": "^2.8.0",
+    "svelte-loader": "^3.1.3",
+    "svelte-preprocess": "^4.10.7",
+    "typescript": "^4.7.4"
+  }
+}
