@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+*:not(pre), *:not(code) {
+    font-family: var(--font-family);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+

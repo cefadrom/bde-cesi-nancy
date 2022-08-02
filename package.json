@@ -5,7 +5,8 @@
   "author": "Julien W <julien.wolff1@viacesi.fr>",
   "license": "GPLv3",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "web"
   ],
   "engines": {
     "node": ">=16.15.0",

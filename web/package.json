@@ -1,0 +1,34 @@
+{
+  "name": "@bde-cesi-nancy/web",
+  "version": "1.0.0",
+  "description": "Le site web principal du BDE de CESI Nancy",
+  "author": "Julien W <julien.wolff1@viacesi.fr>",
+  "license": "GPLv3",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "package": "svelte-kit package",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@bde-cesi-nancy/components": "workspace:*",
+    "svelte": "^3.49.0"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-node": "next",
+    "@sveltejs/kit": "next",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "^8.21.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "svelte-check": "^2.8.0",
+    "svelte-preprocess": "^4.10.7",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.4"
+  },
+  "type": "module"
+}
