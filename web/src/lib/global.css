@@ -1,0 +1,64 @@
+:root {
+    --font-family: 'Raleway', 'Arial', sans-serif;
+    /* Colors */
+    --blue: #0a33ff;
+    --black: #191c29;
+    --white: #fafbff;
+    --yellow: #ffd60a;
+    --gray: #b9bed5;
+    --light-gray: #f3f5fb;
+    --primary: var(--blue);
+    /* Effects */
+    --nav-shadow: 0px 4px 32px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*:not(pre), *:not(code) {
+    font-family: var(--font-family);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.header-1 {
+    font-weight: 900;
+    font-size: 4em; /* 64px */
+}
+
+.header-2 {
+    font-weight: 900;
+    font-size: 2.625em; /* 42px */
+}
+
+.header-3 {
+    font-weight: 800;
+    font-size: 1.5em; /* 24px */
+}
+
+.subtitle {
+    font-weight: 800;
+    font-size: 1.25em; /* 20px */
+    letter-spacing: 0.02em; /* 2% */
+    line-height: 140%;
+}
+
+.body {
+    font-weight: 500;
+    font-size: 1em;
+    letter-spacing: 0.02em; /* 2% */
+    line-height: 140%;
+}
+
+.bold {
+    font-weight: 900;
+    font-size: 1em;
+    letter-spacing: 0.02em; /* 2% */
+    line-height: 140%;
+}
