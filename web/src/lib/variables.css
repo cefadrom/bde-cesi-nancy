@@ -1,3 +1,11 @@
 :root {
     --font-family: 'Raleway', 'Arial', sans-serif;
+    /* Colors */
+    --blue: #0a33ff;
+    --black: #191c29;
+    --white: #fafbff;
+    --yellow: #ffd60a;
+    --gray: #b9bed5;
+    --light-gray: #f3f5fb;
+    --primary: var(--blue);
 }
