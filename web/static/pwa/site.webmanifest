@@ -1,0 +1,43 @@
+{
+  "name": "BDE CESI Nancy",
+  "short_name": "BDE CESI Nancy",
+  "description": "Le site web officiel du BDE de CESI Nancy",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "theme_color": "#0a33ff",
+  "background_color": "#fafbff",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/pwa/android-chrome-128x128.png?v=1",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/maskable-128x128.png?v=1",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/pwa/android-chrome-256x256.png?v=1",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/android-chrome-512x512.png?v=1",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/maskable-512x512.png?v=1",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
