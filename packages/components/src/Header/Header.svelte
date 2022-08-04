@@ -14,6 +14,7 @@
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         padding: 2rem;
+        z-index: 10;
     }
 
     img {
