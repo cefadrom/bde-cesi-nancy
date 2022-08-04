@@ -38,7 +38,11 @@
 
 
 <header>
-    <img alt="Logo BDE CESI Nancy" src="brand/detailed.svg">
+    <div>
+        <a href="/">
+            <img alt="Logo BDE CESI Nancy" src="brand/detailed.svg">
+        </a>
+    </div>
     <nav>
         <HeaderLink href="/" icon="home-filled-black" label="Accueil"/>
         <HeaderLink href="/sponsors" icon="diamond-filled-black" label="Sponsors"/>
