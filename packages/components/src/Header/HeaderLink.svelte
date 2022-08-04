@@ -2,6 +2,7 @@
     export let label: string;
     export let href: string;
     export let current: boolean = false;
+    export let icon: string;
 </script>
 
 
@@ -10,16 +11,23 @@
         color: var(--black);
         text-decoration: none;
         padding: 1em;
+        display: inline-block;
     }
 
-    span {
-        display: inline-block;
+    div {
         position: relative;
         height: 24px;
-        line-height: 24px;
+        display: flex;
+        align-items: center;
+        gap: .5em;
     }
 
-    span::after {
+    img {
+        height: 24px;
+        width: 24px;
+    }
+
+    div::after {
         content: '';
         position: absolute;
         left: 0;
@@ -31,12 +39,15 @@
         transition: width 0.2s ease-in-out;
     }
 
-    a.current span::after, a:hover span::after {
+    a.current div::after, a:hover div::after {
         width: 100%;
     }
 </style>
 
 
 <a class="bold" class:current {href}>
-    <span>{label}</span>
+    <div>
+        <img alt={icon} src="icons/{icon}.svg">
+        <span>{label}</span>
+    </div>
 </a>

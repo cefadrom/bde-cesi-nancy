@@ -40,13 +40,13 @@
 <header>
     <img alt="Logo BDE CESI Nancy" src="brand/detailed.svg">
     <nav>
-        <HeaderLink href="/" label="Accueil">Accueil</HeaderLink>
-        <HeaderLink href="/sponsors" label="Sponsors">Membres</HeaderLink>
-        <HeaderLink href="/events" label="Événements">Événements</HeaderLink>
-        <HeaderLink href="/clubs" label="Clubs">Contact</HeaderLink>
-        <HeaderLink href="/contact" label="Contact">Contact</HeaderLink>
+        <HeaderLink href="/" icon="home-filled-black" label="Accueil"/>
+        <HeaderLink href="/sponsors" icon="diamond-filled-black" label="Sponsors"/>
+        <HeaderLink href="/events" icon="bonfire-filled-black" label="Événements"/>
+        <HeaderLink href="/clubs" icon="people-filled-black" label="Clubs"/>
+        <HeaderLink href="/contact" icon="mail-filled-black" label="Contact"/>
     </nav>
     <div class="nav-members">
-        <HeaderLink href="/members" label="Espace Membre"/>
+        <HeaderLink href="/members" icon="person-filled-black" label="Espace Membre"/>
     </div>
 </header>

@@ -16,6 +16,13 @@ export default {
             description: 'The link label.',
             defaultValue: 'Label',
         },
+        icon: {
+            type: { name: 'string', required: true },
+            control: 'select',
+            options: ['bonfire-filled-black', 'diamond-filled-black', 'home-filled-black', 'mail-filled-black', 'people-filled-black', 'person-filled-black'],
+            description: 'The file name of the icon, inside the /icons folder of the web static, and without the .svg extension.',
+            defaultValue: 'home-filled-black',
+        },
         current: {
             type: { name: 'boolean', required: false },
             control: 'boolean',
