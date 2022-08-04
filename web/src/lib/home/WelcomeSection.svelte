@@ -1,9 +1,10 @@
 <style>
-    img {
+    img, picture {
         height: 100vh;
         width: 100%;
         object-fit: cover;
         object-position: 15% 90%;
+        display: block;
     }
 
     h1 {
