@@ -1,3 +1,7 @@
+<script>
+    import Meta from '$lib/Meta.svelte';
+</script>
+
 <style>
     img {
         height: 100vh;
@@ -15,6 +19,9 @@
         margin-right: 2em;
     }
 </style>
+
+
+<Meta/>
 
 
 <picture>
