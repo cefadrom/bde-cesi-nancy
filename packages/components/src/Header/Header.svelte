@@ -7,7 +7,7 @@
         position: fixed;
         inset: 0;
         width: 100%;
-        height: min-content;
+        height: 8em;
         background-color: rgb(250, 251, 255, .6);
         backdrop-filter: blur(64px);
         box-shadow: var(--nav-shadow);
