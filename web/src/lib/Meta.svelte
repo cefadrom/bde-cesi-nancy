@@ -5,7 +5,7 @@
     export let description = 'Le site web officiel du BDE de CESI Nancy';
     export let nomarker = false;
     export let noindex = false;
-    export let image = 'opengraph.png';
+    export let image = '/brand/opengraph.png';
 
     let displayTitle: string;
     $: displayTitle = `${title || defaultTitle}${title && !nomarker ? ' - BDE CESI Nancy' : ''}`;
