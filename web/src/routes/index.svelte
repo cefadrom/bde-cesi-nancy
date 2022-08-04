@@ -5,7 +5,7 @@
 <style>
     img {
         height: 100vh;
-        width: 100vw;
+        width: 100%;
         object-fit: cover;
         object-position: 15% 90%;
     }
