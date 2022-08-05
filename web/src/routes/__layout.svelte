@@ -1,5 +1,6 @@
 <script>
     import '$lib/global.css';
+    import Footer from '@bde-cesi-nancy/components/src/Footer/Footer.svelte';
     import Header from '@bde-cesi-nancy/components/src/Header/Header.svelte';
 </script>
 
@@ -15,3 +16,4 @@
 <main>
     <slot/>
 </main>
+<Footer/>

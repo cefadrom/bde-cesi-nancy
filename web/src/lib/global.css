@@ -7,6 +7,7 @@
     --yellow: #ffd60a;
     --gray: #b9bed5;
     --light-gray: #f3f5fb;
+    --light-dark: #262a40;
     --primary: var(--blue);
     /* Effects */
     --nav-shadow: 0px 4px 32px rgba(0, 0, 0, 0.2);
@@ -61,6 +62,13 @@ body, html {
 .bold {
     font-weight: 900;
     font-size: 1em;
+    letter-spacing: 0.02em; /* 2% */
+    line-height: 140%;
+}
+
+.small {
+    font-weight: 500;
+    font-size: 0.75em; /* 12px */
     letter-spacing: 0.02em; /* 2% */
     line-height: 140%;
 }
