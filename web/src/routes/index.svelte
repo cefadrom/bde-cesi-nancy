@@ -8,7 +8,5 @@
 <Meta/>
 
 
-<main>
-    <WelcomeSection/>
-    <AboutSection/>
-</main>
+<WelcomeSection/>
+<AboutSection/>
