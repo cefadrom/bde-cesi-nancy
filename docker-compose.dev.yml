@@ -1,0 +1,46 @@
+version: '3.9'
+
+
+services:
+    web:
+        deploy:
+            replicas: 0
+
+    directus:
+        image: directus/directus:${DIRECTUS_VERSION}
+        build: "./directus"
+        ports:
+            - "8055:8055"
+        volumes:
+            - ./directus/uploads:/directus/uploads
+            - ./directus/extensions:/directus/extensions
+        environment:
+            GRAPHQL_INTROSPECTION: "true"
+            MAX_RELATIONAL_DEPTH: "10"
+            CORS_ORIGIN: "*"
+            EXTENSIONS_AUTO_RELOAD: "true"
+            # Classic watch mode doesn't work with WSL volumes
+            CHOKIDAR_USEPOLLING: "true"
+            CHOKIDAR_INTERVAL: 1000
+
+    mysql:
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./directus/database:/var/lib/mysql
+
+
+networks:
+    web:
+        name: bde-web
+        external: false
+    internal:
+        name: bde-internal
+        external: false
+
+
+volumes:
+    mysql:
+        external: false
+    directus_uploads:
+        external: false

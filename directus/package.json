@@ -1,0 +1,35 @@
+{
+  "name": "@bde-cesi-nancy/directus",
+  "version": "1.0.0",
+  "description": "Les extensions custom du CMS du BDE de CESI Nancy",
+  "author": "Julien W <julien.wolff1@viacesi.fr>",
+  "license": "GPLv3",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "watch": "rollup -c rollup.config.js -w"
+  },
+  "dependencies": {
+    "@directus/shared": "^9.15.0",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@types/express": "^4.17.13",
+    "@types/glob": "^7.2.0",
+    "@vue/compiler-sfc": "^3.2.37",
+    "axios": "^0.27.2",
+    "glob": "^8.0.3",
+    "knex": "^2.2.0",
+    "knex-schema-inspector": "^2.0.3",
+    "rollup": "^2.77.2",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-styles": "^4.0.0",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "typescript": "^4.7.4",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "node-fetch": "^3.2.10"
+  }
+}

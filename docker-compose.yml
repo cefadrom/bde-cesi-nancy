@@ -7,12 +7,93 @@ services:
         image: bde-cesi-nancy/web
         build:
             context: .
-            dockerfile: Dockerfile.web
+            dockerfile: Dockerfile
+            target: web
         hostname: bde-web
+        depends_on:
+            - directus
         networks:
-            - bde-web
+            - web
+
+    directus:
+        container_name: bde-directus
+        image: bde-cesi-nancy/directus
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: directus
+            args:
+                DIRECTUS_VERSION: "${DIRECTUS_VERSION}"
+        hostname: bde-directus
+        depends_on:
+            - mysql
+            - redis
+        networks:
+            - web
+            - internal
+        volumes:
+            - directus-uploads:/directus/uploads
+            - ./directus/schema:/directus/schema
+        environment:
+            KEY: "${DIRECTUS_KEY}"
+            SECRET: "${DIRECTUS_SECRET}"
+            GRAPHQL_INTROSPECTION: "false"
+            MAX_RELATIONAL_DEPTH: "5"
+
+            DB_CLIENT: "mysql"
+            DB_HOST: "mysql"
+            DB_PORT: "3306'"
+            DB_DATABASE: "directus"
+            DB_USER: "${MYSQL_USER}"
+            DB_PASSWORD: "${MYSQL_PASSWORD}"
+
+            CACHE_ENABLED: "true"
+            CACHE_STORE: "redis"
+            CACHE_REDIS: "redis://redis:6379"
+
+            ADMIN_EMAIL: "${ADMIN_EMAIL}"
+            ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+
+            PUBLIC_URL: "${DIRECTUS_PUBLIC_URL}"
+
+            CORS_ENABLED: "true"
+            CORS_ORIGIN: "${WEB_PUBLIC_URL}"
+
+    mysql:
+        container_name: bde-mysql
+        image: mysql:8.0.30-oracle
+        hostname: bde-mysql
+        volumes:
+            - mysql:/var/lib/mysql
+        networks:
+            - internal
+        environment:
+            MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+            MYSQL_DATABASE: "directus"
+            MYSQL_USER: "${MYSQL_USER}"
+            MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+
+    redis:
+        container_name: bde-redis
+        image: redis:alpine
+        hostname: bde-redis
+        networks:
+            - internal
 
 
 networks:
-    bde-web:
+    web:
+        name: bde-web
+        external: true
+    internal:
+        name: bde-internal
+        external: false
+
+
+volumes:
+    mysql:
+        name: "bde-mysql"
+        external: true
+    directus-uploads:
+        name: "bde-uploads"
         external: true

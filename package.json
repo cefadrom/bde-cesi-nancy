@@ -6,7 +6,8 @@
   "license": "GPLv3",
   "workspaces": [
     "packages/*",
-    "web"
+    "web",
+    "directus"
   ],
   "engines": {
     "node": ">=16.15.0",

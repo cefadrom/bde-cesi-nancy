@@ -1,7 +1,27 @@
-.DS_Store
-node_modules
-build
-.svelte-kit
-.env
-.env.*
-!.env.example
+*
+
+# Root
+!package.json
+!pnpm-lock.yaml
+!pnpm-workspace.yaml
+!.npmrc
+
+# Web
+!web/src
+!web/static
+!web/package.json
+!web/tsconfig.json
+!web/svelte.config.js
+!web/vite.config.js
+
+# Directus
+!directus/src
+!directus/package.json
+!directus/rollup.config.js
+!directus/tsconfig.json
+
+# Components
+!packages/components/src
+!packages/components/.storybook
+!packages/components/package.json
+!packages/components/tsconfig.json

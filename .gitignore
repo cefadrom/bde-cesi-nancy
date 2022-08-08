@@ -4,3 +4,8 @@
 
 # Node.js
 node_modules
+
+# env files
+.env
+.env.*
+!.env.example
