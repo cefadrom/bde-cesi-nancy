@@ -5,7 +5,7 @@
 </script>
 
 
-<Meta/>
+<Meta title="Accueil"/>
 
 
 <WelcomeSection/>
