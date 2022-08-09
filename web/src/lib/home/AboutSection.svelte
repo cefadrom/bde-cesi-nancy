@@ -1,7 +1,8 @@
 <script>
-    import SectionContainer from './utils/SectionContainer.svelte';
-    import AboutSectionQuestion from './utils/AboutSectionQuestion.svelte';
+    import SectionContainer from '$lib/layout/SectionContainer.svelte';
+    import AboutSectionQuestion from '$lib/layout/SectionQuestion.svelte';
 </script>
+
 
 <style>
     h2 {
