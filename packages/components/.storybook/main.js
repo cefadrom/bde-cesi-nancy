@@ -18,6 +18,7 @@ module.exports = {
     framework: '@storybook/svelte',
     features: {
         interactionsDebugger: true,
+        postcss: false,
     },
     staticDirs: [
         '../../../web/static',
