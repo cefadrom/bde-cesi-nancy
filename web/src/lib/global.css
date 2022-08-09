@@ -5,6 +5,7 @@
     --black: #191c29;
     --white: #fafbff;
     --yellow: #ffd60a;
+    --dark-gray: #7f88b2;
     --gray: #b9bed5;
     --light-gray: #f3f5fb;
     --light-dark: #262a40;
@@ -69,6 +70,13 @@ body, html {
 .small {
     font-weight: 500;
     font-size: 0.75em; /* 12px */
+    letter-spacing: 0.02em; /* 2% */
+    line-height: 140%;
+}
+
+.button-text {
+    font-weight: 700;
+    font-size: 1.125em;
     letter-spacing: 0.02em; /* 2% */
     line-height: 140%;
 }
