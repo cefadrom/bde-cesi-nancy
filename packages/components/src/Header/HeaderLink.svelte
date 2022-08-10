@@ -42,6 +42,22 @@
     a.current div::after, a:hover div::after {
         width: 100%;
     }
+
+    @media all and (max-width: 850px) {
+        a, a:link, a:visited {
+            padding: 0;
+            flex: 1;
+        }
+
+        div {
+            flex-direction: column;
+            height: auto;
+        }
+
+        div::after {
+            display: none;
+        }
+    }
 </style>
 
 

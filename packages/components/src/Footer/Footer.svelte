@@ -52,6 +52,12 @@
         color: inherit;
         text-decoration: none;
     }
+
+    @media all and (max-width: 850px) {
+        .footer-copyright {
+            padding-bottom: var(--nav-height);
+        }
+    }
 </style>
 
 

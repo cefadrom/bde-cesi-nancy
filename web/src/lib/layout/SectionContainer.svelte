@@ -22,7 +22,7 @@
 
     .header {
         min-height: 100vh;
-        padding-top: 14rem; /* header + 6rem */
+        padding-top: calc(var(--nav-height) + 6rem);
     }
 
     div {
@@ -36,7 +36,7 @@
         }
 
         section.header {
-            padding-top: 12rem;
+            padding-top: calc(var(--nav-height) + 4rem);
         }
     }
 
@@ -46,7 +46,7 @@
         }
 
         section.header {
-            padding-top: 10rem;
+            padding-top: calc(var(--nav-height) + 2rem);
         }
     }
 
@@ -56,7 +56,13 @@
         }
 
         section.header {
-            padding-top: 9rem;
+            padding-top: calc(var(--nav-height) + 1rem);
+        }
+    }
+
+    @media all and (max-width: 850px) {
+        section.header {
+            padding: 1rem 2rem calc(var(--nav-height) + 1rem);
         }
     }
 </style>
