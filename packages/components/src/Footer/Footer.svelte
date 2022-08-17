@@ -79,7 +79,6 @@
                         <div>
                             <p class="small"><a href="/">Accueil</a></p>
                             <p class="small"><a href="/clubs">Clubs</a></p>
-                            <p class="small"><a href="/shop">Shop</a></p>
                         </div>
                         <div>
                             <p class="small"><a href="/contact">Contact</a></p>
