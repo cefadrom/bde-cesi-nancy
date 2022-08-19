@@ -53,6 +53,17 @@ services:
 
             ADMIN_EMAIL: "${ADMIN_EMAIL}"
             ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+            
+            AUTH_PROVIDERS: "microsoft"
+            AUTH_MICROSOFT_DRIVER: "openid"
+            AUTH_MICROSOFT_CLIENT_ID: "${AUTH_MICROSOFT_CLIENT_ID}"
+            AUTH_MICROSOFT_CLIENT_SECRET: "${AUTH_MICROSOFT_CLIENT_SECRET}"
+            AUTH_MICROSOFT_ISSUER_URL: "https://login.microsoftonline.com/organizations/v2.0/.well-known/openid-configuration"
+            AUTH_MICROSOFT_SCOPE: "openid profile email"
+            AUTH_MICROSOFT_IDENTIFIER_KEY: "sub"
+            AUTH_MICROSOFT_ICON: "microsoft"
+            AUTH_MICROSOFT_ALLOW_PUBLIC_REGISTRATION: "true"
+            AUTH_MICROSOFT_DEFAULT_ROLE_ID: "71df4bc0-8079-4d6d-b7e6-5d69929f4269"
 
             PUBLIC_URL: "${DIRECTUS_PUBLIC_URL}"
 
