@@ -34,6 +34,10 @@
         flex-direction: column;
     }
 
+    h4 {
+        margin-top: 0;
+    }
+
     .footer-cols {
         display: flex;
         gap: 1rem;
@@ -53,9 +57,58 @@
         text-decoration: none;
     }
 
+    @media all and (max-width: 1100px) {
+        .footer-branding {
+            display: none;
+        }
+    }
+
     @media all and (max-width: 850px) {
         .footer-copyright {
             padding-bottom: var(--nav-height);
+        }
+    }
+
+    @media all and (max-width: 700px) {
+        .footer-content {
+            padding: 2rem;
+        }
+
+        .footer-cols {
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+
+    @media all and (max-width: 550px) {
+        .footer-links {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-cols {
+            flex-direction: row;
+            gap: 1rem;
+        }
+
+        .footer-socials {
+            gap: 1rem;
+        }
+    }
+
+    @media all and (max-width: 400px) {
+        .footer-socials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+        }
+
+        .footer-socials a:nth-child(4) {
+            grid-area: 2 / 1 / 3 / 3;
+        }
+
+        .footer-socials a:nth-child(5) {
+            grid-area: 2 / 2 / 3 / 4;
         }
     }
 </style>
@@ -63,7 +116,7 @@
 
 <footer>
     <div class="footer-content">
-        <a href="/">
+        <a class="footer-branding" href="/">
             <img src="/brand/professional-dark.svg" alt="BDE CESI Nancy"/>
         </a>
         <div class="footer-info">
@@ -90,10 +143,12 @@
                     <h4 class="bold">Infos</h4>
                     <div class="footer-cols">
                         <p class="small"><a href="/predecessors">Anciens BDE</a></p>
+                        <p class="small"><a href="/bug-bounty">Bug bounty</a></p>
+                    </div>
+                    <div class="footer-cols">
+                        <p class="small"><a href="/development">Développement</a></p>
                         <p class="small"><a href="/sponsors">Sponsors</a></p>
                     </div>
-                    <p class="small"><a href="/development">Contribuer au développement</a></p>
-                    <p class="small"><a href="/bug-bounty">Bug bounty</a></p>
                 </div>
             </div>
             <div class="footer-socials">
