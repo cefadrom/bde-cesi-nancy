@@ -33,4 +33,4 @@ FROM directus/directus:${DIRECTUS_VERSION} AS directus
 WORKDIR /directus
 COPY --from=builder /build/directus/extensions /directus/extensions
 
-CMD ["/bin/sh", "-c", "npx directus bootstrap && npx directus start"]
+CMD ["/bin/sh", "-c", "npx directus schema apply -y ./schema/schema.yaml && npx directus bootstrap && npx directus start"]

@@ -33,7 +33,9 @@ services:
             - internal
         volumes:
             - directus-uploads:/directus/uploads
-            - ./directus/schema:/directus/schema
+            -   type: bind
+                source: ./directus/schema.yaml
+                target: /directus/schema/schema.yaml
         environment:
             KEY: "${DIRECTUS_KEY}"
             SECRET: "${DIRECTUS_SECRET}"

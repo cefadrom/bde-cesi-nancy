@@ -1,0 +1,5 @@
+version: 1
+directus: 9.16.1
+collections: [ ]
+fields: [ ]
+relations: [ ]
