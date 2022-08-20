@@ -18,6 +18,7 @@ services:
     directus:
         container_name: bde-directus
         image: bde-cesi-nancy/directus
+        #command: "npx directus bootstrap" # TO UNCOMMENT ON FIRST RUN TO INITIALIZE DIRECTUS - may crash, then comment back and start again
         build:
             context: .
             dockerfile: Dockerfile
