@@ -9,6 +9,8 @@
     "watch": "rollup -c rollup.config.js -w"
   },
   "dependencies": {
+    "@bde-cesi-nancy/types": "workspace:*",
+    "@directus/extensions-sdk": "^9.16.1",
     "@directus/shared": "^9.15.1",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-json": "^4.1.0",
@@ -30,6 +32,8 @@
     "vue": "^3.2.37"
   },
   "devDependencies": {
-    "node-fetch": "^3.2.10"
+    "@types/papaparse": "^5.3.3",
+    "node-fetch": "^3.2.10",
+    "papaparse": "^5.3.2"
   }
 }

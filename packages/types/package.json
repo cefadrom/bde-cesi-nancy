@@ -1,0 +1,8 @@
+{
+  "name": "@bde-cesi-nancy/types",
+  "version": "1.0.0",
+  "description": "L'ensemble des types utilisés dans la base de données du BDE de CESI Nancy",
+  "author": "Julien W <julien.wolff1@viacesi.fr>",
+  "license": "GPLv3",
+  "main": "index.ts"
+}
