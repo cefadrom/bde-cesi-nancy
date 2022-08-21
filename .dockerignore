@@ -25,3 +25,7 @@
 !packages/components/.storybook
 !packages/components/package.json
 !packages/components/tsconfig.json
+
+# Types
+!packages/types/package.json
+!packages/types/index.ts
