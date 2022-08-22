@@ -6,7 +6,7 @@
 
 <style>
     section {
-        min-height: calc(100vh - 8rem);
+        min-height: calc(100vh - var(--nav-height));
         background: var(--white);
         padding: 6rem 16rem;
         display: flex;
