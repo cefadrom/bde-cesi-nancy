@@ -9,6 +9,9 @@ export default {
     handler: (router, context) => {
         router.post('/', async (req, res) => {
             try {
+                if (!req.accountability?.admin)
+                    return res.status(403).json({ error: 'Forbidden' });
+
                 const { content, status, error: readError } = await getRawCSV(
                     req,
                     context.database,
