@@ -1,6 +1,7 @@
 <script lang="ts">
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
     import AboutSectionQuestion from '$lib/layout/SectionQuestion.svelte';
+    import MicrosoftLoginButton from '$lib/members/MicrosoftLoginButton.svelte';
 </script>
 
 
@@ -20,6 +21,13 @@
         height: 20rem;
         position: absolute;
         transform: translate(-8rem, -25%);
+    }
+
+    .cta {
+        height: 3rem;
+        width: auto;
+        max-width: 100%;
+        cursor: pointer;
     }
 
     @media all and (max-width: 1550px) {
@@ -60,4 +68,8 @@
         Viacesi</u>. Aucun accès / information ne sera obtenu avec cette connexion, à part votre identité et votre
         email.
     </AboutSectionQuestion>
+
+    <div slot="cta" class="cta">
+        <MicrosoftLoginButton/>
+    </div>
 </SectionContainer>

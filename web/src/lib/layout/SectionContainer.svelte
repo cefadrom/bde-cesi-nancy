@@ -25,9 +25,17 @@
         padding-top: calc(var(--nav-height) + 6rem);
     }
 
-    div {
+    .container {
         max-width: 90rem;
         width: 100%;
+    }
+
+    .cta {
+        width: 100%;
+        margin-top: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     @media all and (max-width: 1700px) {
@@ -58,6 +66,10 @@
         section.header {
             padding-top: calc(var(--nav-height) + 1rem);
         }
+
+        .cta {
+            margin-top: 2rem;
+        }
     }
 
     @media all and (max-width: 850px) {
@@ -69,7 +81,12 @@
 
 
 <section class:dark class:header>
-    <div>
+    <div class="container">
         <slot/>
+        {#if $$slots.cta}
+            <span class="cta">
+                <slot name="cta"/>
+            </span>
+        {/if}
     </div>
 </section>
