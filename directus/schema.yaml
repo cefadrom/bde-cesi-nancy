@@ -302,7 +302,7 @@ fields:
         min: 0
       readonly: false
       required: true
-      sort: null
+      sort: 13
       special: null
       translations:
         - language: fr-FR
@@ -344,7 +344,7 @@ fields:
         min: 0
       readonly: false
       required: true
-      sort: null
+      sort: 15
       special: null
       translations:
         - language: fr-FR
@@ -386,10 +386,12 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 2
+      sort: 3
       special:
         - date-created
-      translations: null
+      translations:
+        - language: fr-FR
+          translation: Date d'application
       validation: null
       validation_message: null
       width: half
@@ -427,7 +429,7 @@ fields:
         min: 0
       readonly: false
       required: true
-      sort: null
+      sort: 14
       special: null
       translations:
         - language: fr-FR
@@ -469,7 +471,7 @@ fields:
         min: 0
       readonly: false
       required: true
-      sort: null
+      sort: 16
       special: null
       translations:
         - language: fr-FR
@@ -511,7 +513,34 @@ fields:
       display_options: null
       readonly: false
       hidden: false
-      sort: 4
+      sort: 5
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+      validation: null
+      validation_message: null
+    schema: null
+    type: alias
+  - collection: cesi_accounts_updates
+    field: divider-rruy5d
+    meta:
+      collection: cesi_accounts_updates
+      field: divider-rruy5d
+      special:
+        - alias
+        - no-data
+      interface: presentation-divider
+      options:
+        title: Informations générales
+        inlineTitle: true
+      display: null
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 1
       width: full
       translations: null
       note: null
@@ -538,7 +567,7 @@ fields:
       display_options: null
       readonly: false
       hidden: false
-      sort: null
+      sort: 10
       width: full
       translations: null
       note: null
@@ -564,7 +593,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 8
+      sort: 9
       special: null
       translations:
         - language: fr-FR
@@ -605,7 +634,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 5
+      sort: 6
       special: null
       translations:
         - language: fr-FR
@@ -647,7 +676,7 @@ fields:
         min: 0
       readonly: false
       required: true
-      sort: 7
+      sort: 8
       special: null
       translations:
         - language: fr-FR
@@ -689,7 +718,7 @@ fields:
         min: 0
       readonly: false
       required: true
-      sort: 6
+      sort: 7
       special: null
       translations:
         - language: fr-FR
@@ -731,7 +760,7 @@ fields:
         min: 0
       readonly: false
       required: true
-      sort: null
+      sort: 11
       special: null
       translations:
         - language: fr-FR
@@ -772,7 +801,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: 1
+      sort: 2
       special: null
       translations: null
       validation: null
@@ -812,7 +841,7 @@ fields:
         min: 0
       readonly: false
       required: true
-      sort: null
+      sort: 17
       special: null
       translations:
         - language: fr-FR
@@ -854,7 +883,7 @@ fields:
         min: 0
       readonly: false
       required: true
-      sort: null
+      sort: 12
       special: null
       translations:
         - language: fr-FR
@@ -897,10 +926,12 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: 3
+      sort: 4
       special:
         - user-created
-      translations: null
+      translations:
+        - language: fr-FR
+          translation: Initiateur
       validation: null
       validation_message: null
       width: half
