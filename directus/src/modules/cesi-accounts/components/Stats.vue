@@ -2,7 +2,7 @@
     <Heading icon="insights" first>État actuel</Heading>
 
     <div>
-        Comptes viacesi dans la base de données : {{ accountsCount ? accountsCount : '...' }}
+        Comptes viacesi dans la base de données : {{ accountsCount ?? '...' }}
         <br/>
         Dernière mise à jour : {{ formattedDate }}
     </div>
