@@ -58,6 +58,7 @@ services:
 
             ADMIN_EMAIL: "${ADMIN_EMAIL}"
             ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+            AUTH_DISABLE_DEFAULT: "true"
 
             AUTH_PROVIDERS: "microsoft"
             AUTH_MICROSOFT_DRIVER: "openid"

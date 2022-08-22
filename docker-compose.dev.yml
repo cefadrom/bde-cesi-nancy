@@ -19,6 +19,7 @@ services:
             MAX_RELATIONAL_DEPTH: "10"
             CORS_ORIGIN: "*"
             EXTENSIONS_AUTO_RELOAD: "true"
+            AUTH_DISABLE_DEFAULT: "false"
             # Classic watch mode doesn't work with WSL volumes
             CHOKIDAR_USEPOLLING: "true"
             CHOKIDAR_INTERVAL: 1000
