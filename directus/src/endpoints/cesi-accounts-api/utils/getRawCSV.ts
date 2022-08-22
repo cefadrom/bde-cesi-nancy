@@ -9,7 +9,7 @@ export async function getRawCSV(req: Request, knex: Knex, storageLocalRoot: stri
         return { error: 'Missing "file" field', status: 400 };
 
     const file = await knex('directus_files')
-        .select('*')
+        .select('id', 'filename_disk', 'filename_download', 'type', 'filesize')
         .where({ id: fileID })
         .first();
 
@@ -21,7 +21,7 @@ export async function getRawCSV(req: Request, knex: Knex, storageLocalRoot: stri
     const filePath = path.resolve(storageLocalRoot, file.filename_disk);
     const content = await fs.readFile(filePath).then(data => data.toString().trim());
 
-    return { content };
+    return { content, filename: file.filename_download, filesize: file.filesize };
 }
 
 
@@ -29,4 +29,6 @@ export interface IReadResult {
     content?: string;
     error?: string;
     status?: number;
+    filename?: string;
+    filesize?: number;
 }

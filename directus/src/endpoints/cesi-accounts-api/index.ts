@@ -12,7 +12,7 @@ export default {
                 if (!req.accountability?.admin)
                     return res.status(403).json({ error: 'Forbidden' });
 
-                const { content, status, error: readError } = await getRawCSV(
+                const { content, status, error: readError, filename, filesize } = await getRawCSV(
                     req,
                     context.database,
                     context.env.STORAGE_LOCAL_ROOT,
@@ -40,6 +40,24 @@ export default {
                     deletedAccountsCount,
                 } = await checkAccounts(parsedAccounts, context.database);
                 const databaseUpdateEnd = Date.now();
+
+                const dumpDate = new Date((filename?.match(/\d{4}-\d{1,2}-\d{1,2}/) as string[])[0] || 0);
+
+                await context.database('cesi_accounts_updates').insert({
+                    user_created: req.accountability.user,
+                    date_created: new Date(),
+                    dump_filename: filename,
+                    dump_size: filesize,
+                    dump_lines: parseMeta!.accountsParsed,
+                    dump_date: !isNaN(dumpDate.getFullYear()) && dumpDate.getFullYear() >= 2022 ? dumpDate : null,
+                    found_accounts: parseMeta!.accountsKept,
+                    updated_accounts: updatedAccountsCount,
+                    added_accounts: addedAccountsCount,
+                    deleted_accounts: deletedAccountsCount,
+                    added_promotions: addedPromotionsCount,
+                    deleted_promotions: deletedPromotionsCount,
+                    operations_total: updatedAccountsCount + addedAccountsCount + deletedAccountsCount + addedPromotionsCount + deletedPromotionsCount,
+                });
 
                 return res.json({
                     parseMeta,

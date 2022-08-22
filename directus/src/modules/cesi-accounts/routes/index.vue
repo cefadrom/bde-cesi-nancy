@@ -7,10 +7,9 @@
         </template>
 
         <div v-if="userStore.isAdmin" class="layout">
+            <!-- TODO: live update stats -->
             <Stats/>
             <Update/>
-            <!-- TODO: update history -->
-            <!-- TODO: live update stats -->
         </div>
         <div v-else class="layout">
             <v-info center icon="error" title="Accès refusé" type="danger">
