@@ -14,7 +14,7 @@ const API_EXTENSION_TYPES = ['hook', 'endpoint'];
 const APP_EXTENSION_TYPES_PLURAL = APP_EXTENSION_TYPES.map(t => t + 's');
 const API_EXTENSION_TYPES_PLURAL = API_EXTENSION_TYPES.map(t => t + 's');
 const APP_SHARED_DEPS = ['@directus/extensions-sdk', 'vue', 'vue-router', 'vue-i18n', 'pinia'];
-const API_SHARED_DEPS = ['directus', 'node-fetch'];
+const API_SHARED_DEPS = ['directus', 'node-fetch', 'uuid'];
 
 
 const getExtensionNameFromPath = path => path.split('/').at(-3) + '/' + path.split('/').at(-2);
