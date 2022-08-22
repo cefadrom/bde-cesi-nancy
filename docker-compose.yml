@@ -15,6 +15,9 @@ services:
             - directus
         networks:
             - web
+        environment:
+            PUBLIC_WEB_URL: "${PUBLIC_WEB_URL}"
+            PUBLIC_DIRECTUS_URL: "${PUBLIC_DIRECTUS_URL}"
 
     directus:
         container_name: bde-directus
@@ -47,7 +50,7 @@ services:
 
             DB_CLIENT: "mysql"
             DB_HOST: "mysql"
-            DB_PORT: "3306'"
+            DB_PORT: "3306"
             DB_DATABASE: "directus"
             DB_USER: "${MYSQL_USER}"
             DB_PASSWORD: "${MYSQL_PASSWORD}"
@@ -71,10 +74,10 @@ services:
             AUTH_MICROSOFT_ALLOW_PUBLIC_REGISTRATION: "true"
             AUTH_MICROSOFT_DEFAULT_ROLE_ID: "71df4bc0-8079-4d6d-b7e6-5d69929f4269"
 
-            PUBLIC_URL: "${DIRECTUS_PUBLIC_URL}"
+            PUBLIC_URL: "${PUBLIC_DIRECTUS_URL}"
 
             CORS_ENABLED: "true"
-            CORS_ORIGIN: "${WEB_PUBLIC_URL}"
+            CORS_ORIGIN: "${PUBLIC_WEB_URL}"
 
     mysql:
         container_name: bde-mysql
