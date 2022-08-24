@@ -58,6 +58,25 @@
             display: none;
         }
     }
+
+    @media all and (max-width: 500px) {
+        span {
+            font-size: 0.875rem; /* 14px */
+            line-height: normal;
+        }
+    }
+
+    @media all and (max-width: 400px) {
+        span {
+            font-size: 0.75rem; /* 12px */
+        }
+    }
+
+    @media all and (max-width: 300px) {
+        span {
+            font-size: 0.625rem; /* 10px */
+        }
+    }
 </style>
 
 

@@ -14,6 +14,14 @@
         color: var(--white);
         max-width: 11em;
         margin-right: 2em;
+        text-shadow: rgba(0, 0, 0, .2) 0 0 .5rem;
+    }
+
+    @media all and (max-width: 850px) {
+        h1 {
+            top: 2rem;
+            bottom: unset;
+        }
     }
 </style>
 
