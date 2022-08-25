@@ -60,6 +60,7 @@
         border-radius: .75rem;
         background-color: var(--white);
         font-family: inherit;
+        font-size: inherit;
     }
 
     :global(.input-container :is(input, select, div textarea):focus) {
