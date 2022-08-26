@@ -78,6 +78,7 @@ services:
 
             CORS_ENABLED: "true"
             CORS_ORIGIN: "${PUBLIC_WEB_URL}"
+            IP_CUSTOM_HEADER: "${IP_CUSTOM_HEADER}"
 
     mysql:
         container_name: bde-mysql
