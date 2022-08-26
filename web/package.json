@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@bde-cesi-nancy/components": "workspace:*",
+    "@bde-cesi-nancy/types": "workspace:*",
     "svelte": "^3.49.0"
   },
   "devDependencies": {

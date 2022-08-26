@@ -16,3 +16,18 @@ export interface UnauthorizedLogin {
     email: string;
     name: string;
 }
+
+export interface Contact<User = string> {
+    id: string;
+    user_created?: User,
+    date_created: Date,
+    user_updated?: User,
+    date_updated?: Date,
+    name?: string,
+    email?: string,
+    ip: string,
+    resolved: boolean,
+    category: string,
+    message: string,
+    subject: string,
+}
