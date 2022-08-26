@@ -31,11 +31,14 @@
         display: block;
         padding: .625rem .75rem;
         outline: none !important;
-        border: 1px solid var(--black);
         border-radius: .75rem;
         background-color: var(--white);
         font-family: inherit;
         grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .grow-wrap::after {
+        border: 1px solid transparent;
     }
 
     textarea {
