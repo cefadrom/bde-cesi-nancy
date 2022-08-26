@@ -1,7 +1,7 @@
 <script lang="ts">
     import { page } from '$app/stores';
 
-    export let title;
+    export let title: string;
     export let description = 'Le site web officiel du BDE de CESI Nancy';
     export let nomarker = false;
     export let noindex = false;
@@ -10,7 +10,7 @@
     let displayTitle: string;
     $: displayTitle = `${title || defaultTitle}${title && !nomarker ? ' - BDE CESI Nancy' : ''}`;
 
-    let displayDescription;
+    let displayDescription: string;
     $: displayDescription = description.replace(/\n/g, ' ');
 
     const defaultTitle = 'BDE CESI Nancy';
