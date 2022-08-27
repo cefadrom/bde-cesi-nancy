@@ -44,7 +44,7 @@
         display: block;
         width: 16px;
         height: 16px;
-        border-radius: 1em;
+        border-radius: 1rem;
         background-color: #fafbff;
         position: absolute;
         left: 2px;

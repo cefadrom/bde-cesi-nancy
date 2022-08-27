@@ -12,8 +12,8 @@
         left: 2rem;
         bottom: 2rem;
         color: var(--white);
-        max-width: 11em;
-        margin-right: 2em;
+        max-width: 44rem;
+        margin-right: 2rem;
         text-shadow: rgba(0, 0, 0, .2) 0 0 .5rem;
     }
 

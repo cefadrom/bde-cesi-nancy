@@ -10,7 +10,7 @@
     a, a:link, a:visited {
         color: var(--black);
         text-decoration: none;
-        padding: 1em;
+        padding: 1rem;
         display: inline-block;
     }
 
@@ -19,7 +19,7 @@
         height: 24px;
         display: flex;
         align-items: center;
-        gap: .5em;
+        gap: .5rem;
     }
 
     img {

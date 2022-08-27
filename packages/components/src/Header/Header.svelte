@@ -30,7 +30,7 @@
     }
 
     nav {
-        gap: 2em;
+        gap: 2rem;
     }
 
     .members-link {
