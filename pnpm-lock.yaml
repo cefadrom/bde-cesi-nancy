@@ -67,6 +67,7 @@ importers:
   packages/components:
     specifiers:
       '@babel/core': ^7.18.10
+      '@bde-cesi-nancy/types': workspace:*
       '@hover/storybook-addon-pseudo-states': ^1.1.3
       '@storybook/addon-a11y': ^6.5.10
       '@storybook/addon-actions': ^6.5.10
@@ -87,6 +88,7 @@ importers:
       svelte-preprocess: ^4.10.7
       typescript: ^4.7.4
     dependencies:
+      '@bde-cesi-nancy/types': link:../types
       svelte: 3.49.0
     devDependencies:
       '@babel/core': 7.18.10

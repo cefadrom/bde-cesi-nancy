@@ -10,7 +10,8 @@
     "svelte:check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "dependencies": {
-    "svelte": "^3.49.0"
+    "svelte": "^3.49.0",
+    "@bde-cesi-nancy/types": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

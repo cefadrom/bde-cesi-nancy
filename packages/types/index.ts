@@ -31,3 +31,13 @@ export interface Contact<User = string> {
     message: string,
     subject: string,
 }
+
+export interface Club {
+    id: string;
+    name: string;
+    description: string;
+    president_name: string;
+    contact_email: string;
+    visible: boolean;
+    thumbnail: string;
+}

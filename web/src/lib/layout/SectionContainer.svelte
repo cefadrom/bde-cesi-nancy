@@ -1,5 +1,5 @@
 <script>
-    export let dark = false;
+    export let gray = false;
     export let header = false;
 </script>
 
@@ -15,9 +15,8 @@
         justify-content: center;
     }
 
-    .dark {
-        background: var(--black);
-        color: var(--white);
+    .gray {
+        background: var(--lighter-gray);
     }
 
     .header {
@@ -80,7 +79,7 @@
 </style>
 
 
-<section class:dark class:header>
+<section class:gray class:header>
     <div class="container">
         <slot/>
         {#if $$slots.cta}
