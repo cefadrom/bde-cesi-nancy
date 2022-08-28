@@ -1,6 +1,7 @@
 <script lang="ts">
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
     import AboutSectionQuestion from '$lib/layout/SectionQuestion.svelte';
+    import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
 </script>
 
 
@@ -20,6 +21,10 @@
         height: 20rem;
         position: absolute;
         transform: translate(-8rem, -25%);
+    }
+
+    a {
+        text-decoration: none;
     }
 
     @media all and (max-width: 1550px) {
@@ -60,4 +65,8 @@
         avons la conviction que le travail de chaque personne qui s’investit doit être mis en avant. Cela fait partie
         intégrante de notre communication.
     </AboutSectionQuestion>
+
+    <a href="/contact?category=club&subject=Creation+d'un+club+<NOM>" slot="cta">
+        <Button icon="arrow-forward-circle-filled-white">Je veux créer un club</Button>
+    </a>
 </SectionContainer>
