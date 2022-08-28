@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from '$app/stores';
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
     import Input from '@bde-cesi-nancy/components/src/Input/Input.svelte';
     import Select from '@bde-cesi-nancy/components/src/Select/Select.svelte';
@@ -25,6 +26,12 @@
         info: 'Informatique / Site web',
         autre: 'Autre',
     };
+
+    if ($page.url.searchParams.has('category') && categories[$page.url.searchParams.get('category')])
+        form.category = $page.url.searchParams.get('category');
+
+    if ($page.url.searchParams.has('subject'))
+        form.subject = $page.url.searchParams.get('subject');
 
     const dispatch = createEventDispatcher();
 
