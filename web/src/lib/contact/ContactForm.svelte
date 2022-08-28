@@ -96,7 +96,6 @@
                label="Nom"
                minlength="2"
                maxlength="50"
-               pattern="^[a-zA-Z- ]+$"
                {disabled}
                bind:value={form.lastName}
                required/>
@@ -105,7 +104,6 @@
                label="Prénom"
                minlength="2"
                maxlength="50"
-               pattern="^[a-zA-Z- ]+$"
                {disabled}
                bind:value={form.firstName}
                required/>
