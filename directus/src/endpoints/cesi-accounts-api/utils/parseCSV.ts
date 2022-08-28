@@ -14,8 +14,16 @@ export function parseCSV(rawContent: string): IParsedResult {
             return { error: `Missing field ${field}`, parseErrors: result.errors };
     }
 
+    const filterAccounts = (account: IRawAccount): boolean =>
+        account.state === 'Student'
+        && account.accountEnabled === 'True'
+        && (
+            account.department.startsWith('NY')
+            || account.department.startsWith('ND')
+        );
+
     const accounts: IAccount[] = result.data
-        .filter(u => u.state === 'Student' && u.accountEnabled === 'True' && u.department.startsWith('NY'))
+        .filter(filterAccounts)
         .sort((a, b) => a.displayName.localeCompare(b.displayName))
         .map(u => ({
             id: u.id,
