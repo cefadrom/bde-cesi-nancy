@@ -1,5 +1,5 @@
 version: 1
-directus: 9.16.1
+directus: 9.17.4
 collections:
   - collection: accounts
     meta:
@@ -1058,7 +1058,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: null
+      sort: 9
       special: null
       translations:
         - language: fr-FR
@@ -1103,7 +1103,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: null
+      sort: 3
       special:
         - date-created
       translations: null
@@ -1144,7 +1144,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: null
+      sort: 5
       special:
         - date-updated
       translations: null
@@ -1188,7 +1188,7 @@ fields:
         trim: true
       readonly: false
       required: true
-      sort: null
+      sort: 7
       special: null
       translations:
         - language: fr-FR
@@ -1229,7 +1229,7 @@ fields:
       options: null
       readonly: true
       required: false
-      sort: null
+      sort: 1
       special:
         - uuid
       translations: null
@@ -1272,7 +1272,7 @@ fields:
         trim: true
       readonly: false
       required: true
-      sort: null
+      sort: 6
       special: null
       translations:
         - language: fr-FR
@@ -1314,7 +1314,7 @@ fields:
         trim: true
       readonly: false
       required: true
-      sort: null
+      sort: 8
       special: null
       translations:
         - language: fr-FR
@@ -1358,7 +1358,7 @@ fields:
         folder: d6db3bfe-50fa-4e91-bc12-9fb5c8458dea
       readonly: false
       required: true
-      sort: null
+      sort: 11
       special:
         - file
       translations:
@@ -1401,7 +1401,7 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: null
+      sort: 2
       special:
         - user-created
       translations: null
@@ -1442,7 +1442,7 @@ fields:
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
-      sort: null
+      sort: 4
       special:
         - user-updated
       translations: null
@@ -1483,7 +1483,7 @@ fields:
         label: Visible
       readonly: false
       required: false
-      sort: null
+      sort: 10
       special:
         - cast-boolean
       translations:
