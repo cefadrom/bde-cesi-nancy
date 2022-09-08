@@ -10,33 +10,33 @@
   },
   "dependencies": {
     "@bde-cesi-nancy/types": "workspace:*",
-    "@directus/extensions-sdk": "^9.16.1",
-    "@directus/shared": "^9.15.1",
+    "@directus/extensions-sdk": "^9.17.4",
+    "@directus/shared": "^9.17.4",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-node-resolve": "^14.0.1",
     "@rollup/plugin-replace": "^4.0.0",
     "@types/express": "^4.17.13",
-    "@types/glob": "^7.2.0",
-    "@vue/compiler-sfc": "^3.2.37",
+    "@types/glob": "^8.0.0",
+    "@vue/compiler-sfc": "^3.2.39",
     "axios": "^0.27.2",
     "glob": "^8.0.3",
-    "knex": "^2.2.0",
-    "knex-schema-inspector": "^2.0.3",
-    "rollup": "^2.77.2",
+    "knex": "^2.3.0",
+    "knex-schema-inspector": "^2.0.4",
+    "rollup": "^2.79.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-styles": "^4.0.0",
-    "rollup-plugin-typescript2": "^0.32.1",
+    "rollup-plugin-typescript2": "^0.33.0",
     "rollup-plugin-vue": "^6.0.0",
-    "typescript": "^4.7.4",
-    "vue": "^3.2.37"
+    "typescript": "^4.8.3",
+    "vue": "^3.2.39"
   },
   "devDependencies": {
-    "@types/papaparse": "^5.3.3",
+    "@types/papaparse": "^5.3.5",
     "@types/uuid": "^8.3.4",
     "joi": "^17.6.0",
     "node-fetch": "^3.2.10",
     "papaparse": "^5.3.2",
-    "uuid": "^8.3.2"
+    "uuid": "^9.0.0"
   }
 }
