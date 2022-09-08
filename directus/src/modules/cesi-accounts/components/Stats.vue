@@ -23,8 +23,8 @@ const formattedDate = computed(() => {
     if (isNaN(lastAccountsUpdate.value.getTime()))
         return '-';
     return lastAccountsUpdate.value.toLocaleDateString('fr')
-        + ' ' + lastAccountsUpdate.value.getHours()
-        + ':' + lastAccountsUpdate.value.getMinutes();
+        + ' ' + lastAccountsUpdate.value.getHours().toString().padStart(2, '0')
+        + ':' + lastAccountsUpdate.value.getMinutes().toString().padStart(2, '0');
 });
 
 function refreshStats() {
