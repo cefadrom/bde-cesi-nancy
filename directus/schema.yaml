@@ -1,5 +1,5 @@
 version: 1
-directus: 9.17.4
+directus: 9.16.1
 collections:
   - collection: accounts
     meta:
@@ -1352,7 +1352,7 @@ fields:
       hidden: false
       interface: file-image
       note: >-
-        Image présentée à côté des informations de votre club. L'image être
+        Image présentée à côté des informations de votre club. L'image doit être
         carré, et idéalement de taille 512px x 512px
       options:
         folder: d6db3bfe-50fa-4e91-bc12-9fb5c8458dea
