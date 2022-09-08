@@ -18,6 +18,7 @@ services:
         environment:
             PUBLIC_WEB_URL: "${PUBLIC_WEB_URL}"
             PUBLIC_DIRECTUS_URL: "${PUBLIC_DIRECTUS_URL}"
+            DIRECTUS_LOCAL_URL: "${DIRECTUS_LOCAL_URL}"
 
     directus:
         container_name: bde-directus
