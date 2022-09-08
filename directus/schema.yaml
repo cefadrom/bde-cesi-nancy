@@ -1,5 +1,5 @@
 version: 1
-directus: 9.16.1
+directus: 9.17.4
 collections:
   - collection: accounts
     meta:
@@ -88,8 +88,8 @@ collections:
     meta:
       accountability: all
       archive_app_filter: false
-      archive_field: visible
-      archive_value: 'false'
+      archive_field: null
+      archive_value: null
       collapse: open
       collection: clubs
       color: null
@@ -107,7 +107,7 @@ collections:
           language: fr-FR
           singular: club
           translation: Clubs
-      unarchive_value: 'true'
+      unarchive_value: null
     schema:
       collation: utf8mb4_0900_ai_ci
       comment: ''
@@ -1180,8 +1180,11 @@ fields:
       group: null
       hidden: false
       interface: input-multiline
-      note: Courte decription du club, une ou deux petites phrases.
+      note: >-
+        Courte decription du club, une ou deux petites phrases. Évitez de
+        dépasser la limite.
       options:
+        softLength: 64
         trim: true
       readonly: false
       required: true
@@ -1265,6 +1268,7 @@ fields:
       note: null
       options:
         placeholder: null
+        softLength: 32
         trim: true
       readonly: false
       required: true
@@ -1336,6 +1340,51 @@ fields:
       numeric_scale: null
       table: clubs
     type: string
+  - collection: clubs
+    field: thumbnail
+    meta:
+      collection: clubs
+      conditions: null
+      display: image
+      display_options: null
+      field: thumbnail
+      group: null
+      hidden: false
+      interface: file-image
+      note: >-
+        Image présentée à côté des informations de votre club. L'image être
+        carré, et idéalement de taille 512px x 512px
+      options:
+        folder: d6db3bfe-50fa-4e91-bc12-9fb5c8458dea
+      readonly: false
+      required: true
+      sort: null
+      special:
+        - file
+      translations:
+        - language: fr-FR
+          translation: Miniature
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: char
+      default_value: null
+      foreign_key_column: id
+      foreign_key_table: directus_files
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 36
+      name: thumbnail
+      numeric_precision: null
+      numeric_scale: null
+      table: clubs
+    type: uuid
   - collection: clubs
     field: user_created
     meta:
@@ -2322,6 +2371,27 @@ relations:
       on_delete: NO ACTION
       on_update: NO ACTION
       table: cesi_accounts_updates
+  - collection: clubs
+    field: thumbnail
+    meta:
+      junction_field: null
+      many_collection: clubs
+      many_field: thumbnail
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: directus_files
+    schema:
+      column: thumbnail
+      constraint_name: clubs_thumbnail_foreign
+      foreign_key_column: id
+      foreign_key_table: directus_files
+      on_delete: NO ACTION
+      on_update: NO ACTION
+      table: clubs
   - collection: clubs
     field: user_created
     meta:
