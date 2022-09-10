@@ -56,11 +56,11 @@
 </style>
 
 
-<Meta noindex title="{$page.error.name} {$page.status}"/>
+<Meta noindex title="Erreur {$page.status}"/>
 
 
 <div class="error-container">
-    <h2 class="header-2" on:click={handleStatusCodeClick}>{$page.error.name} {$page.status}</h2>
+    <h2 class="header-2" on:click={handleStatusCodeClick}>Erreur {$page.status}</h2>
     <h3 class="h3">{getErrorMessage($page.status, $page.error)}</h3>
     <p class="body">Deux options s'offrent à vous. Faites le bon choix.</p>
     <a href="/">
