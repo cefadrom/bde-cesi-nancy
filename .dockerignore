@@ -10,6 +10,7 @@
 !web/src
 !web/static
 !web/package.json
+!web/package.prod.json
 !web/tsconfig.json
 !web/svelte.config.js
 !web/vite.config.js

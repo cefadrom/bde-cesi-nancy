@@ -21,8 +21,11 @@ RUN pnpm --filter web --filter directus -r build
 FROM node:16.16-alpine AS web
 
 WORKDIR /app
+
+COPY web/package.prod.json package.json
+RUN npm install && npm cache clean --force
+
 COPY --from=builder /build/web/build build
-COPY --from=builder /build/web/package.json .
 
 CMD ["/bin/sh", "-c", "node build"]
 

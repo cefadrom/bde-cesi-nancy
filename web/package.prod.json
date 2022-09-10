@@ -1,0 +1,7 @@
+{
+  "name": "@bde-cesi-nancy/web",
+  "dependencies": {
+    "@directus/sdk": "^10.1.4"
+  },
+  "type": "module"
+}
