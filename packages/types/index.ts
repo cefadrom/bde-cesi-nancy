@@ -1,5 +1,5 @@
 // Directus collections
-export interface User {
+export interface User<P = string> {
     id: string,
     first_name: string,
     last_name: string,
@@ -16,6 +16,7 @@ export interface User {
     tfa_secret: string | null,
     status: string,
     role: string,
+    promotion: P,
 }
 
 // Custom collections
