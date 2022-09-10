@@ -35,6 +35,8 @@
         Comptes mis à jour : {{ results.updatedAccountsCount }}
         <br/>
         Comptes supprimés : {{ results.deletedAccountsCount }}
+        <br/>
+        Utilisateurs mis à jour : {{ results.updatedUsersCount }}
     </p>
 
     <div class="btn-containers">
@@ -91,6 +93,7 @@ interface IUpdateResult {
     addedAccountsCount: number,
     updatedAccountsCount: number,
     deletedAccountsCount: number,
+    updatedUsersCount: number,
     databaseUpdateDuration: number,
 }
 </script>

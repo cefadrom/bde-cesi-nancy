@@ -1,6 +1,7 @@
 import type { EndpointConfig } from '@types';
 import { checkAccounts } from './utils/checkAccounts';
 import { checkProms } from './utils/checkProms';
+import { checkUsers } from './utils/checkUsers';
 import { getRawCSV } from './utils/getRawCSV';
 import { parseCSV } from './utils/parseCSV';
 
@@ -39,6 +40,7 @@ export default {
                     updatedAccountsCount,
                     deletedAccountsCount,
                 } = await checkAccounts(parsedAccounts, context.database);
+                const { updatedUsersCount } = await checkUsers(parsedAccounts, context.database);
                 const databaseUpdateEnd = Date.now();
 
                 const dumpDate = new Date((filename?.match(/\d{4}-\d{1,2}-\d{1,2}/) as string[])[0] || 0);
@@ -56,7 +58,8 @@ export default {
                     deleted_accounts: deletedAccountsCount,
                     added_promotions: addedPromotionsCount,
                     deleted_promotions: deletedPromotionsCount,
-                    operations_total: updatedAccountsCount + addedAccountsCount + deletedAccountsCount + addedPromotionsCount + deletedPromotionsCount,
+                    updated_users: updatedUsersCount,
+                    operations_total: updatedAccountsCount + addedAccountsCount + deletedAccountsCount + addedPromotionsCount + deletedPromotionsCount + updatedUsersCount,
                 });
 
                 return res.json({
@@ -67,6 +70,7 @@ export default {
                     addedAccountsCount,
                     updatedAccountsCount,
                     deletedAccountsCount,
+                    updatedUsersCount,
                     databaseUpdateDuration: databaseUpdateEnd - databaseUpdateStart,
                 });
             } catch (error) {
