@@ -1,7 +1,7 @@
 <script lang="ts">
     import { env } from '$env/dynamic/public';
 
-    const loginURL = `${env.PUBLIC_DIRECTUS_URL}/auth/login/microsoft?redirect=${env.PUBLIC_WEB_URL}`;
+    const loginURL = `${env.PUBLIC_DIRECTUS_URL}/auth/login/microsoft?redirect=${env.PUBLIC_WEB_URL}/login`;
 </script>
 
 

@@ -118,6 +118,7 @@ importers:
     specifiers:
       '@bde-cesi-nancy/components': workspace:*
       '@bde-cesi-nancy/types': workspace:*
+      '@directus/sdk': ^10.1.4
       '@sveltejs/adapter-node': ^1.0.0-next.88
       '@sveltejs/kit': ^1.0.0-next.477
       '@typescript-eslint/eslint-plugin': ^5.36.2
@@ -136,6 +137,7 @@ importers:
     dependencies:
       '@bde-cesi-nancy/components': link:../packages/components
       '@bde-cesi-nancy/types': link:../packages/types
+      '@directus/sdk': 10.1.4
       svelte: 3.50.0
     devDependencies:
       '@sveltejs/adapter-node': 1.0.0-next.88
@@ -1691,6 +1693,14 @@ packages:
       - supports-color
       - tedious
       - typescript
+    dev: false
+
+  /@directus/sdk/10.1.4:
+    resolution: {integrity: sha512-e8iwEbdMLMYBfla7QPh5ZfWua03PRMhhAwMkNz1/6k+ZCHc5+VQh7oR13OFU8r5KinsVPc7TjXElw3B6wxG0wg==}
+    dependencies:
+      axios: 0.27.2
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /@directus/shared/9.17.4:
