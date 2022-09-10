@@ -7,21 +7,30 @@
     import type { User } from '@bde-cesi-nancy/types';
     import { getContext, onMount } from 'svelte';
 
-    export let data: { refreshToken?: string };
+    export let data: { refreshToken?: string, error?: string };
 
     const directus = getContext<Directus>('directus');
     const me = getContext<User>('me');
     const loginStatus = getContext<LoginStatus>('loginStatus');
 
     let error: string | null = null;
+    let forbiddenError = false;
 
     onMount(async () => {
         try {
 
-            $loginStatus = 'LOGGING_IN';
+            if (data.error === 'FORBIDDEN') {
+                forbiddenError = true;
+                throw new Error('Accès interdit avec ce compte.');
+            }
+
+            if (data.error)
+                throw new Error(`Une erreur inconnue est survenue: ${data.error}`);
 
             if (!data.refreshToken)
-                throw new Error('No refresh token provided');
+                throw new Error('Aucun token de refresh spécifié.');
+
+            $loginStatus = 'LOGGING_IN';
 
             // Set refresh token to storage and delete potential old access token
             directus
@@ -57,6 +66,12 @@
 <SectionContainer header>
     {#if !error}
         <LoadingSpinner/>
+    {:else if forbiddenError}
+        <h1 class="header-1">Accès refusé</h1>
+        <p>
+            La connexion avec cette adresse mail vous à été refusée. Si vous êtes bien un étudiant au campus CESI de
+            Nancy, <a href="/contact?category=info&subject=Impossible+de+me+connecter">veuillez nous contacter</a>.
+        </p>
     {:else}
         <h1 class="header-1">Erreur</h1>
         <p class="body">{error}</p>
