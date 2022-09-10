@@ -1,10 +1,10 @@
-import type { CesiAccount, UnauthorizedLogin } from '@bde-cesi-nancy/types';
-import type { FilterHandler } from '@directus/shared/src/types/events';
+import type { CesiAccount, UnauthorizedLogin, User } from '@bde-cesi-nancy/types';
+import type { ActionHandler, FilterHandler } from '@directus/shared/src/types/events';
 import type { HookConfig } from '@types';
 import { v4 as uuid } from 'uuid';
 
 
-export default (({ filter }, { database, exceptions }) => {
+export default (({ filter, action }, { database, exceptions }) => {
 
     filter('users.create', (async (payload: IUserCreateInput) => {
 
@@ -30,6 +30,23 @@ export default (({ filter }, { database, exceptions }) => {
 
     }) as FilterHandler);
 
+
+    action('users.create', (async (meta, { database }) => {
+
+        const CESIUser = await database<CesiAccount>('cesi_accounts')
+            .select('promotion')
+            .where({ email: meta.payload.email })
+            .first();
+
+        if (!CESIUser)
+            return;
+
+        await database<User>('directus_users')
+            .where({ id: meta.key })
+            .update({ promotion: CESIUser.promotion });
+
+    }) as ActionHandler);
+
 }) as HookConfig;
 
 
@@ -41,4 +58,5 @@ interface IUserCreateInput {
     external_identifier: string,
     role: string,
     auth_data: any,
+    promotion: string,
 }
