@@ -27,7 +27,7 @@
                 $loginStatus = 'LOGGED_OUT';
                 return;
             }
-            $me = await directus.users.me.read() as User;
+            $me = await directus.users.me.read({ fields: [ '*', 'promotion.*' ] }) as User;
             $loginStatus = 'LOGGED_IN';
         } catch {
             $loginStatus = 'LOGGED_OUT';

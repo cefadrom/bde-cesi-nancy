@@ -46,7 +46,7 @@
                 .refresh();
 
             // Load user
-            $me = await directus.users.me.read() as User;
+            $me = await directus.users.me.read({ fields: [ '*', 'promotion.*' ] }) as User;
             $loginStatus = 'LOGGED_IN';
 
             // Redirect to member page
