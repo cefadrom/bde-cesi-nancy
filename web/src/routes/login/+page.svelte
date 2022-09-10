@@ -64,16 +64,16 @@
 
 
 <SectionContainer header>
-    {#if !error}
-        <LoadingSpinner/>
-    {:else if forbiddenError}
+    {#if forbiddenError}
         <h1 class="header-1">Accès refusé</h1>
-        <p>
+        <p class="body">
             La connexion avec cette adresse mail vous à été refusée. Si vous êtes bien un étudiant au campus CESI de
             Nancy, <a href="/contact?category=info&subject=Impossible+de+me+connecter">veuillez nous contacter</a>.
         </p>
-    {:else}
+    {:else if error}
         <h1 class="header-1">Erreur</h1>
         <p class="body">{error}</p>
+    {:else}
+        <LoadingSpinner/>
     {/if}
 </SectionContainer>
