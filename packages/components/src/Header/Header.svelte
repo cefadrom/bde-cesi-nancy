@@ -123,7 +123,9 @@
         <HeaderLink href="/clubs" icon="people-filled-black" label="Clubs"/>
         <HeaderLink href="/contact" icon="mail-filled-black" label="Contact"/>
         <div class="members-link">
-            <HeaderLink href="/members" icon="person-filled-black" label="Membre"/>
+            <HeaderLink href={$loginStatus === 'LOGGED_IN' ? "/member-dashboard" : "/members"}
+                        icon="person-filled-black"
+                        label="Membre"/>
         </div>
     </nav>
     <div class="nav-members">
