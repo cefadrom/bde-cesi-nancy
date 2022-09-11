@@ -14,14 +14,19 @@
     const loginStatus = getContext<LoginStatus>('loginStatus');
 
     let error: string | null = null;
-    let forbiddenError = false;
+    let errorCode: null | 'FORBIDDEN' | 'NO_COOKIE' = null;
 
     onMount(async () => {
         try {
 
             if (data.error === 'FORBIDDEN') {
-                forbiddenError = true;
+                errorCode = 'FORBIDDEN';
                 throw new Error('Accès interdit avec ce compte.');
+            }
+
+            if (data.error === 'NO_COOKIE') {
+                errorCode = 'NO_COOKIE';
+                throw new Error('Le cookie de connexion n\'a pas été trouvé.');
             }
 
             if (data.error)
@@ -51,11 +56,19 @@
 
 
 <SectionContainer header>
-    {#if forbiddenError}
+    {#if errorCode === 'FORBIDDEN'}
         <h1 class="header-1">Accès refusé</h1>
         <p class="body">
             La connexion avec cette adresse mail vous à été refusée. Si vous êtes bien un étudiant au campus CESI de
-            Nancy, <a href="/contact?category=info&subject=Impossible+de+me+connecter">veuillez nous contacter</a>.
+            Nancy, <a href="/contact?category=info&subject=Impossible+de+me+connecter+(connexion+refusée)">veuillez nous
+            contacter</a>.
+        </p>
+    {:else if errorCode === 'NO_COOKIE'}
+        <h1 class="header-1">Erreur de connexion</h1>
+        <p class="body">
+            Impossible de trouvez le cookie d'authentification. Veuillez vérifier que les cookies sont bien activés sur
+            votre navigateur et <a href="/members">réessayez</a>. Si le problème persiste,
+            <a href="/contact?category=info&subject=Impossible+de+me+connecter+(cookies)">veuillez nous contacter</a>.
         </p>
     {:else if error}
         <h1 class="header-1">Erreur</h1>

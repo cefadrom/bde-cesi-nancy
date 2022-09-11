@@ -1,5 +1,4 @@
 import type { ServerLoad } from '@sveltejs/kit';
-import { redirect } from '@sveltejs/kit';
 
 export const load: ServerLoad = ({ cookies, url }) => {
     if (url.searchParams.has('reason'))
@@ -8,5 +7,5 @@ export const load: ServerLoad = ({ cookies, url }) => {
     const refreshToken = cookies.get('directus_refresh_token');
 
     if (!refreshToken)
-        throw redirect(302, '/members');
+        return { error: 'NO_COOKIE' };
 };
