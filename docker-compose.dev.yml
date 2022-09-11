@@ -20,6 +20,9 @@ services:
             CORS_ORIGIN: "*"
             EXTENSIONS_AUTO_RELOAD: "true"
             AUTH_DISABLE_DEFAULT: "false"
+            REFRESH_TOKEN_COOKIE_SECURE: "false"
+            REFRESH_TOKEN_COOKIE_SAME_SITE: "Lax"
+            REFRESH_TOKEN_COOKIE_DOMAIN: ""
             # Classic watch mode doesn't work with WSL volumes
             CHOKIDAR_USEPOLLING: "true"
             CHOKIDAR_INTERVAL: 1000

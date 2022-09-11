@@ -80,6 +80,9 @@ services:
             CORS_ENABLED: "true"
             CORS_ORIGIN: "${PUBLIC_WEB_URL}"
             IP_CUSTOM_HEADER: "${IP_CUSTOM_HEADER}"
+            REFRESH_TOKEN_COOKIE_SECURE: "true"
+            REFRESH_TOKEN_COOKIE_SAME_SITE: "None"
+            REFRESH_TOKEN_COOKIE_DOMAIN: "${REFRESH_TOKEN_COOKIE_DOMAIN}"
 
     mysql:
         container_name: bde-mysql
