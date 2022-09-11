@@ -1,8 +1,10 @@
 <script lang="ts">
     import { getContext } from 'svelte';
     import HeaderLink from './HeaderLink.svelte';
+    import type { User } from '@bde-cesi-nancy/types';
 
     const loginStatus = getContext<string>('loginStatus');
+    const me = getContext<User>('me');
 </script>
 
 <style>
@@ -125,12 +127,12 @@
         <div class="members-link">
             <HeaderLink href={$loginStatus === 'LOGGED_IN' ? "/member-dashboard" : "/members"}
                         icon="person-filled-black"
-                        label="Membre"/>
+                        label={$me ? $me.first_name : "Membre"}/>
         </div>
     </nav>
     <div class="nav-members">
         <HeaderLink href={$loginStatus === 'LOGGED_IN' ? "/member-dashboard" : "/members"}
                     icon="person-filled-black"
-                    label="Espace Membre"/>
+                    label={$me ? $me.first_name : "Espace Membre"}/>
     </div>
 </header>
