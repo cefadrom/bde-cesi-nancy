@@ -9,8 +9,4 @@ export const load: ServerLoad = ({ cookies, url }) => {
 
     if (!refreshToken)
         throw redirect(302, '/members');
-
-    cookies.delete('directus_refresh_token');
-
-    return { refreshToken };
 };

@@ -7,7 +7,7 @@
     import type { User } from '@bde-cesi-nancy/types';
     import { getContext, onMount } from 'svelte';
 
-    export let data: { refreshToken?: string, error?: string };
+    export let data: { error?: string };
 
     const directus = getContext<Directus>('directus');
     const me = getContext<User>('me');
@@ -27,23 +27,10 @@
             if (data.error)
                 throw new Error(`Une erreur inconnue est survenue: ${data.error}`);
 
-            if (!data.refreshToken)
-                throw new Error('Aucun token de refresh spécifié.');
-
             $loginStatus = 'LOGGING_IN';
 
-            // Set refresh token to storage and delete potential old access token
-            directus
-                .storage
-                .set('auth_refresh_token', data.refreshToken);
-            directus
-                .storage
-                .delete('auth_token');
-
             // Get new access token
-            await directus
-                .auth
-                .refresh();
+            await directus.auth.refresh();
 
             // Load user
             $me = await directus.users.me.read({ fields: [ '*', 'promotion.*' ] }) as User;
