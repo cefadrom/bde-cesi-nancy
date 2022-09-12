@@ -1,6 +1,7 @@
 <script>
     export let gray = false;
     export let header = false;
+    export let hidecta = false;
 </script>
 
 
@@ -82,7 +83,7 @@
 <section class:gray class:header>
     <div class="container">
         <slot/>
-        {#if $$slots.cta}
+        {#if $$slots.cta && !hidecta}
             <span class="cta">
                 <slot name="cta"/>
             </span>
