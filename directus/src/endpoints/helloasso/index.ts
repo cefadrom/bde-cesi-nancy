@@ -18,6 +18,8 @@ export default {
         const allowedForms: string | string[] = context.env.HELLO_ASSO_ALLOWED_MEMBERSHIPS_FORMS;
         const HELLO_ASSO_ALLOWED_MEMBERSHIPS_FORMS: string[] = Array.isArray(allowedForms) ? allowedForms : [ allowedForms ];
 
+        const { ItemsService } = context.services;
+
         // Directus won't stop the interval inside this function on extension reloading, so if you're working on this
         // extension, it's highly recommended to restart the container every 20 minutes to clear the timers and avoid
         // many token refreshes in the background
@@ -96,14 +98,30 @@ export default {
                 payer_email: membershipDetails.payer.email,
             });
 
-            await context
+            const membershipUser = await context
                 .database<User>('directus_users')
-                .update({
-                    membership: membershipDbID,
-                    membership_status: membershipDetails.order.formName === 'cotisation-bde' ? 'cotisant' : 'adherant',
-                })
+                .select([ 'id' ])
                 .where({ email: membershipDetails.payer.email })
                 .orWhere({ email: adherentMail });
+
+            if (membershipUser.length === 0) {
+                context.logger.warn(`HelloAsso: no user found for order ${order_id} with membership ${membership_id}`);
+                return res.sendStatus(204);
+            }
+
+            if (membershipUser.length > 1) {
+                context.logger.warn(`HelloAsso: ${membershipUser.length} users found for order ${order_id} with membership ${membership_id}`);
+                return res.sendStatus(204);
+            }
+
+            const userService = new ItemsService('directus_users', { schema: (req as any).schema });
+            await userService.updateOne(
+                membershipUser[0]!.id,
+                {
+                    membership: membershipDbID,
+                    membership_status: membershipDetails.order.formName.includes('cotis') ? 'cotisant' : 'adherant',
+                },
+            );
 
             return res.sendStatus(204);
         });
