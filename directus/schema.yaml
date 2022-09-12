@@ -2188,7 +2188,7 @@ fields:
         template: '#{{membership_id}} ({{order_form}})'
       readonly: false
       required: false
-      sort: null
+      sort: 4
       special:
         - m2o
       translations:
@@ -2237,7 +2237,7 @@ fields:
             value: cotisant
       readonly: false
       required: true
-      sort: null
+      sort: 3
       special: null
       translations:
         - language: fr-FR
@@ -2764,7 +2764,7 @@ fields:
         trim: true
       readonly: false
       required: true
-      sort: null
+      sort: 13
       special: null
       translations:
         - language: fr-FR
@@ -2810,7 +2810,7 @@ fields:
         trim: true
       readonly: false
       required: true
-      sort: null
+      sort: 12
       special: null
       translations:
         - language: fr-FR
