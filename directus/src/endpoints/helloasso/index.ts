@@ -119,7 +119,7 @@ export default {
                 membershipUser[0]!.id,
                 {
                     membership: membershipDbID,
-                    membership_status: membershipDetails.order.formName.includes('cotis') ? 'cotisant' : 'adherant',
+                    membership_status: membershipDetails.order.formName.includes('cotis') ? 'cotisant' : 'adherent',
                 },
             );
 

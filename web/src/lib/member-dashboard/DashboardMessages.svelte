@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let status: 'aucun' | 'adherant' | 'cotisant';
+    export let status: 'aucun' | 'adherent' | 'cotisant';
 </script>
 
 
@@ -36,7 +36,7 @@
             <li>Bénéficier d'avantages chez nos partenaires</li>
         </ul>
         <p>Alors clique sur le bouton ci-dessous !</p>
-    {:else if status === 'adherant'}
+    {:else if status === 'adherent'}
         <h3 class="header-3">Tu en veux encore plus ?</h3>
         <p>En devenant cotisant, tu aura accès à des prix exclusifs sur tout ce que propose l’association :</p>
         <ul>

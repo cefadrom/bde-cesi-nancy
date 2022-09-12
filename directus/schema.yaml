@@ -2231,8 +2231,8 @@ fields:
         choices:
           - text: Aucun
             value: aucun
-          - text: Adhérant
-            value: adherant
+          - text: Adhérent
+            value: adherent
           - text: Cotisant
             value: cotisant
       readonly: false

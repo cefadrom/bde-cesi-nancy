@@ -17,7 +17,7 @@ export interface User<P = string, M = string> {
     status: string,
     role: string,
     promotion: P,
-    membership_status: 'aucun' | 'adherant' | 'cotisant',
+    membership_status: 'aucun' | 'adherent' | 'cotisant',
     membership: M | null,
 }
 

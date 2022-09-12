@@ -51,7 +51,7 @@
     <a slot="cta" href="/member-dashboard/upgrade">
         {#if $me.membership_status === 'aucun'}
             <Button icon="flame-filled-white">Adhérer</Button>
-        {:else if $me.membership_status === 'adherant'}
+        {:else if $me.membership_status === 'adherent'}
             <Button icon="flash-filled-white">Cotiser</Button>
         {/if}
     </a>
