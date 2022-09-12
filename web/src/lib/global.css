@@ -48,6 +48,10 @@ body, html {
     background-color: var(--white);
 }
 
+html.no-body-scroll, html.no-body-scroll body {
+    overflow: hidden;
+}
+
 .header-1 {
     font-weight: 900;
     font-size: 4rem; /* 64px */

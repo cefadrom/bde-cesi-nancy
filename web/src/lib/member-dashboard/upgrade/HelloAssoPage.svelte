@@ -2,7 +2,7 @@
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
     import LoadingSpinner from '@bde-cesi-nancy/components/src/LoadingSpinner/LoadingSpinner.svelte';
     import Popup from '@bde-cesi-nancy/components/src/Popup/Popup.svelte';
-    import { getContext } from 'svelte';
+    import { getContext, onDestroy, onMount } from 'svelte';
     import type { Directus } from '$lib/types';
     import { goto } from '$app/navigation';
     import type { Promotion, User } from '@bde-cesi-nancy/types';
@@ -18,6 +18,13 @@
     let showValidationPopup = false;
     let firstTimeCheckingMembership = true;
     let validationState: 'loading' | 'success' | 'error' = 'loading';
+
+    onMount(() => {
+        document.querySelector('html').classList.add('no-body-scroll');
+    });
+    onDestroy(() => {
+        document.querySelector('html').classList.remove('no-body-scroll');
+    });
 
     const setCancelPopup = (state: boolean) => () => {
         showCancelPopup = state;
