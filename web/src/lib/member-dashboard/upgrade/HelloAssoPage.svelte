@@ -17,6 +17,7 @@
     let showCancelPopup = false;
     let showValidationPopup = false;
     let firstTimeCheckingMembership = true;
+    let newMe: User<Promotion> | null = null;
     let validationState: 'loading' | 'success' | 'error' = 'loading';
 
     onMount(() => {
@@ -31,6 +32,8 @@
     };
 
     function goToDashboard() {
+        if (newMe && hasMembershipUpgraded(newMe.membership_status))
+            $me = newMe;
         goto('/member-dashboard');
     }
 
@@ -47,7 +50,6 @@
             firstTimeCheckingMembership = false;
         }
 
-        let newMe: User<Promotion>;
         try {
             newMe = await getUserProfile(directus);
         } catch (e) {
@@ -56,12 +58,10 @@
             return;
         }
 
-        if (hasMembershipUpgraded(newMe.membership_status)) {
+        if (hasMembershipUpgraded(newMe.membership_status))
             validationState = 'success';
-            $me = newMe;
-        } else {
+        else
             validationState = 'error';
-        }
     }
 
     function handleValidationPopupClose() {
