@@ -4,13 +4,14 @@
     import Meta from '$lib/Meta.svelte';
     import type { Directus, LoginStatus } from '$lib/types';
     import LoadingSpinner from '@bde-cesi-nancy/components/src/LoadingSpinner/LoadingSpinner.svelte';
-    import type { User } from '@bde-cesi-nancy/types';
+    import type { Promotion, User } from '@bde-cesi-nancy/types';
     import { getContext, onMount } from 'svelte';
+    import { getUserProfile } from '$lib/api/getUserProfile';
 
     export let data: { error?: string };
 
     const directus = getContext<Directus>('directus');
-    const me = getContext<User>('me');
+    const me = getContext<User<Promotion>>('me');
     const loginStatus = getContext<LoginStatus>('loginStatus');
 
     let error: string | null = null;
@@ -38,7 +39,7 @@
             await directus.auth.refresh();
 
             // Load user
-            $me = await directus.users.me.read({ fields: [ '*', 'promotion.*' ] }) as User;
+            $me = await getUserProfile(directus);
             $loginStatus = 'LOGGED_IN';
 
             // Redirect to member page
