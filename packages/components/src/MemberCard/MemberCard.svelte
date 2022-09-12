@@ -151,7 +151,7 @@
         <div class="card-identity">
             <div class="card-user">
                 <span>{user.last_name} {user.first_name}</span>
-                <span>{user.promotion.name || user.promotion.code || user.promotion || '-'}</span>
+                <span>{user.promotion?.name || user.promotion?.code || user.promotion || '-'}</span>
                 <span>{user.email}</span>
             </div>
             <div class="card-qrcode" bind:this={QRCodeContainer}/>
