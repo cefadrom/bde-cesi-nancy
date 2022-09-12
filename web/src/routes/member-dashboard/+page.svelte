@@ -1,7 +1,6 @@
 <script lang="ts">
-    import LoggedInContainer from '$lib/layout/LoggedInContainer.svelte';
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
-    import DashboardMessages from '../../lib/member-dashboard/DashboardMessages.svelte';
+    import DashboardMessages from '$lib/member-dashboard/DashboardMessages.svelte';
     import Meta from '$lib/Meta.svelte';
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
     import MemberCard from '@bde-cesi-nancy/components/src/MemberCard/MemberCard.svelte';
@@ -38,24 +37,22 @@
 </style>
 
 
-<LoggedInContainer header>
-    <SectionContainer header hidecta={$me.membership_status === 'cotisant'}>
-        <h1 class="header-1">Bonjour {$me.first_name} 👋</h1>
-        <div class="dashboard-content">
-            {#if $me.membership_status !== 'aucun'}
-                <div class="card-container">
-                    <MemberCard user={$me} black={$me.membership_status === 'cotisant'}/>
-                </div>
-            {/if}
-            <DashboardMessages status={$me.membership_status}/>
-        </div>
+<SectionContainer header hidecta={$me.membership_status === 'cotisant'}>
+    <h1 class="header-1">Bonjour {$me.first_name} 👋</h1>
+    <div class="dashboard-content">
+        {#if $me.membership_status !== 'aucun'}
+            <div class="card-container">
+                <MemberCard user={$me} black={$me.membership_status === 'cotisant'}/>
+            </div>
+        {/if}
+        <DashboardMessages status={$me.membership_status}/>
+    </div>
 
-        <a slot="cta" href="/upgrade/{$me.membership_status === 'aucun' ? 'adherant' : 'cotisant'}">
-            {#if $me.membership_status === 'aucun'}
-                <Button icon="flame-filled-white">Adhérer</Button>
-            {:else if $me.membership_status === 'adherant'}
-                <Button icon="flash-filled-white">Cotiser</Button>
-            {/if}
-        </a>
-    </SectionContainer>
-</LoggedInContainer>
+    <a slot="cta" href="/member-dashboard/upgrade">
+        {#if $me.membership_status === 'aucun'}
+            <Button icon="flame-filled-white">Adhérer</Button>
+        {:else if $me.membership_status === 'adherant'}
+            <Button icon="flash-filled-white">Cotiser</Button>
+        {/if}
+    </a>
+</SectionContainer>
