@@ -113,7 +113,7 @@
 <header>
     <div class="nav-logo">
         <a href="/">
-            <img alt="Logo BDE CESI Nancy" src="brand/detailed.svg">
+            <img alt="Logo BDE CESI Nancy" src="/brand/detailed.svg">
         </a>
     </div>
     <nav>
