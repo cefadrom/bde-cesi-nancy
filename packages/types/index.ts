@@ -1,5 +1,5 @@
 // Directus collections
-export interface User<P = string> {
+export interface User<P = string, M = string> {
     id: string,
     first_name: string,
     last_name: string,
@@ -17,6 +17,8 @@ export interface User<P = string> {
     status: string,
     role: string,
     promotion: P,
+    membership_status: 'aucun' | 'adherant' | 'cotisant',
+    membership: M | null,
 }
 
 // Custom collections
@@ -62,4 +64,18 @@ export interface Club {
     contact_email: string;
     visible: boolean;
     thumbnail: string;
+}
+
+export interface Membership {
+    id: string;
+    order_id: string;
+    membership_id: string;
+    order_date: Date;
+    order_form: 'adhesion-bde' | 'cotisation-bde';
+    order_amount: number;
+    order_initial_amount: number;
+    adherent_name: string;
+    adherent_email: string;
+    payer_name: string;
+    payer_email: string;
 }

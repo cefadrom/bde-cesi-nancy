@@ -144,6 +144,36 @@ collections:
       engine: InnoDB
       name: contact
       schema: directus
+  - collection: memberships
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: memberships
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: card_membership
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations:
+        - plural: adhésoins / cotisations
+          language: fr-FR
+          singular: adhésion / cotisation
+          translation: Adhésions et cotisations
+      unarchive_value: null
+    schema:
+      collation: utf8mb4_0900_ai_ci
+      comment: ''
+      engine: InnoDB
+      name: memberships
+      schema: directus
   - collection: promotions
     meta:
       accountability: all
@@ -2142,6 +2172,98 @@ fields:
     schema: null
     type: alias
   - collection: directus_users
+    field: membership
+    meta:
+      collection: directus_users
+      conditions: null
+      display: null
+      display_options: null
+      field: membership
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        template: '#{{membership_id}} ({{order_form}})'
+      readonly: false
+      required: false
+      sort: null
+      special:
+        - m2o
+      translations:
+        - language: fr-FR
+          translation: Adhésion / cotisation
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: char
+      default_value: null
+      foreign_key_column: id
+      foreign_key_table: memberships
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 36
+      name: membership
+      numeric_precision: null
+      numeric_scale: null
+      table: directus_users
+    type: string
+  - collection: directus_users
+    field: membership_status
+    meta:
+      collection: directus_users
+      conditions: null
+      display: null
+      display_options: null
+      field: membership_status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Aucun
+            value: aucun
+          - text: Adhérant
+            value: adherant
+          - text: Cotisant
+            value: cotisant
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Statut
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: aucun
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 63
+      name: membership_status
+      numeric_precision: null
+      numeric_scale: null
+      table: directus_users
+    type: string
+  - collection: directus_users
     field: promotion
     meta:
       collection: directus_users
@@ -2182,6 +2304,537 @@ fields:
       numeric_precision: null
       numeric_scale: null
       table: directus_users
+    type: string
+  - collection: memberships
+    field: adherent_email
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: adherent_email
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        softLength: 127
+        trim: true
+      readonly: false
+      required: true
+      sort: 10
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Email de l'adhérent / du cotisant
+      validation:
+        _and:
+          - adherent_email:
+              _contains: '@'
+      validation_message: L'email de l'adhérent n'est pas valide
+      width: half
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 127
+      name: adherent_email
+      numeric_precision: null
+      numeric_scale: null
+      table: memberships
+    type: string
+  - collection: memberships
+    field: adherent_name
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: adherent_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        softLength: 127
+        trim: true
+      readonly: false
+      required: true
+      sort: 9
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Nom de l'adhérent / du cotisant
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 127
+      name: adherent_name
+      numeric_precision: null
+      numeric_scale: null
+      table: memberships
+    type: string
+  - collection: memberships
+    field: divider-lqxhw9
+    meta:
+      collection: memberships
+      field: divider-lqxhw9
+      special:
+        - alias
+        - no-data
+      interface: presentation-divider
+      options:
+        icon: attach_money
+        title: Payeur
+        inlineTitle: true
+      display: null
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 11
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+      validation: null
+      validation_message: null
+    schema: null
+    type: alias
+  - collection: memberships
+    field: divider-u8novh
+    meta:
+      collection: memberships
+      field: divider-u8novh
+      special:
+        - alias
+        - no-data
+      interface: presentation-divider
+      options:
+        icon: inventory_2
+        title: Commande
+        inlineTitle: true
+      display: null
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 2
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+      validation: null
+      validation_message: null
+    schema: null
+    type: alias
+  - collection: memberships
+    field: id
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: char
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: false
+      max_length: 36
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      table: memberships
+    type: uuid
+  - collection: memberships
+    field: membership_id
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: membership_id
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        min: 0
+      readonly: true
+      required: true
+      sort: 4
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Numéro d'adhésion / de cotisation
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: int
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: true
+      max_length: null
+      name: membership_id
+      numeric_precision: 10
+      numeric_scale: 0
+      table: memberships
+    type: integer
+  - collection: memberships
+    field: order_amount
+    meta:
+      collection: memberships
+      conditions: null
+      display: money
+      display_options: null
+      field: order_amount
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        min: 0
+        step: 0.01
+      readonly: true
+      required: true
+      sort: 7
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Montant payé
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: float
+      default_value: 0
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: order_amount
+      numeric_precision: 5
+      numeric_scale: 2
+      table: memberships
+    type: float
+  - collection: memberships
+    field: order_date
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: order_date
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: true
+      required: true
+      sort: 5
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Date de la commande
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: datetime
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: order_date
+      numeric_precision: null
+      numeric_scale: null
+      table: memberships
+    type: dateTime
+  - collection: memberships
+    field: order_form
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: order_form
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Adhésion
+            value: adhesion-bde
+          - text: Cotisation
+            value: cotisation-bde
+      readonly: true
+      required: true
+      sort: 6
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Type de commande
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 63
+      name: order_form
+      numeric_precision: null
+      numeric_scale: null
+      table: memberships
+    type: string
+  - collection: memberships
+    field: order_id
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: order_id
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        min: 0
+      readonly: true
+      required: true
+      sort: 3
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Numéro de commande
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: int
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: true
+      max_length: null
+      name: order_id
+      numeric_precision: 10
+      numeric_scale: 0
+      table: memberships
+    type: integer
+  - collection: memberships
+    field: order_initial_amount
+    meta:
+      collection: memberships
+      conditions: null
+      display: money
+      display_options: null
+      field: order_initial_amount
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        min: 0
+        step: 0.01
+      readonly: true
+      required: true
+      sort: 8
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Montant (sans réductions)
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: float
+      default_value: 0
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: order_initial_amount
+      numeric_precision: 5
+      numeric_scale: 2
+      table: memberships
+    type: float
+  - collection: memberships
+    field: payer_email
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: payer_email
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        softLength: 127
+        trim: true
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Email du payeur
+      validation:
+        _and:
+          - email:
+              _contains: '@'
+      validation_message: L'email du payeur n'est pas valide
+      width: half
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 127
+      name: payer_email
+      numeric_precision: null
+      numeric_scale: null
+      table: memberships
+    type: string
+  - collection: memberships
+    field: payer_name
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: payer_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        softLength: 127
+        trim: true
+      readonly: false
+      required: true
+      sort: null
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Nom du payeur
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 127
+      name: payer_name
+      numeric_precision: null
+      numeric_scale: null
+      table: memberships
     type: string
   - collection: promotions
     field: code
@@ -2587,6 +3240,27 @@ relations:
       on_delete: NO ACTION
       on_update: NO ACTION
       table: contact
+  - collection: directus_users
+    field: membership
+    meta:
+      junction_field: null
+      many_collection: directus_users
+      many_field: membership
+      one_allowed_collections: null
+      one_collection: memberships
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: memberships
+    schema:
+      column: membership
+      constraint_name: directus_users_membership_foreign
+      foreign_key_column: id
+      foreign_key_table: memberships
+      on_delete: SET NULL
+      on_update: NO ACTION
+      table: directus_users
   - collection: directus_users
     field: promotion
     meta:

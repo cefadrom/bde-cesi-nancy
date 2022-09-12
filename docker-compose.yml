@@ -84,6 +84,11 @@ services:
             REFRESH_TOKEN_COOKIE_SAME_SITE: "None"
             REFRESH_TOKEN_COOKIE_DOMAIN: "${REFRESH_TOKEN_COOKIE_DOMAIN}"
 
+            HELLO_ASSO_CLIENT: "${HELLO_ASSO_CLIENT}"
+            HELLO_ASSO_SECRET: "${HELLO_ASSO_SECRET}"
+            HELLO_ASSO_ORGANIZATION: "${HELLO_ASSO_ORGANIZATION}"
+            HELLO_ASSO_ALLOWED_MEMBERSHIPS_FORMS: "${HELLO_ASSO_ALLOWED_MEMBERSHIPS_FORMS}"
+
     mysql:
         container_name: bde-mysql
         image: mysql:8.0.30-oracle
