@@ -82,7 +82,7 @@
 
 <a class="bold" class:current {href}>
     <div>
-        <img alt={icon} src="icons/{icon}.svg">
+        <img alt={icon} src="/icons/{icon}.svg">
         <span>{label}</span>
     </div>
 </a>
