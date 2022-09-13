@@ -4,9 +4,14 @@ import type { Membership, User } from '@bde-cesi-nancy/types';
 import nodeFetch from 'node-fetch';
 import { helloAssoAuth } from './helloAssoAuth';
 import { v4 as uuid } from 'uuid';
+import { EventEmitter } from 'node:events';
 
 const HELLO_ASSO_ENDPOINT = 'https://api.helloasso.com';
 let helloAssoTokens = {} as TokenStore;
+
+interface MembershipEmitterPayload {
+    userID: string,
+}
 
 export default {
     id: 'helloasso',
@@ -29,6 +34,8 @@ export default {
             HELLO_ASSO_ENDPOINT,
             key => (helloAssoTokens.access = key),
         );
+
+        const eventEmitter = new EventEmitter();
 
         router.post('/', async (req, res) => {
 
@@ -114,16 +121,45 @@ export default {
                 return res.sendStatus(204);
             }
 
+            const membershipUserID = membershipUser[0]!.id;
+
             const userService = new ItemsService('directus_users', { schema: (req as any).schema });
             await userService.updateOne(
-                membershipUser[0]!.id,
+                membershipUserID,
                 {
                     membership: membershipDbID,
-                    membership_status: membershipDetails.order.formName.includes('cotis') ? 'cotisant' : 'adherent',
+                    membership_status: membershipDetails.order.formName.toLowerCase().includes('cotis')
+                        ? 'cotisant'
+                        : 'adherent',
                 },
             );
 
+            eventEmitter.emit('membership', { userID: membershipUserID } as MembershipEmitterPayload);
+
             return res.sendStatus(204);
+        });
+
+
+        // Server Sent Event to notify the frontend of a new membership
+        router.get('/hook/:userID', async (req, res) => {
+            res.writeHead(200, {
+                'Content-Type': 'text/event-stream',
+                'Connection': 'keep-alive',
+                'Cache-Control': 'no-cache',
+            });
+
+            const userID = req.params.userID;
+
+            function sendConfirmation({ userID: eventUserID }: MembershipEmitterPayload) {
+                if (eventUserID === userID)
+                    res.write('data: ok\n\n');
+            }
+
+            eventEmitter.on('membership', sendConfirmation);
+
+            res.on('close', () => {
+                eventEmitter.off('membership', sendConfirmation);
+            });
         });
     },
 } as EndpointConfig;

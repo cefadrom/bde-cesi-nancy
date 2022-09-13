@@ -20,11 +20,29 @@
     let newMe: User<Promotion> | null = null;
     let validationState: 'loading' | 'success' | 'error' = 'loading';
 
+    let eventSource: EventSource | null = null;
+
     onMount(() => {
         document.querySelector('html').classList.add('no-body-scroll');
+
+        // Notify user when the server sends he's now a member (using SSE)
+        eventSource = new EventSource(`${directus.url}/helloasso/hook/${$me.id}`);
+        eventSource.onmessage = ({ data }: MessageEvent) => {
+            if (data !== 'ok')
+                return;
+            handleValidation(false);
+            eventSource.close();
+            eventSource = null;
+        };
+        eventSource.onerror = (event: Event) => {
+            console.error(event);
+            eventSource.close();
+            eventSource = null;
+        };
     });
     onDestroy(() => {
         document.querySelector('html').classList.remove('no-body-scroll');
+        eventSource?.close();
     });
 
     const setCancelPopup = (state: boolean) => () => {
@@ -41,11 +59,11 @@
         (type === 'adhesion' && membership === 'adherent')
         || (type === 'cotisation' && membership === 'cotisant');
 
-    async function handleValidation() {
+    async function handleValidation(delay = true) {
         showValidationPopup = true;
         validationState = 'loading';
 
-        if (firstTimeCheckingMembership) {
+        if (firstTimeCheckingMembership && delay) {
             await new Promise((resolve) => setTimeout(resolve, 2000));
             firstTimeCheckingMembership = false;
         }
