@@ -15,6 +15,7 @@
         height: auto;
         width: 40rem;
         max-width: 100%;
+        min-height: 0;
         aspect-ratio: 8 / 3;
     }
 
