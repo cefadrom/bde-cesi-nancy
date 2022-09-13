@@ -5,6 +5,7 @@ import nodeFetch from 'node-fetch';
 import { helloAssoAuth } from './helloAssoAuth';
 import { v4 as uuid } from 'uuid';
 import { EventEmitter } from 'node:events';
+import { helloAssoLog } from './helloAssoLog';
 
 const HELLO_ASSO_ENDPOINT = 'https://api.helloasso.com';
 let helloAssoTokens = {} as TokenStore;
@@ -43,14 +44,14 @@ export default {
 
             const order = req.body as HelloassoOrderCallback;
 
-            context.logger.info(`HelloAsso: received order ${JSON.stringify(order)}`);
-
             if (!order
                 || order.eventType !== 'Order'
                 || order.data.items.length !== 1
                 || order.data.items[0].type !== 'Membership'
-                || ![ 'Processed', 'Registered' ].includes(order.data.items[0].state))
+                || ![ 'Processed', 'Registered' ].includes(order.data.items[0].state)) {
+                await helloAssoLog(context.database, order, false, 'Invalid order');
                 return res.sendStatus(204);
+            }
 
             const membershipID = order.data.items[0].id;
 
@@ -65,13 +66,19 @@ export default {
                     throw new Error(`HelloAsso API returned ${membershipDetailsRes.status} ${membershipDetailsRes.statusText}`);
                 membershipDetails = await membershipDetailsRes.json() as HelloAssoMembershipItem;
             } catch (e) {
-                context.logger.error(`HelloAsso: ${e}`);
+                await helloAssoLog(context.database,
+                    order,
+                    false,
+                    `Failed to fetch membership details: ${(e as Error).message}`,
+                );
                 return res.sendStatus(204);
             }
 
             if (!HELLO_ASSO_ALLOWED_MEMBERSHIPS_FORMS.includes(membershipDetails.order.formSlug)
-                || membershipDetails.order.organizationSlug.replace(/ /g, '-') !== HELLO_ASSO_ORGANIZATION)
+                || membershipDetails.order.organizationSlug.replace(/ /g, '-') !== HELLO_ASSO_ORGANIZATION) {
+                await helloAssoLog(context.database, order, false, 'Invalid membership form or organization');
                 return res.sendStatus(204);
+            }
 
             // Membership verified, store in the database and update the corresponding user
 
@@ -81,10 +88,14 @@ export default {
             const duplicatedMemberships = await context.database<Membership>('memberships')
                 .where({ order_id })
                 .orWhere({ membership_id })
-                .select('id');
+                .select('id', 'order_id');
 
             if (duplicatedMemberships.length > 0) {
-                context.logger.warn(`HelloAsso: ${duplicatedMemberships.length} duplicates of order ${order_id} with membership ${membership_id}`);
+                await helloAssoLog(context.database,
+                    order,
+                    false,
+                    `Duplicate membership (${duplicatedMemberships.map(m => m.order_id).join(', ')})`,
+                );
                 return res.sendStatus(204);
             }
 
@@ -107,17 +118,23 @@ export default {
 
             const membershipUser = await context
                 .database<User>('directus_users')
-                .select([ 'id' ])
+                .select([ 'id', 'email' ])
                 .where({ email: membershipDetails.payer.email })
                 .orWhere({ email: adherentMail });
 
             if (membershipUser.length === 0) {
-                context.logger.warn(`HelloAsso: no user found for order ${order_id} with membership ${membership_id}`);
+                await helloAssoLog(context.database, order, true, 'No user found');
                 return res.sendStatus(204);
             }
 
             if (membershipUser.length > 1) {
                 context.logger.warn(`HelloAsso: ${membershipUser.length} users found for order ${order_id} with membership ${membership_id}`);
+                await helloAssoLog(
+                    context.database,
+                    order,
+                    true,
+                    `Multiple users found (${membershipUser.map(u => u.email).join(', ')})`,
+                );
                 return res.sendStatus(204);
             }
 
@@ -136,6 +153,7 @@ export default {
 
             eventEmitter.emit('membership', { userID: membershipUserID } as MembershipEmitterPayload);
 
+            await helloAssoLog(context.database, order, true, null, membershipDbID);
             return res.sendStatus(204);
         });
 

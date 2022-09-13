@@ -1,6 +1,27 @@
 version: 1
 directus: 9.17.4
 collections:
+  - collection: HelloAsso
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: HelloAsso
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: sports_football
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 2
+      sort_field: null
+      translations: null
+      unarchive_value: null
+    schema: null
   - collection: accounts
     meta:
       accountability: all
@@ -100,7 +121,7 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: 3
+      sort: 4
       sort_field: null
       translations:
         - plural: clubs
@@ -130,7 +151,7 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: 2
+      sort: 3
       sort_field: null
       translations:
         - plural: demandes de contact
@@ -144,6 +165,36 @@ collections:
       engine: InnoDB
       name: contact
       schema: directus
+  - collection: helloasso_logs
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: reviewed
+      archive_value: 'true'
+      collapse: open
+      collection: helloasso_logs
+      color: null
+      display_template: null
+      group: HelloAsso
+      hidden: false
+      icon: article
+      item_duplication_fields: null
+      note: Liste des requêtes webhook, et de si leur traitement à abouti
+      singleton: false
+      sort: 2
+      sort_field: null
+      translations:
+        - plural: logs HelloAsso
+          language: fr-FR
+          singular: log HelloAsso
+          translation: Logs HelloAsso
+      unarchive_value: 'false'
+    schema:
+      collation: utf8mb4_0900_ai_ci
+      comment: ''
+      engine: InnoDB
+      name: helloasso_logs
+      schema: directus
   - collection: memberships
     meta:
       accountability: all
@@ -154,13 +205,13 @@ collections:
       collection: memberships
       color: null
       display_template: null
-      group: null
+      group: HelloAsso
       hidden: false
       icon: card_membership
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: null
+      sort: 1
       sort_field: null
       translations:
         - plural: adhésoins / cotisations
@@ -2305,6 +2356,301 @@ fields:
       numeric_scale: null
       table: directus_users
     type: string
+  - collection: helloasso_logs
+    field: created_at
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: datetime
+      display_options:
+        format: short
+      field: created_at
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options:
+        includeSeconds: true
+      readonly: true
+      required: true
+      sort: 3
+      special:
+        - date-created
+      translations:
+        - language: fr-FR
+          translation: Date d'émission
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: datetime
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: created_at
+      numeric_precision: null
+      numeric_scale: null
+      table: helloasso_logs
+    type: dateTime
+  - collection: helloasso_logs
+    field: id
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: char
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: false
+      max_length: 36
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      table: helloasso_logs
+    type: uuid
+  - collection: helloasso_logs
+    field: input
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: null
+      display_options: null
+      field: input
+      group: null
+      hidden: false
+      interface: input-code
+      note: null
+      options:
+        language: JSON
+        template: ''
+      readonly: false
+      required: true
+      sort: 7
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Données d'entrée
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: text
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 65535
+      name: input
+      numeric_precision: null
+      numeric_scale: null
+      table: helloasso_logs
+    type: text
+  - collection: helloasso_logs
+    field: reject_reason
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: null
+      display_options: null
+      field: reject_reason
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 5
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Raison du rejet (si rejeté)
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: reject_reason
+      numeric_precision: null
+      numeric_scale: null
+      table: helloasso_logs
+    type: string
+  - collection: helloasso_logs
+    field: result_membership
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: related-values
+      display_options: null
+      field: result_membership
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        enableSelect: false
+        template: "{{order_id}} -\_{{adherent_name}} -\_{{order_form}}"
+      readonly: true
+      required: false
+      sort: 6
+      special:
+        - m2o
+      translations:
+        - language: fr-FR
+          translation: Adhésion / cotisation résultante (si succès)
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: char
+      default_value: null
+      foreign_key_column: id
+      foreign_key_table: memberships
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 36
+      name: result_membership
+      numeric_precision: null
+      numeric_scale: null
+      table: helloasso_logs
+    type: string
+  - collection: helloasso_logs
+    field: reviewed
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: null
+      display_options: null
+      field: reviewed
+      group: null
+      hidden: true
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: boolean
+      default_value: false
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: reviewed
+      numeric_precision: 3
+      numeric_scale: 0
+      table: helloasso_logs
+    type: boolean
+  - collection: helloasso_logs
+    field: success
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: boolean
+      display_options: null
+      field: success
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 4
+      special:
+        - cast-boolean
+      translations:
+        - language: fr-FR
+          translation: Succès
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: boolean
+      default_value: false
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: success
+      numeric_precision: 3
+      numeric_scale: 0
+      table: helloasso_logs
+    type: boolean
   - collection: memberships
     field: adherent_email
     meta:
@@ -3282,3 +3628,24 @@ relations:
       on_delete: SET NULL
       on_update: NO ACTION
       table: directus_users
+  - collection: helloasso_logs
+    field: result_membership
+    meta:
+      junction_field: null
+      many_collection: helloasso_logs
+      many_field: result_membership
+      one_allowed_collections: null
+      one_collection: memberships
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: memberships
+    schema:
+      column: result_membership
+      constraint_name: helloasso_logs_result_membership_foreign
+      foreign_key_column: id
+      foreign_key_table: memberships
+      on_delete: SET NULL
+      on_update: NO ACTION
+      table: helloasso_logs
