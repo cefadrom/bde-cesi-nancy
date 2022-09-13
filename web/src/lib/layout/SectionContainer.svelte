@@ -77,6 +77,12 @@
             padding: 1rem 2rem calc(var(--nav-height) + 1rem);
         }
     }
+
+    @media all and (max-width: 500px) {
+        section.header {
+            padding: 1rem 1rem calc(var(--nav-height) + 1rem);
+        }
+    }
 </style>
 
 
