@@ -12,6 +12,7 @@
         navigator.vibrate(100);
     }
 
+    let cardContainer: HTMLDivElement;
     let QRCodeContainer: HTMLElement;
 
     onMount(async () => {
@@ -33,17 +34,36 @@
 
         QRCode.append(QRCodeContainer);
     });
+
+    onMount(handleCardResize);
+
+    const MAX_CARD_WIDTH_REM = 28;
+    const MAX_CARD_HEIGHT_REM = 17.25;
+    const pxToRem = (px: number) => px / parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+    let cardScale = 1;
+    let cardMarginBottom = 0;
+
+    function handleCardResize() {
+        const parentWidth = pxToRem(cardContainer.parentElement.clientWidth);
+        cardScale = Math.min(1, parentWidth / MAX_CARD_WIDTH_REM);
+        cardMarginBottom = -MAX_CARD_HEIGHT_REM * (1 - cardScale);
+    }
 </script>
+
+
+<svelte:window on:resize={handleCardResize}/>
 
 
 <style>
     .card {
         width: 28rem;
-        max-width: 100%;
         height: 17.25rem;
         border-radius: .75rem;
         position: relative;
         --perspective: 64rem;
+        user-select: none;
+        transform-origin: top left;
     }
 
     .card-front, .card-back {
@@ -61,6 +81,7 @@
     .card.black .card-front, .card.black .card-back {
         background: linear-gradient(150deg, #1f2333, #191c29);
         color: var(--white);
+        transform-origin: initial;
     }
 
     .card-front {
@@ -103,6 +124,15 @@
         flex-direction: column;
         gap: 1rem;
         width: 100%;
+        min-width: 0; /* https://stackoverflow.com/a/66689926 */
+    }
+
+    .card-user span {
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        max-width: 100%;
     }
 
     .card-qrcode {
@@ -128,17 +158,16 @@
     .card.show-back .card-back {
         transform: rotateY(0) perspective(var(--perspective));
     }
-
-    @media all and (max-width: 500px) {
-        .card-qrcode {
-            scale: 1;
-            margin: -20px;
-        }
-    }
 </style>
 
 
-<div class="card" class:show-back={showBack} on:click={reverseCard} class:black>
+<div bind:this={cardContainer}
+     class="card"
+     class:black
+     class:show-back={showBack}
+     on:click={reverseCard}
+     style:margin-bottom="{cardMarginBottom}rem"
+     style:transform="scale({cardScale})">
     <div class="card-front">
         <div class="card-header">
             <img src="/brand/simple.svg" alt="BDE CESI Nancy"/>
