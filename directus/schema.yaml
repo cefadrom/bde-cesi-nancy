@@ -2547,7 +2547,7 @@ fields:
         - m2o
       translations:
         - language: fr-FR
-          translation: Adhésion / cotisation résultante (si succès)
+          translation: Adhésion / cotisation résultante (si créée)
       validation: null
       validation_message: null
       width: full

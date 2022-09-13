@@ -123,17 +123,17 @@ export default {
                 .orWhere({ email: adherentMail });
 
             if (membershipUser.length === 0) {
-                await helloAssoLog(context.database, order, true, 'No user found');
+                await helloAssoLog(context.database, order, true, 'No user found', membershipDbID);
                 return res.sendStatus(204);
             }
 
             if (membershipUser.length > 1) {
-                context.logger.warn(`HelloAsso: ${membershipUser.length} users found for order ${order_id} with membership ${membership_id}`);
                 await helloAssoLog(
                     context.database,
                     order,
                     true,
                     `Multiple users found (${membershipUser.map(u => u.email).join(', ')})`,
+                    membershipDbID,
                 );
                 return res.sendStatus(204);
             }
