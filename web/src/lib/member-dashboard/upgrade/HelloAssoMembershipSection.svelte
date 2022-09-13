@@ -165,7 +165,10 @@
 
 {#if showCancelPopup}
     <Popup title="Annuler" on:backdropclick={setCancelPopup(false)}>
-        <p>Êtes-vous sûr de vouloir annuler {type === 'adhesion' ? 'l\'adhésion' : 'la cotisation'} ?</p>
+        <p>
+            Êtes-vous sûr de vouloir annuler
+            <span class="no-br">{type === 'adhesion' ? 'l\'adhésion' : 'la cotisation'} ?</span>
+        </p>
         <Button variant="secondary" on:click={goToDashboard} slot="cta-l" block>
             Annuler {type === 'adhesion' ? 'l\'adhésion' : 'la cotisation'}
         </Button>
@@ -184,7 +187,9 @@
         {:else if validationState === 'success'}
             <p>
                 {type === 'adhesion' ? 'L\'adhésion' : 'La cotisation'} a bien été validée !
-                Vous êtes désormais {type === 'adhesion' ? 'un adhérant' : 'un cotisant'} ! Félicitations ! 🥳
+                Vous êtes désormais un
+                <span class="no-br">{type === 'adhesion' ? 'adhérant' : 'cotisant'} !</span>
+                <span class="no-br">Félicitations ! 🥳</span>
             </p>
             <div class="validation-popup-cta-bar">
                 <Button on:click={goToDashboard} slot="cta" block>

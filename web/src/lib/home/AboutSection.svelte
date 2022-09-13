@@ -43,7 +43,7 @@
 
 
 <SectionContainer>
-    <h2 class="header-2">À propos du BDE 🤔</h2>
+    <h2 class="header-2">À propos du <span class="no-br">BDE 🤔</span></h2>
     <AboutSectionQuestion question="Qu'est-ce qu'un BDE ?">
         Le Bureau Des Élèves (BDE) est une association à but non-lucratif qui a pour but de donner un cadre légal à
         toutes les manifestations extra-scolaires sur le campus.
@@ -54,10 +54,10 @@
     <AboutSectionQuestion question="Quel est son rôle ?" right>
         Le rôle du BDE est de fournir un cadre légal à toute organisation des manifestations. Il s’occupe aussi
         d’organiser des évènements, mais surtout, il accompagne les apprenants dans leurs projets associatifs pour le
-        campus !
+        <span class="no-br">campus !</span>
     </AboutSectionQuestion>
     <AboutSectionQuestion question="Qui organise tout ça ?">
         Le BDE est dirigé par des apprenants bénévoles avec une volonté de donner vie au campus et renforcer le lien
-        inter-promotions !
+        <span class="no-br">inter-promotions !</span>
     </AboutSectionQuestion>
 </SectionContainer>

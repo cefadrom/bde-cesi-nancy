@@ -38,7 +38,7 @@
 
 
 <SectionContainer header hidecta={$me.membership_status === 'cotisant'}>
-    <h1 class="header-1">Bonjour {$me.first_name} 👋</h1>
+    <h1 class="header-1">Bonjour <span class="no-br">{$me.first_name} 👋</span></h1>
     <div class="dashboard-content">
         {#if $me.membership_status !== 'aucun'}
             <div class="card-container">

@@ -52,6 +52,10 @@ html.no-body-scroll, html.no-body-scroll body {
     overflow: hidden;
 }
 
+.no-br {
+    white-space: nowrap;
+}
+
 .header-1 {
     font-weight: 900;
     font-size: 4rem; /* 64px */

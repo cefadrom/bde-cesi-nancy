@@ -9,5 +9,7 @@
 
 <SectionContainer header>
     <h1 class="header-1">Évènements 🎉</h1>
-    <p class="body">C'est sur cette page que vous verrez les évènements passés et à venir 👀</p>
+    <p class="body">
+        C'est sur cette page que vous verrez les évènements passés et à <span class="no-br">venir 👀</span>
+    </p>
 </SectionContainer>
