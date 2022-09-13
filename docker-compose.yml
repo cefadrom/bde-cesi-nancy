@@ -11,8 +11,6 @@ services:
             dockerfile: Dockerfile
             target: web
         hostname: bde-web
-        depends_on:
-            - directus
         networks:
             - web
         environment:
