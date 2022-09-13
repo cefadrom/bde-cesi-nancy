@@ -7,6 +7,17 @@
 <Meta title="Évènements"/>
 
 
+<style>
+    h1 {
+        margin-top: 0;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+</style>
+
+
 <SectionContainer header>
     <h1 class="header-1">Évènements 🎉</h1>
     <p class="body">
