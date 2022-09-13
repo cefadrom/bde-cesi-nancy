@@ -2741,6 +2741,34 @@ fields:
       table: memberships
     type: string
   - collection: memberships
+    field: divider-h2gj54
+    meta:
+      collection: memberships
+      field: divider-h2gj54
+      special:
+        - alias
+        - no-data
+      interface: presentation-divider
+      options:
+        icon: bug_report
+        title: Debug
+        inlineTitle: true
+      display: null
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 14
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+      validation: null
+      validation_message: null
+    schema: null
+    type: alias
+  - collection: memberships
     field: divider-lqxhw9
     meta:
       collection: memberships
@@ -3093,6 +3121,36 @@ fields:
       numeric_scale: 2
       table: memberships
     type: float
+  - collection: memberships
+    field: origin_log
+    meta:
+      collection: memberships
+      field: origin_log
+      special:
+        - o2m
+      interface: list-o2m
+      options:
+        limit: 1
+        enableLink: true
+        enableCreate: false
+        enableSelect: false
+      display: null
+      display_options: null
+      readonly: true
+      hidden: false
+      sort: null
+      width: full
+      translations:
+        - language: fr-FR
+          translation: Log d'origine
+      note: null
+      conditions: null
+      required: false
+      group: null
+      validation: null
+      validation_message: null
+    schema: null
+    type: alias
   - collection: memberships
     field: payer_email
     meta:
@@ -3638,7 +3696,7 @@ relations:
       one_collection: memberships
       one_collection_field: null
       one_deselect_action: nullify
-      one_field: null
+      one_field: origin_log
       sort_field: null
     related_collection: memberships
     schema:
