@@ -200,7 +200,8 @@
             <p>
                 Votre {type === 'adhesion' ? 'adhésion' : 'cotisation'}
                 n'est pas détectée dans nos systèmes. Vérifiez que vous avez bien terminé toutes les étapes sur
-                HelloAsso, et réessayer. Si le problème persiste,
+                HelloAsso et indiqué votre adresse mail <span class="bold">viacesi</span>, puis réessayez.
+                Si le problème persiste,
                 <a href="/contact?category=info&subject=Impossible+de+valider+{type === 'adhesion' ? 'mon+adhésion' : 'ma+cotisation'}">
                     contactez-nous
                 </a>.
