@@ -45,7 +45,7 @@ export default {
             const order = req.body as HelloassoOrderCallback;
 
             if (!order
-                || order.eventType !== 'Order'
+                || ![ 'Order', 'Payment' ].includes(order.eventType)
                 || order.data.items.length !== 1
                 || order.data.items[0].type !== 'Membership'
                 || ![ 'Processed', 'Registered' ].includes(order.data.items[0].state)) {
@@ -108,8 +108,8 @@ export default {
                 membership_id,
                 order_date: new Date(membershipDetails.order.date),
                 order_form: membershipDetails.order.formSlug as 'adhesion-bde' | 'cotisation-bde',
-                order_amount: membershipDetails.amount,
-                order_initial_amount: membershipDetails.initialAmount,
+                order_amount: membershipDetails.amount / 100,
+                order_initial_amount: membershipDetails.initialAmount / 100,
                 adherent_name: `${membershipDetails.user.firstName} ${membershipDetails.user.lastName}`,
                 adherent_email: adherentMail,
                 payer_name: `${membershipDetails.payer.firstName} ${membershipDetails.payer.lastName}`,

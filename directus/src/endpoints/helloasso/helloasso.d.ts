@@ -14,7 +14,7 @@ export type HelloAssoPurchaseState = 'Processed' | 'Registered' | 'Unknown' | 'C
 
 
 export interface HelloassoOrderCallback {
-    eventType: 'Order'
+    eventType: 'Order' | 'Payment',
     data: {
         payer: HelloAssoPayeer,
         items: [ HelloassoMembershipPurchase ],
