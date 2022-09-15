@@ -1638,8 +1638,19 @@ fields:
     meta:
       collection: contact
       conditions: null
-      display: null
-      display_options: null
+      display: labels
+      display_options:
+        choices:
+          - text: Bureau
+            value: bureau
+          - text: Club
+            value: club
+          - text: Communication
+            value: communication
+          - text: Informatique
+            value: info
+          - text: Autre
+            value: autre
       field: category
       group: null
       hidden: false
@@ -1692,7 +1703,7 @@ fields:
       conditions: null
       display: datetime
       display_options:
-        relative: true
+        format: short
       field: date_created
       group: null
       hidden: false
@@ -2627,13 +2638,21 @@ fields:
       collection: helloasso_logs
       conditions: null
       display: boolean
-      display_options: null
+      display_options:
+        colorOff: '#E35169'
+        colorOn: '#2ECDA7'
+        iconOff: report_gmailerrorred
       field: success
       group: null
       hidden: false
       interface: boolean
       note: null
-      options: null
+      options:
+        colorOff: '#E35169'
+        colorOn: '#2ECDA7'
+        iconOff: report_gmailerrorred
+        iconOn: check
+        label: Résultat de l'opération
       readonly: true
       required: false
       sort: 4
@@ -2966,8 +2985,9 @@ fields:
     meta:
       collection: memberships
       conditions: null
-      display: null
-      display_options: null
+      display: datetime
+      display_options:
+        format: short
       field: order_date
       group: null
       hidden: false
@@ -3007,8 +3027,13 @@ fields:
     meta:
       collection: memberships
       conditions: null
-      display: null
-      display_options: null
+      display: labels
+      display_options:
+        choices:
+          - text: Adhésion
+            value: adhesion-bde
+          - text: Cotisation
+            value: cotisation-bde
       field: order_form
       group: null
       hidden: false
