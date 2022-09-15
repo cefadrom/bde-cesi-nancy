@@ -44,20 +44,19 @@ export default {
 
             const order = req.body as HelloassoOrderCallback;
 
+            const callbackMembership = order?.data?.items?.find(i => i?.type === 'Membership');
+
             if (!order
                 || ![ 'Order', 'Payment' ].includes(order.eventType)
-                || order.data.items.length !== 1
-                || order.data.items[0].type !== 'Membership'
-                || ![ 'Processed', 'Registered' ].includes(order.data.items[0].state)) {
+                || !callbackMembership?.id
+                || ![ 'Processed', 'Registered' ].includes(callbackMembership.state)) {
                 await helloAssoLog(context.database, order, false, 'Invalid order');
                 return res.sendStatus(204);
             }
 
-            const membershipID = order.data.items[0].id;
-
             let membershipDetails: HelloAssoMembershipItem;
             try {
-                const membershipDetailsRes = await nodeFetch(`${HELLO_ASSO_ENDPOINT}/v5/items/${membershipID}?withDetails=true`, {
+                const membershipDetailsRes = await nodeFetch(`${HELLO_ASSO_ENDPOINT}/v5/items/${callbackMembership.id}?withDetails=true`, {
                     headers: {
                         'Authorization': `Bearer ${helloAssoTokens.access}`,
                     },
