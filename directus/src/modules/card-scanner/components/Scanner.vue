@@ -5,7 +5,7 @@
 
 <script setup lang="ts">
 import type { default as IQrScanner } from 'qr-scanner';
-import { defineEmits, onBeforeUnmount, ref, watch } from 'vue';
+import { onBeforeUnmount, ref, watch } from 'vue';
 
 const video = ref<HTMLVideoElement>();
 const scanner = ref<IQrScanner>();
