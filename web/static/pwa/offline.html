@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="/pwa/android-chrome-128x128.png" rel="icon" sizes="128x128"/>
+    <title>BDE CESI Nancy</title>
+
+    <style>
+        body {
+            background-color: #fafbff;
+            color: #191c29;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        main {
+            max-width: 32rem;
+            font-size: 1rem;
+            line-height: 1.2;
+            padding: 1rem;
+        }
+
+        .btn-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 3.075rem;
+            margin-top: 2rem;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            padding: .75rem 2rem;
+            border-radius: .75rem;
+            cursor: pointer;
+            transition: box-shadow .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.625rem;
+            background-color: #0a33ff;
+            color: #fafbff;
+            font-weight: 700;
+            font-size: 1.125rem;
+            letter-spacing: 0.02rem; /* 2% */
+            line-height: 140%;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Eh bah alors, on a plus de co ?</h1>
+    <p>
+        D'après nos calculs très scientifiques, tu sembles être hors ligne. Mais heureusement, vu que nous sommes des
+        personnes d'une extrême sympathie, voici un petit jeu pour t'occuper dans ce moment difficile ^^. Il te suffit
+        de cliquer sur le bouton pour démarrer.
+    </p>
+    <div class="btn-container">
+        <button>Démarrer</button>
+    </div>
+</main>
+
+<script>
+    // Each time the user clicks the button, it moves to a new random position (the button is in the center of the screen)
+    const button = document.querySelector('button');
+    button.addEventListener('click', () => {
+        const x = Math.floor(Math.random() * (window.innerWidth - button.clientWidth));
+        const y = Math.floor(Math.random() * (window.innerHeight - button.clientHeight));
+        button.style.position = 'absolute';
+        button.style.left = `${x}px`;
+        button.style.top = `${y}px`;
+    });
+</script>
+</body>
+</html>
