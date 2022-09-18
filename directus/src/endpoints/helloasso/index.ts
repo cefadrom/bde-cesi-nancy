@@ -99,7 +99,12 @@ export default {
             }
 
             const membershipDbID = uuid();
-            const adherentMail = membershipDetails.customFields.find(f => f.name.toLowerCase().includes('mail'))?.answer;
+            const adherentMail = membershipDetails
+                .customFields
+                .find(f => f.name.toLowerCase().includes('mail'))
+                ?.answer
+                ?.toLowerCase();
+            const payerMail = membershipDetails.payer.email.toLowerCase();
 
             await context.database<Membership>('memberships').insert({
                 id: membershipDbID,
@@ -112,13 +117,13 @@ export default {
                 adherent_name: `${membershipDetails.user.firstName} ${membershipDetails.user.lastName}`,
                 adherent_email: adherentMail,
                 payer_name: `${membershipDetails.payer.firstName} ${membershipDetails.payer.lastName}`,
-                payer_email: membershipDetails.payer.email,
+                payer_email: payerMail,
             });
 
             const membershipUser = await context
                 .database<User>('directus_users')
                 .select([ 'id', 'email' ])
-                .where({ email: membershipDetails.payer.email })
+                .where({ email: payerMail })
                 .orWhere({ email: adherentMail });
 
             if (membershipUser.length === 0) {
