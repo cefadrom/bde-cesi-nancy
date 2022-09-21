@@ -15,7 +15,8 @@ export async function getRawCSV(req: Request, knex: Knex, storageLocalRoot: stri
 
     if (!file)
         return { error: 'File not found', status: 404 };
-    if (file.type !== 'application/vnd.ms-excel')
+
+    if (![ 'application/vnd.ms-excel', 'text/csv' ].includes(file.type))
         return { error: 'File is not a CSV', status: 400 };
 
     const filePath = path.resolve(storageLocalRoot, file.filename_disk);
