@@ -118,9 +118,9 @@
     </div>
     <nav>
         <HeaderLink href="/" icon="home-filled-black" label="Accueil"/>
-        <!--        <div class="sponsors-link">-->
-        <!--            <HeaderLink href="/sponsors" icon="diamond-filled-black" label="Sponsors"/>-->
-        <!--        </div>-->
+        <div class="sponsors-link">
+            <HeaderLink href="/#sponsors" icon="diamond-filled-black" label="Sponsors"/>
+        </div>
         <HeaderLink href="/events" icon="bonfire-filled-black" label="Événements"/>
         <HeaderLink href="/clubs" icon="people-filled-black" label="Clubs"/>
         <HeaderLink href="/contact" icon="mail-filled-black" label="Contact"/>

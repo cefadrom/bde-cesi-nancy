@@ -1,6 +1,7 @@
 <script>
     import AboutSection from '$lib/home/AboutSection.svelte';
     import OrganizationChartSection from '$lib/home/OrganizationChartSection.svelte';
+    import SponsorsSection from '$lib/home/SponsorsSection.svelte';
     import WelcomeSection from '$lib/home/WelcomeSection.svelte';
     import Meta from '$lib/Meta.svelte';
 </script>
@@ -11,4 +12,5 @@
 
 <WelcomeSection/>
 <AboutSection/>
+<SponsorsSection/>
 <OrganizationChartSection/>

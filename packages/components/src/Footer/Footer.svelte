@@ -147,7 +147,7 @@
                     </div>
                     <div class="footer-cols">
                         <p class="small"><a href="/development">Développement</a></p>
-                        <p class="small"><a href="/sponsors">Sponsors</a></p>
+                        <p class="small"><a href="/#sponsors">Sponsors</a></p>
                     </div>
                 </div>
             </div>

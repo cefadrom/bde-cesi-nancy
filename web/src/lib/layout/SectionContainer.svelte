@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
     export let gray = false;
     export let header = false;
     export let hidecta = false;
+    export let anchor: string | null = null;
 </script>
 
 
@@ -14,6 +15,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        position: relative;
     }
 
     .gray {
@@ -23,6 +25,16 @@
     .header {
         min-height: 100vh;
         padding-top: calc(var(--nav-height) + 6rem);
+    }
+
+    .anchor {
+        position: absolute;
+        visibility: hidden;
+        top: 0;
+    }
+
+    .anchor:not(.header) {
+        top: calc(var(--nav-height) * -1);
     }
 
     .container {
@@ -76,6 +88,10 @@
         section.header {
             padding: 1rem 2rem calc(var(--nav-height) + 1rem);
         }
+
+        .anchor:not(.header) {
+            top: 0;
+        }
     }
 
     @media all and (max-width: 500px) {
@@ -87,6 +103,9 @@
 
 
 <section class:gray class:header>
+    {#if anchor}
+        <div class="anchor" id={anchor}/>
+    {/if}
     <div class="container">
         <slot/>
         {#if $$slots.cta && !hidecta}
