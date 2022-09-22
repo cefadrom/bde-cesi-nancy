@@ -1,5 +1,5 @@
 version: 1
-directus: 9.17.4
+directus: 9.18.0
 collections:
   - collection: HelloAsso
     meta:
@@ -1951,7 +1951,7 @@ fields:
       is_nullable: true
       is_primary_key: false
       is_unique: false
-      max_length: 38
+      max_length: 63
       name: ip
       numeric_precision: null
       numeric_scale: null
