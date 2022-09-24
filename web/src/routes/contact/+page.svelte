@@ -6,11 +6,15 @@
 
 
 <script lang="ts">
-    import { postContactForm } from '$lib/api/postContactForm';
     import ContactForm from '$lib/contact/ContactForm.svelte';
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
     import Meta from '$lib/Meta.svelte';
     import type { IContactFormData } from '@bde-cesi-nancy/types/api';
+    import type { Directus } from '$lib/types';
+    import type { TransportError } from '@directus/sdk';
+    import { getContext } from 'svelte';
+
+    const directus = getContext<Directus>('directus');
 
     let isLoading = false;
     let error: string | null = null;
@@ -18,12 +22,15 @@
     function handleFormSubmit({ detail: form }: { detail: IContactFormData }) {
         isLoading = true;
         error = null;
-        postContactForm(form)
+
+        directus.transport.post('/contact', form)
             .then(() => {
-                $isSubmitted = true;
+                isSubmitted.set(true);
             })
-            .catch(err => {
-                error = err.message;
+            .catch((err: TransportError) => {
+                error = err.response?.errors?.map(e => e.message)?.join(', ')
+                    || err.response?.raw?.error
+                    || err.message;
             })
             .finally(() => {
                 isLoading = false;

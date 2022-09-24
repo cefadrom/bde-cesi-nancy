@@ -1715,7 +1715,9 @@ fields:
       sort: 4
       special:
         - date-created
-      translations: null
+      translations:
+        - language: fr-FR
+          translation: Date de création
       validation: null
       validation_message: null
       width: half
@@ -1747,7 +1749,7 @@ fields:
         relative: true
       field: date_updated
       group: null
-      hidden: false
+      hidden: true
       interface: datetime
       note: null
       options: null
@@ -2149,13 +2151,17 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
+        enableCreate: false
+        enableSelect: false
         template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
       readonly: true
       required: false
       sort: 3
       special:
         - user-created
-      translations: null
+      translations:
+        - language: fr-FR
+          translation: Utilisateur (si connecté)
       validation: null
       validation_message: null
       width: half
@@ -2186,7 +2192,7 @@ fields:
       display_options: null
       field: user_updated
       group: null
-      hidden: false
+      hidden: true
       interface: select-dropdown-m2o
       note: null
       options:

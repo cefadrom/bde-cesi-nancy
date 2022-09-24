@@ -35,6 +35,7 @@ export default {
             await context.database<Contact>('contact').insert({
                 id: uuid(),
                 date_created: new Date(),
+                user_created: req.accountability.user || null,
                 name: `${value.lastName} ${value.firstName}`,
                 email: value.email,
                 ip,
