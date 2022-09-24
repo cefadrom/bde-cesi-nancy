@@ -38,11 +38,14 @@
     if ($page.url.searchParams.has('subject'))
         form.subject = $page.url.searchParams.get('subject');
 
-    $: if ($loginStatus === 'LOGGED_IN' && $me) {
+    function setUserDetails() {
         form.firstName = $me.first_name;
         form.lastName = $me.last_name;
         form.email = $me.email;
     }
+
+    $: if ($loginStatus === 'LOGGED_IN' && $me)
+        setUserDetails();
 
     const dispatch = createEventDispatcher();
 
