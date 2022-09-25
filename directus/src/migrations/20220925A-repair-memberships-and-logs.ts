@@ -28,7 +28,7 @@ export default {
             updatedMemberships++;
         }
 
-        console.log(`Updated ${updatedMemberships} / ${membershipsWithoutUsers.length} users`);
+        console.log(`Updated ${updatedMemberships} / ${membershipsWithoutUsers.length} memberships`);
 
         // Repair logs
 
