@@ -1,5 +1,5 @@
 version: 1
-directus: 9.18.0
+directus: 9.18.1
 collections:
   - collection: HelloAsso
     meta:
@@ -2386,6 +2386,49 @@ fields:
       table: directus_users
     type: string
   - collection: helloasso_logs
+    field: comment
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: null
+      display_options:
+        conditionalFormatting: null
+      field: comment
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options:
+        trim: true
+      readonly: false
+      required: false
+      sort: 10
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Commentaire
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: text
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 65535
+      name: comment
+      numeric_precision: null
+      numeric_scale: null
+      table: helloasso_logs
+    type: text
+  - collection: helloasso_logs
     field: created_at
     meta:
       collection: helloasso_logs
@@ -2429,6 +2472,61 @@ fields:
       numeric_scale: null
       table: helloasso_logs
     type: dateTime
+  - collection: helloasso_logs
+    field: event_type
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: Commande
+            value: Order
+          - text: Paiement
+            value: Payment
+          - text: Formulaire
+            value: Form
+      field: event_type
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Commande
+            value: Order
+          - text: Paiement
+            value: Payment
+          - text: Formulaire
+            value: Form
+      readonly: true
+      required: true
+      sort: 7
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Type
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 63
+      name: event_type
+      numeric_precision: null
+      numeric_scale: null
+      table: helloasso_logs
+    type: string
   - collection: helloasso_logs
     field: id
     meta:
@@ -2486,7 +2584,7 @@ fields:
         template: ''
       readonly: false
       required: true
-      sort: 7
+      sort: 9
       special: null
       translations:
         - language: fr-FR
@@ -2571,7 +2669,7 @@ fields:
         template: "{{order_id}} -\_{{adherent_name}} -\_{{order_form}}"
       readonly: true
       required: false
-      sort: 6
+      sort: 8
       special:
         - m2o
       translations:
@@ -2944,6 +3042,52 @@ fields:
       table: memberships
     type: integer
   - collection: memberships
+    field: membership_user
+    meta:
+      collection: memberships
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{last_name}}\_{{first_name}}"
+      field: membership_user
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        enableSelect: false
+        template: "{{last_name}}\_{{first_name}}"
+      readonly: true
+      required: false
+      sort: 15
+      special:
+        - m2o
+      translations:
+        - language: fr-FR
+          translation: Compte associé
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: char
+      default_value: null
+      foreign_key_column: id
+      foreign_key_table: directus_users
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 36
+      name: membership_user
+      numeric_precision: null
+      numeric_scale: null
+      table: memberships
+    type: string
+  - collection: memberships
     field: order_amount
     meta:
       collection: memberships
@@ -3173,15 +3317,17 @@ fields:
         - o2m
       interface: list-o2m
       options:
-        limit: 1
+        limit: 2
+        template: "{{event_type}}\_{{id}}"
         enableLink: true
         enableCreate: false
         enableSelect: false
-      display: null
-      display_options: null
+      display: related-values
+      display_options:
+        template: '{{event_type}}'
       readonly: true
       hidden: false
-      sort: null
+      sort: 16
       width: full
       translations:
         - language: fr-FR
@@ -3750,3 +3896,24 @@ relations:
       on_delete: SET NULL
       on_update: NO ACTION
       table: helloasso_logs
+  - collection: memberships
+    field: membership_user
+    meta:
+      junction_field: null
+      many_collection: memberships
+      many_field: membership_user
+      one_allowed_collections: null
+      one_collection: directus_users
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: directus_users
+    schema:
+      column: membership_user
+      constraint_name: memberships_membership_user_foreign
+      foreign_key_column: id
+      foreign_key_table: directus_users
+      on_delete: SET NULL
+      on_update: NO ACTION
+      table: memberships

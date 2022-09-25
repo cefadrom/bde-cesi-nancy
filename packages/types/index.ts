@@ -66,10 +66,10 @@ export interface Club {
     thumbnail: string;
 }
 
-export interface Membership {
+export interface Membership<L = string, U = string> {
     id: string;
-    order_id: string;
-    membership_id: string;
+    order_id: number;
+    membership_id: number;
     order_date: Date;
     order_form: 'adhesion-bde' | 'cotisation-bde';
     order_amount: number;
@@ -78,4 +78,18 @@ export interface Membership {
     adherent_email: string;
     payer_name: string;
     payer_email: string;
+    origin_log: L[];
+    membership_user: U | null;
+}
+
+export interface HelloassoLog {
+    id: string;
+    reviewed: boolean;
+    created_at: Date;
+    success: boolean;
+    reject_reason: string | null;
+    event_type: 'Order' | 'Payment' | 'Form';
+    result_membership: string | null;
+    input: string;
+    comment: string | null;
 }
