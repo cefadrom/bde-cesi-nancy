@@ -124,7 +124,7 @@
                 <div class="footer-link-section">
                     <h4 class="bold">Coordonnées</h4>
                     <p class="small">
-                        <a href="https://goo.gl/maps/hz2gHLADXTXgvto37">
+                        <a href="https://goo.gl/maps/hz2gHLADXTXgvto37" rel="noreferrer noopener">
                             3 Rue du Bois de la Champelle<br/> 54500 Vandœuvre-lès-Nancy
                         </a>
                     </p>
