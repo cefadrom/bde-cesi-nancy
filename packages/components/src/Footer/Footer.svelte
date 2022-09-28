@@ -147,12 +147,12 @@
                     <h4 class="bold">Infos</h4>
                     <div class="footer-cols">
                         <p class="small"><a href="/predecessors">Anciens BDE</a></p>
-                        <p class="small"><a href="/bug-bounty">Bug bounty</a></p>
-                    </div>
-                    <div class="footer-cols">
-                        <p class="small"><a href="/development">Développement</a></p>
                         <p class="small"><a href="/#sponsors">Sponsors</a></p>
                     </div>
+<!--                    <div class="footer-cols">-->
+<!--                        <p class="small"><a href="/bug-bounty">Bug bounty</a></p>-->
+<!--                        <p class="small"><a href="/development">Développement</a></p>-->
+<!--                    </div>-->
                 </div>
             </div>
             <div class="footer-socials">
