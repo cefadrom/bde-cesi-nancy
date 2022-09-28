@@ -69,7 +69,7 @@
         }
     }
 
-    @media all and (max-width: 700px) {
+    @media all and (max-width: 720px) {
         .footer-content {
             padding: 2rem;
         }
@@ -80,7 +80,7 @@
         }
     }
 
-    @media all and (max-width: 550px) {
+    @media all and (max-width: 575px) {
         .footer-links {
             flex-direction: column;
             gap: 2rem;
@@ -123,7 +123,11 @@
             <div class="footer-links">
                 <div class="footer-link-section">
                     <h4 class="bold">Coordonnées</h4>
-                    <p class="small">3 Rue de la Champelle<br/>54500 Vandoeuvre-lès-Nancy</p>
+                    <p class="small">
+                        <a href="https://goo.gl/maps/hz2gHLADXTXgvto37">
+                            3 Rue du Bois de la Champelle<br/> 54500 Vandœuvre-lès-Nancy
+                        </a>
+                    </p>
                     <p class="small"><a href="mailto:contact@bdecesinancy.fr">contact@bdecesinancy.fr</a></p>
                 </div>
                 <div class="footer-link-section">
