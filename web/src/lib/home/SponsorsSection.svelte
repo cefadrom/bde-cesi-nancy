@@ -24,9 +24,17 @@
         max-width: 12rem;
     }
 
+    img:last-of-type {
+        grid-area: 3 / 2 / 4 / 3;
+    }
+
     @media all and (max-width: 900px) {
         .sponsors-grid {
             grid-template-columns: repeat(2, 10rem);
+        }
+
+        img:last-of-type {
+            grid-area: unset;
         }
     }
 
@@ -57,5 +65,6 @@
         <img alt="Les Arrangés du Bocal" height="499" loading="lazy" src="/sponsors/les-arranges-du-bocal.png"
              width="499">
         <img alt="Bloc Session" height="400" loading="lazy" src="/sponsors/bloc-session.png" width="400">
+        <img alt="Cosmic Park" height="187" loading="lazy" src="/sponsors/cosmic-park.png" width="500">
     </div>
 </SectionContainer>
