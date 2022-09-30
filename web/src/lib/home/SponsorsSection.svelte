@@ -47,7 +47,7 @@
 </style>
 
 
-<SectionContainer anchor="sponsors" gray>
+<SectionContainer anchor="partners" gray>
     <h2 class="header-2">Nos partenaires 💛</h2>
     <div class="sponsors-grid">
         <img alt="CESI" height="836" loading="lazy" src="/sponsors/cesi.png" width="836"/>

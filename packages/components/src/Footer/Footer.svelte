@@ -147,7 +147,7 @@
                     <h4 class="bold">Infos</h4>
                     <div class="footer-cols">
                         <p class="small"><a href="/predecessors">Anciens BDE</a></p>
-                        <p class="small"><a href="/#sponsors">Sponsors</a></p>
+                        <p class="small"><a href="/#partners">Partenaires</a></p>
                     </div>
 <!--                    <div class="footer-cols">-->
 <!--                        <p class="small"><a href="/bug-bounty">Bug bounty</a></p>-->
