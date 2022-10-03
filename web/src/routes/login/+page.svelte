@@ -67,9 +67,9 @@
     {:else if errorCode === 'NO_COOKIE'}
         <h1 class="header-1">Erreur de connexion</h1>
         <p class="body">
-            Impossible de trouvez le cookie d'authentification. Veuillez vérifier que les cookies sont bien activés sur
+            Impossible de trouver le cookie d'authentification. Assurez-vous que les cookies sont bien activés sur
             votre navigateur et <a href="/members">réessayez</a>. Si le problème persiste,
-            <a href="/contact?category=info&subject=Impossible+de+me+connecter+(cookies)">veuillez nous contacter</a>.
+            <a href="/contact?category=info&subject=Impossible+de+me+connecter+(cookies)">contactez-nous</a>.
         </p>
     {:else if error}
         <h1 class="header-1">Erreur</h1>
