@@ -7,6 +7,7 @@
 
 <script lang="ts">
     import ContactForm from '$lib/contact/ContactForm.svelte';
+    import ContactSuccessMessage from '$lib/contact/ContactSuccessMessage.svelte';
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
     import Meta from '$lib/Meta.svelte';
     import type { IContactFormData } from '@bde-cesi-nancy/types/api';
@@ -39,35 +40,6 @@
 </script>
 
 
-<style>
-    p {
-        background-color: var(--light-gray);
-        border-radius: 2rem;
-        padding: 4rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 30rem;
-        text-align: center;
-        color: var(--green);
-    }
-
-    @media all and (max-width: 850px) {
-        p {
-            padding: 2rem;
-        }
-    }
-
-    @media all and (max-width: 500px) {
-        p {
-            padding: 0;
-            background-color: inherit;
-        }
-    }
-</style>
-
-
 <Meta title="Contact"/>
 
 
@@ -76,6 +48,6 @@
     {#if !$isSubmitted}
         <ContactForm on:submit={handleFormSubmit} disabled={isLoading} {error}/>
     {:else}
-        <p class="bold">Votre demande de contact à été transmise ! Nous vous répondrons dans les plus brefs délais !</p>
+        <ContactSuccessMessage/>
     {/if}
 </SectionContainer>
