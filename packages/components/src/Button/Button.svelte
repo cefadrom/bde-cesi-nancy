@@ -47,7 +47,7 @@
     }
 
     .btn-outline {
-        background-color: var(--white);
+        background-color: transparent;
         color: var(--black);
         outline: 2px solid var(--black);
     }
