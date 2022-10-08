@@ -1,26 +1,13 @@
-<script>
-    import SectionContainer from '$lib/layout/SectionContainer.svelte';
+<script lang="ts">
+    import EventsSection from '$lib/events/EventsSection.svelte';
     import Meta from '$lib/Meta.svelte';
+    import type { Event } from '@bde-cesi-nancy/types';
+
+    export let data: { events: Event[] };
 </script>
 
 
 <Meta title="Évènements"/>
 
 
-<style>
-    h1 {
-        margin-top: 0;
-    }
-
-    p {
-        margin-bottom: 0;
-    }
-</style>
-
-
-<SectionContainer header>
-    <h1 class="header-1">Évènements 🎉</h1>
-    <p class="body">
-        C'est sur cette page que vous verrez les évènements passés et à <span class="no-br">venir 👀</span>
-    </p>
-</SectionContainer>
+<EventsSection events={data.events}/>

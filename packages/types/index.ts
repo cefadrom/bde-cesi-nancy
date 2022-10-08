@@ -93,3 +93,16 @@ export interface HelloassoLog {
     input: string;
     comment: string | null;
 }
+
+export interface Event {
+    id: string;
+    name: string;
+    description: string;
+    poster: string;
+    visible: boolean;
+    date_start: Date;
+    date_end: Date | null;
+    hide_hours: boolean;
+    cta_text: string | null;
+    cta_link: string | null;
+}
