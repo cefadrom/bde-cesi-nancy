@@ -71,7 +71,7 @@
 
 
 <div class="card">
-    <img src={club.thumbnail} alt={club.name} loading="lazy"/>
+    <img src="{club.thumbnail}?key=club-thumb" alt={club.name} loading="lazy"/>
     <div class="content">
         <h3 class="header-3">{club.name}</h3>
         <p class="body">{club.description}</p>

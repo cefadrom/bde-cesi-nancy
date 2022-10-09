@@ -96,7 +96,7 @@
 
 
 <div class="container">
-    <img src={event.poster} alt={event.name} on:click={displayPoster}/>
+    <img src="{event.poster}?key=event-thumb" alt={event.name} on:click={displayPoster}/>
     <div class="information">
         <div class="title">
             <h3 class="header-3">{event.name}</h3>
