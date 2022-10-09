@@ -7,14 +7,23 @@
 
     const dispatch = createEventDispatcher();
 
-    function formatDate(date: Date): string {
+    function formatDate(date: Date, hideHours = event.hide_hours): string {
         return date.toLocaleDateString('fr-FR', {
             day: 'numeric',
             month: 'long',
             year: 'numeric',
-            ...(event.hide_hours ? {} : { hour: 'numeric', minute: 'numeric' }),
+            ...(hideHours ? {} : { hour: 'numeric', minute: 'numeric' }),
         });
     }
+
+    function formatTime(date: Date): string {
+        return date.toLocaleTimeString('fr-FR', {
+            hour: 'numeric',
+            minute: 'numeric',
+        });
+    }
+
+    const isSameDay = () => event.date_start.toLocaleDateString() === event.date_end.toLocaleDateString();
 
     function displayPoster() {
         dispatch('show-poster', event);
@@ -93,7 +102,12 @@
             <h3 class="header-3">{event.name}</h3>
             <div class="small">
                 {#if event.date_end}
-                    Du {formatDate(event.date_start)} au {formatDate(event.date_end)}
+                    {#if isSameDay()}
+                        Le {formatDate(event.date_start, true)}
+                        de {formatTime(event.date_start)} à {formatTime(event.date_end)}
+                    {:else}
+                        Du {formatDate(event.date_start)} au {formatDate(event.date_end)}
+                    {/if}
                 {:else}
                     Le {formatDate(event.date_start)}
                 {/if}
