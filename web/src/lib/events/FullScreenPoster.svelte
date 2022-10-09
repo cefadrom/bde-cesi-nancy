@@ -35,10 +35,24 @@
         box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
     }
 
+    .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 3rem;
+        height: 3rem;
+        border: 0.5rem solid var(--white);
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin .75s linear infinite;
+    }
+
     .poster-img {
         height: 100%;
         width: 100%;
         object-fit: contain;
+        position: relative;
     }
 
     @media all and (max-width: 900px) {
@@ -47,10 +61,17 @@
             right: 2rem;
         }
     }
+
+    @keyframes spin {
+        to {
+            transform: translate(-50%, -50%) rotate(1turn);
+        }
+    }
 </style>
 
 
 <div class="poster" on:click={close} transition:fade|local={{duration: 100}}>
-    <img src="icons/close-filled-black.svg" alt="x" class="close"/>
+    <div class="loader"/>
     <img class="poster-img" src={poster} alt={title}/>
+    <img class="close" src="icons/close-filled-black.svg" alt="x"/>
 </div>
