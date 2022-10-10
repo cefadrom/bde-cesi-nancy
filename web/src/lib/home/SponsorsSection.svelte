@@ -24,10 +24,6 @@
         max-width: 12rem;
     }
 
-    img:last-of-type {
-        grid-area: 3 / 2 / 4 / 3;
-    }
-
     @media all and (max-width: 900px) {
         .sponsors-grid {
             grid-template-columns: repeat(2, 10rem);
@@ -66,5 +62,6 @@
              width="499">
         <img alt="Bloc Session" height="400" loading="lazy" src="/sponsors/bloc-session.png" width="400">
         <img alt="Cosmic Park" height="187" loading="lazy" src="/sponsors/cosmic-park.png" width="500">
+        <img alt="Race system" height="328" loading="lazy" src="/sponsors/race-system.png" width="835">
     </div>
 </SectionContainer>
