@@ -1,6 +1,11 @@
 <script lang="ts">
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
+    import Meta from '$lib/Meta.svelte';
 </script>
+
+
+<Meta title="Mentions légales"/>
+
 
 <SectionContainer header>
 
