@@ -61,19 +61,29 @@
         <h1 class="header-1">Accès refusé</h1>
         <p class="body">
             La connexion avec cette adresse mail vous à été refusée. Si vous êtes bien un étudiant au campus CESI de
-            Nancy, <a href="/contact?category=info&subject=Impossible+de+me+connecter+(connexion+refusée)">veuillez nous
-            contacter</a>.
+            Nancy,
+            <a class="link" href="/contact?category=info&subject=Impossible+de+me+connecter+(connexion+refusée)">
+                veuillez nous contacter
+            </a>.
         </p>
     {:else if errorCode === 'NO_COOKIE'}
         <h1 class="header-1">Erreur de connexion</h1>
         <p class="body">
             Impossible de trouver le cookie d'authentification. Assurez-vous que les cookies sont bien activés sur
-            votre navigateur et <a href="/members">réessayez</a>. Si le problème persiste,
-            <a href="/contact?category=info&subject=Impossible+de+me+connecter+(cookies)">contactez-nous</a>.
+            votre navigateur et <a class="link" href="/members">réessayez</a>. Si le problème persiste,
+            <a class="link no-br" href="/contact?category=info&subject=Impossible+de+me+connecter+(cookies)">
+                contactez-nous
+            </a>.
         </p>
     {:else if error}
         <h1 class="header-1">Erreur</h1>
         <p class="body">{error}</p>
+        <p>
+            Si l'erreur persiste, n'hésitez pas à
+            <a class="link no-br" href="/contact?category=info&subject=Erreur+{data.error}+lors+de+la+connexion">
+                nous contacter
+            </a>.
+        </p>
     {:else}
         <LoadingSpinner/>
     {/if}

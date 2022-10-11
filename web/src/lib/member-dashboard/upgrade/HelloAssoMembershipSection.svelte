@@ -220,9 +220,8 @@
                 n'est pas détectée dans nos systèmes. Vérifiez que vous avez bien terminé toutes les étapes sur
                 HelloAsso avec votre adresse mail <span class="bold">viacesi</span>, puis réessayez.
                 Si le problème persiste,
-                <a href="/contact?category=info&subject=Impossible+de+valider+{type === 'adhesion' ? 'mon+adhésion' : 'ma+cotisation'}">
-                    contactez-nous
-                </a>.
+                <a href="/contact?category=info&subject=Impossible+de+valider+{type === 'adhesion' ? 'mon+adhésion' : 'ma+cotisation'}"
+                   class="link">contactez-nous</a>.
             </p>
             <div class="validation-popup-cta-bar">
                 <Button variant="secondary" on:click={goToDashboard} slot="cta-l" block>

@@ -47,7 +47,7 @@
 
     <p>
         Le traitement de vos données à caractère personnel est régi par notre
-        <a href="/rgpd">Charte du respect de la vie privée</a>,
+        <a class="link" href="/rgpd">Charte du respect de la vie privée</a>,
         disponible depuis la section "Charte de Protection des Données Personnelles", conformément au Règlement Général
         sur la Protection des Données 2016/679 du 27 avril 2016 («RGPD»).
     </p>

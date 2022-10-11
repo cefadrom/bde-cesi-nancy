@@ -35,11 +35,6 @@
         height: 100%;
     }
 
-    a {
-        text-decoration: none;
-        color: var(--blue);
-    }
-
     h3, p {
         margin: 0;
     }
@@ -78,7 +73,7 @@
         <p class="small">
             Président : {club.president_name}
             <br/>
-            Contact : <a href="mailto:{club.contact_email}">{club.contact_email}</a>
+            Contact : <a class="link" href="mailto:{club.contact_email}">{club.contact_email}</a>
         </p>
     </div>
 </div>
