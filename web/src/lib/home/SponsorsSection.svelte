@@ -54,14 +54,14 @@
 <SectionContainer anchor="partners" gray>
     <h2 class="header-2">Nos partenaires 💛</h2>
     <div class="sponsors-grid">
-        <img alt="CESI" height="836" loading="lazy" src="/sponsors/cesi.png" width="836"/>
-        <img alt="LCL" height="230" loading="lazy" src="/sponsors/lcl.png" width="294"/>
-        <img alt="RedBull" height="512" loading="lazy" src="/sponsors/redbull.png" width="512"/>
-        <img alt="En voiture Simone" height="537" loading="lazy" src="/sponsors/en-voiture-simone.png" width="1024">
-        <img alt="Les Arrangés du Bocal" height="499" loading="lazy" src="/sponsors/les-arranges-du-bocal.png"
-             width="499">
-        <img alt="Bloc Session" height="400" loading="lazy" src="/sponsors/bloc-session.png" width="400">
-        <img alt="Cosmic Park" height="187" loading="lazy" src="/sponsors/cosmic-park.png" width="500">
-        <img alt="Race system" height="328" loading="lazy" src="/sponsors/race-system.png" width="835">
+        <img alt="CESI" height="256" loading="lazy" src="/sponsors/cesi.png" width="256"/>
+        <img alt="LCL" height="200" loading="lazy" src="/sponsors/lcl.png" width="256"/>
+        <img alt="RedBull" height="256" loading="lazy" src="/sponsors/redbull.png" width="256"/>
+        <img alt="En voiture Simone" height="134" loading="lazy" src="/sponsors/en-voiture-simone.png" width="256">
+        <img alt="Les Arrangés du Bocal" height="256" loading="lazy" src="/sponsors/les-arranges-du-bocal.png"
+             width="256">
+        <img alt="Bloc Session" height="256" loading="lazy" src="/sponsors/bloc-session.png" width="256">
+        <img alt="Cosmic Park" height="95" loading="lazy" src="/sponsors/cosmic-park.png" width="256">
+        <img alt="Race system" height="100" loading="lazy" src="/sponsors/race-system.png" width="256">
     </div>
 </SectionContainer>
