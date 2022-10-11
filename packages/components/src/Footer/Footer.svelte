@@ -151,7 +151,7 @@
                     </div>
                     <div class="footer-cols">
                         <p class="small"><a href="/legal-notice">Mentions légales</a></p>
-<!--                        <p class="small"><a href="/development">Développement</a></p>-->
+                        <p class="small"><a href="/rgpd">RGPD</a></p>
                     </div>
                 </div>
             </div>
