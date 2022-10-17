@@ -23,7 +23,7 @@
     <h3 class="header-3">Information <span class="no-br">erronée ?</span></h3>
     <p>
         Une de tes informations est <span class="no-br">erronée ?</span>
-        <a class="no-br" href="/contact?category=info&subject=Information+erronée">Contacte-nous !</a>
+        <a class="no-br link" href="/contact?category=info&subject=Information+erronée">Contacte-nous !</a>
     </p>
 
     {#if status === 'aucun'}

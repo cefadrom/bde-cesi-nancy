@@ -258,7 +258,7 @@
     </p>
 
     <p>
-        <a href="https://www.cnil.fr/fr/la-protection-des-donnees-dans-le-monde">
+        <a class="link" href="https://www.cnil.fr/fr/la-protection-des-donnees-dans-le-monde">
             https://www.cnil.fr/fr/la-protection-des-donnees-dans-le-monde
         </a>
     </p>
