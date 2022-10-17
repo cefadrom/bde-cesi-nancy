@@ -49,7 +49,7 @@ const updateResult = ref(null);
 
 function handleFileSelect(f: IUploadFile) {
     error.value = null;
-    if (f.type !== 'application/vnd.ms-excel')
+    if (![ 'application/vnd.ms-excel', 'text/csv' ].includes(f.type))
         error.value = 'Le fichier doit être un CSV';
     file.value = f;
 }
