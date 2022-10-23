@@ -2,6 +2,8 @@
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
     import ChartPerson from '@bde-cesi-nancy/components/src/OrganizationChart/ChartPerson.svelte';
     import ChartSection from '@bde-cesi-nancy/components/src/OrganizationChart/ChartSection.svelte';
+
+    export let gray = false;
 </script>
 
 
@@ -39,7 +41,7 @@
 </style>
 
 
-<SectionContainer gray>
+<SectionContainer {gray}>
     <h2 class="header-2">Organigramme du <span class="no-br">BDE 🌐</span></h2>
 
     <div class="chart-container">
