@@ -106,3 +106,11 @@ export interface Event {
     cta_text: string | null;
     cta_link: string | null;
 }
+
+
+export interface Recruitment {
+    id: string;
+    title: string;
+    subtitle?: string;
+    description: string;
+}
