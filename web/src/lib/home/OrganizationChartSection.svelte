@@ -39,7 +39,7 @@
 </style>
 
 
-<SectionContainer>
+<SectionContainer gray>
     <h2 class="header-2">Organigramme du <span class="no-br">BDE 🌐</span></h2>
 
     <div class="chart-container">
