@@ -29,9 +29,20 @@
         text-decoration: none;
     }
 
+    div[slot="cta"] {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
     @media all and (max-width: 900px) {
         .dashboard-content {
             flex-direction: column;
+        }
+
+        div[slot="cta"] {
+            gap: 1rem;
         }
     }
 </style>
@@ -48,11 +59,17 @@
         <DashboardMessages status={$me.membership_status}/>
     </div>
 
-    <a slot="cta" href="/member-dashboard/upgrade">
-        {#if $me.membership_status === 'aucun'}
-            <Button icon="flame-filled-white">Adhérer</Button>
-        {:else if $me.membership_status === 'adherent'}
-            <Button icon="flash-filled-white">Cotiser</Button>
-        {/if}
-    </a>
+    <div slot="cta">
+        <a href="/member-dashboard/upgrade">
+            {#if $me.membership_status === 'aucun'}
+                <Button icon="flame-filled-white">Adhérer</Button>
+            {:else if $me.membership_status === 'adherent'}
+                <Button icon="flash-filled-white">Cotiser</Button>
+            {/if}
+        </a>
+
+        <a href="/member-dashboard/settings">
+            <Button icon="settings-filled-white">Paramètres</Button>
+        </a>
+    </div>
 </SectionContainer>
