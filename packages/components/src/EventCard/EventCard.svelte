@@ -23,7 +23,7 @@
         });
     }
 
-    const isSameDay = () => event.date_start.toLocaleDateString() === event.date_end.toLocaleDateString();
+    const isSameDay = () => event.date_start.toLocaleDateString() === event.date_end!.toLocaleDateString();
 
     function displayPoster() {
         dispatch('show-poster', event);

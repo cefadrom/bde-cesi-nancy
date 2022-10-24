@@ -11,13 +11,13 @@
 
     const dispatch = createEventDispatcher();
 
-    function handleBlur(e) {
+    function handleBlur(e: FocusEvent) {
         hideInvalid = false;
         dispatch('blur', e);
     }
 
     // Erase all useless props that should not be passed to the inputs
-    let props;
+    let props: Record<string, any>;
     $: props = {
         id: inputID,
         ...$$props,
