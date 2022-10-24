@@ -21,7 +21,7 @@
 </style>
 
 
-<SectionContainer>
+<SectionContainer anchor="recruitment">
     <h2 class="header-2">Le BDE <span class="no-br">recrute !</span> 💪</h2>
 
     <div class="posts">
