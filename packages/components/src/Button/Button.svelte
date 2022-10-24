@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { ButtonVariant } from './button.d.ts';
+    type ButtonVariant = 'primary' | 'secondary' | 'outline';
 
     export let variant: ButtonVariant = 'primary';
     export let disabled: boolean = false;

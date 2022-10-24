@@ -7,10 +7,6 @@
     export let resizeY: boolean = false;
     export let autogrow: boolean = false;
     export let showInvalidBeforeFocus: boolean = false;
-
-    // Autogrow textarea: https://stackoverflow.com/a/64792984
-    let textArea: HTMLTextAreaElement;
-    $: autogrow && textArea && (textArea.parentNode.dataset.replicatedValue = value);
 </script>
 
 
@@ -56,9 +52,9 @@
 
 
 <InputContainer {...$$props} let:handleBlur let:props>
-    <div class="grow-wrap" class:autogrow>
+    <!-- Autogrow textarea: https://stackoverflow.com/a/64792984 -->
+    <div class="grow-wrap" class:autogrow data-replicated-value={value}>
         <textarea {...props}
-                  bind:this={textArea}
                   bind:value
                   class:resizeY
                   on:blur={handleBlur}

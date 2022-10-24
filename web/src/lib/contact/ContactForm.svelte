@@ -33,10 +33,10 @@
     };
 
     if ($page.url.searchParams.has('category') && categories[$page.url.searchParams.get('category')])
-        form.category = $page.url.searchParams.get('category');
+        form.category = $page.url.searchParams.get('category')!;
 
     if ($page.url.searchParams.has('subject'))
-        form.subject = $page.url.searchParams.get('subject');
+        form.subject = $page.url.searchParams.get('subject')!;
 
     function setUserDetails() {
         form.firstName = $me.first_name;
