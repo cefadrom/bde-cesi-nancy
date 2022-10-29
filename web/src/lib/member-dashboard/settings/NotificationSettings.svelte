@@ -5,7 +5,7 @@
     let error: string | null = null;
     let loading = false;
 
-    async function ashNotificationPermissions() {
+    async function askNotificationPermissions() {
         if (loading)
             return;
 
@@ -55,14 +55,14 @@
     <!--{#if !'Notification' in window || !'serviceWorker' in navigator || !navigator.serviceWorker.controller}-->
     <p class="body error">Les notifications ne sont pas supportées par votre navigateur</p>
 {:else}
-    {#if Notification.permission === 'denied'}
+    {#if window.Notification.permission === 'denied'}
         <p class="body error">Vous avez refusé les notifications</p>
     {:else}
         <p class=" body">Les notifications ne sont pas activées.</p>
         {#if error}
             <p class="body error">{error}</p>
         {/if}
-        <Button icon="notification-filled-white" on:click={ashNotificationPermissions} disabled={loading}>
+        <Button icon="notification-filled-white" on:click={askNotificationPermissions} disabled={loading}>
             Activer les notifications
         </Button>
     {/if}
