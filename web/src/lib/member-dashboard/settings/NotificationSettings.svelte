@@ -1,6 +1,10 @@
 <script lang="ts">
     import { env } from '$env/dynamic/public';
+    import type { Directus } from '$lib/types';
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
+    import { getContext } from 'svelte';
+
+    const directus = <Directus>getContext('directus');
 
     let error: string | null = null;
     let loading = false;
@@ -37,7 +41,12 @@
                 applicationServerKey: env.PUBLIC_VAPID_KEY,
             });
 
-        console.log(subscription.toJSON());
+        try {
+            await directus.transport.post('/push/subscribe', subscription.toJSON());
+        } catch (e) {
+            console.error(e);
+            error = e instanceof Error ? e.message : e.toString();
+        }
     }
 </script>
 

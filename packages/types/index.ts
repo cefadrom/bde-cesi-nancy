@@ -107,6 +107,15 @@ export interface Event {
     cta_link: string | null;
 }
 
+export interface Notification {
+    id: string;
+    user_created: string;
+    date_created: Date;
+    endpoint: string;
+    auth: string;
+    p256dh: string;
+}
+
 
 export interface Recruitment {
     id: string;
