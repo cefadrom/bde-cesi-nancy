@@ -60,7 +60,7 @@ export default {
             } catch (e) {
                 // Delete the existing subscription if it exists
                 if (existingSubscription.length > 0)
-                    await context.database<PushSubscription>('notifications')
+                    await context.database<PushSubscription>('push_subscriptions')
                         .where({ id: existingSubscription[0]!.id })
                         .delete();
 
@@ -78,7 +78,7 @@ export default {
                 return;
             }
 
-            await context.database<PushSubscription>('notifications').insert({
+            await context.database<PushSubscription>('push_subscriptions').insert({
                 id: uuid(),
                 user_created: req.accountability.user,
                 date_created: new Date(),
