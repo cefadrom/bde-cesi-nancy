@@ -1,4 +1,4 @@
-import type { Notification } from '@bde-cesi-nancy/types';
+import type { PushSubscription } from '@bde-cesi-nancy/types';
 import type { EndpointConfig } from '@types';
 import { v4 as uuid } from 'uuid';
 import webpush from 'web-push';
@@ -27,7 +27,7 @@ export default {
             const { endpoint, keys } = pushSubscription.value;
 
             // Check if the user has more than 10 subscriptions
-            const subscriptions = await context.database<Notification>('notifications')
+            const subscriptions = await context.database<PushSubscription>('push_subscriptions')
                 .select('id')
                 .where({ user_created: req.accountability.user });
             if (subscriptions.length >= 10) {
@@ -39,7 +39,7 @@ export default {
             }
 
             // Check if the subscription already exists
-            const existingSubscription = await context.database<Notification>('notifications')
+            const existingSubscription = await context.database<PushSubscription>('push_subscriptions')
                 .select('id')
                 .where({ user_created: req.accountability.user, endpoint });
 
@@ -60,7 +60,7 @@ export default {
             } catch (e) {
                 // Delete the existing subscription if it exists
                 if (existingSubscription.length > 0)
-                    await context.database<Notification>('notifications')
+                    await context.database<PushSubscription>('notifications')
                         .where({ id: existingSubscription[0]!.id })
                         .delete();
 
@@ -78,7 +78,7 @@ export default {
                 return;
             }
 
-            await context.database<Notification>('notifications').insert({
+            await context.database<PushSubscription>('notifications').insert({
                 id: uuid(),
                 user_created: req.accountability.user,
                 date_created: new Date(),

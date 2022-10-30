@@ -107,7 +107,7 @@ export interface Event {
     cta_link: string | null;
 }
 
-export interface Notification {
+export interface PushSubscription {
     id: string;
     user_created: string;
     date_created: Date;
