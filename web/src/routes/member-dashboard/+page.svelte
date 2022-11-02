@@ -48,7 +48,7 @@
 </style>
 
 
-<SectionContainer header hidecta={$me.membership_status === 'cotisant'}>
+<SectionContainer header>
     <h1 class="header-1">Bonjour <span class="no-br">{$me.first_name} 👋</span></h1>
     <div class="dashboard-content">
         {#if $me.membership_status !== 'aucun'}
@@ -60,13 +60,15 @@
     </div>
 
     <div slot="cta">
-        <a href="/member-dashboard/upgrade">
-            {#if $me.membership_status === 'aucun'}
-                <Button icon="flame-filled-white">Adhérer</Button>
-            {:else if $me.membership_status === 'adherent'}
-                <Button icon="flash-filled-white">Cotiser</Button>
-            {/if}
-        </a>
+        {#if $me.membership_status !== 'cotisant'}
+            <a href="/member-dashboard/upgrade">
+                {#if $me.membership_status === 'aucun'}
+                    <Button icon="flame-filled-white">Adhérer</Button>
+                {:else if $me.membership_status === 'adherent'}
+                    <Button icon="flash-filled-white">Cotiser</Button>
+                {/if}
+            </a>
+        {/if}
 
         <a href="/member-dashboard/settings">
             <Button icon="settings-filled-white">Paramètres</Button>
