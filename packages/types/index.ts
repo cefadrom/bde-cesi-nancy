@@ -19,6 +19,7 @@ export interface User<P = string, M = string> {
     promotion: P,
     membership_status: 'aucun' | 'adherent' | 'cotisant',
     membership: M | null,
+    subscriptions: string[] | null,
 }
 
 // Custom collections
@@ -115,7 +116,6 @@ export interface PushSubscription {
     auth: string;
     p256dh: string;
 }
-
 
 export interface Recruitment {
     id: string;

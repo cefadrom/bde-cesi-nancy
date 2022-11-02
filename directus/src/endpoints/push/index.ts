@@ -1,8 +1,22 @@
-import type { PushSubscription } from '@bde-cesi-nancy/types';
+import type { PushSubscription, User } from '@bde-cesi-nancy/types';
+import { Accountability } from '@directus/shared/src/types/accountability';
 import type { EndpointConfig } from '@types';
+import { Knex } from 'knex';
 import { v4 as uuid } from 'uuid';
 import webpush from 'web-push';
 import { PushPayloadSchema } from './push-payload-schema';
+import { IValidSubscriptions, PushSettingsSchema } from './push-settings-schema';
+
+
+const COMMUNICATION_ROLE_ID = 'f9f0c60b-7d00-4c4a-8d69-22cfa2859d75';
+
+function doSubscriptionInclude(subscription: IValidSubscriptions, include: IValidSubscriptions) {
+    return include.some((i) => subscription.includes(i));
+}
+
+// Weird workaround to update json, because it crashes by default
+const json = (knex: Knex, value: any) => knex.raw(`('${JSON.stringify(value)}')`);
+
 
 export default {
     id: 'push',
@@ -88,6 +102,49 @@ export default {
             });
 
             res.sendStatus(201);
+            return;
+        });
+
+
+        router.patch('/settings', async (req, res) => {
+            const { user, role, admin } = (req.accountability as Accountability);
+
+            if (!user)
+                return res.status(401).json({
+                    errors: [
+                        { message: 'You must be logged in.' },
+                    ],
+                });
+
+            const { error, value } = PushSettingsSchema.validate(req.body);
+            if (error) {
+                return res.status(400).json({
+                    errors: [
+                        { message: error.message },
+                    ],
+                });
+            }
+
+            const subscriptions: IValidSubscriptions = value.subscriptions;
+
+            // Check if the subscriptions respect the user's role
+            // - contact is reserved for communication and admin
+            // - unauthorized-login and helloasso-log is reserved for admin
+            if (subscriptions &&
+                ((doSubscriptionInclude(subscriptions, [ 'contact' ]) && !admin && role !== COMMUNICATION_ROLE_ID)
+                    || (doSubscriptionInclude(subscriptions, [ 'unauthorized-login', 'helloasso-log' ]) && !admin)))
+                return res.status(403).json({
+                    errors: [
+                        { message: 'You don\'t have the permission to subscribe to this.' },
+                    ],
+                });
+
+            await context.database<User>('directus_users')
+                // @ts-ignore too boring to make typescript happy
+                .update({ subscriptions: json(context.database, subscriptions) })
+                .where({ id: req.accountability.user });
+
+            res.sendStatus(200);
             return;
         });
     },

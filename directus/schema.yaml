@@ -2471,6 +2471,61 @@ fields:
       numeric_scale: null
       table: directus_users
     type: string
+  - collection: directus_users
+    field: subscriptions
+    meta:
+      collection: directus_users
+      conditions: null
+      display: null
+      display_options: null
+      field: subscriptions
+      group: null
+      hidden: false
+      interface: select-multiple-dropdown
+      note: null
+      options:
+        allowNone: true
+        choices:
+          - text: Nouveau club
+            value: club
+          - text: Nouvel évènement
+            value: event
+          - text: Annonces
+            value: announcement
+          - text: Demandes de contact
+            value: contact
+          - text: Connexion non autorisée
+            value: unauthorized-login
+          - text: Log Helloasso
+            value: helloasso-log
+        previewThreshold: 7
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - cast-json
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: json
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: subscriptions
+      numeric_precision: null
+      numeric_scale: null
+      table: directus_users
+    type: json
   - collection: events
     field: cta_link
     meta:
