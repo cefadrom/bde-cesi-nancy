@@ -2326,7 +2326,7 @@ fields:
       display_options: null
       readonly: false
       hidden: false
-      sort: 1
+      sort: 2
       width: full
       translations: null
       note: null
@@ -2354,7 +2354,7 @@ fields:
         template: '#{{membership_id}} ({{order_form}})'
       readonly: false
       required: false
-      sort: 4
+      sort: 5
       special:
         - m2o
       translations:
@@ -2403,7 +2403,7 @@ fields:
             value: cotisant
       readonly: false
       required: true
-      sort: 3
+      sort: 4
       special: null
       translations:
         - language: fr-FR
@@ -2446,7 +2446,7 @@ fields:
         template: '{{code}} ({{name}})'
       readonly: false
       required: true
-      sort: 2
+      sort: 3
       special:
         - m2o
       translations: null
@@ -2501,10 +2501,12 @@ fields:
         previewThreshold: 7
       readonly: false
       required: false
-      sort: 5
+      sort: 1
       special:
         - cast-json
-      translations: null
+      translations:
+        - language: fr-FR
+          translation: Notifications push
       validation: null
       validation_message: null
       width: full
