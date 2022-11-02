@@ -23,7 +23,7 @@ export default {
         },
         'on:toggle': {
             action: 'on:toggle',
-            description: 'Event callback when the toggle state is changed.',
+            description: 'Event callback when the toggle state is changed. It returns a `CustomEvent` with the `details` property containing the `checked` state.',
             type: { name: 'function', required: false },
             table: { defaultValue: { summary: 'null' } },
         },
