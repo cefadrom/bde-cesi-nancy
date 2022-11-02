@@ -1,8 +1,8 @@
 <script>
-    import SectionContainer from '$lib/layout/SectionContainer.svelte';
-    import NotificationSettings from '$lib/member-dashboard/settings/NotificationSettings.svelte';
-    import Meta from '$lib/Meta.svelte';
     import { browser } from '$app/environment';
+    import SectionContainer from '$lib/layout/SectionContainer.svelte';
+    import NotificationSettingsSection from '$lib/member-dashboard/settings/NotificationSettingsSection.svelte';
+    import Meta from '$lib/Meta.svelte';
 </script>
 
 
@@ -28,6 +28,6 @@
     {:else if !navigator.serviceWorker.controller}
         <p class="body error">Le service worker n'est pas enregistré. Veuillez rafraichir la page.</p>
     {:else}
-        <NotificationSettings/>
+        <NotificationSettingsSection/>
     {/if}
 </SectionContainer>

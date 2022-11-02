@@ -1,9 +1,9 @@
 <script lang="ts">
     import { env } from '$env/dynamic/public';
-    import NotificationsSelection from '$lib/member-dashboard/settings/NotificationsSelection.svelte';
     import type { Directus } from '$lib/types';
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
     import { getContext } from 'svelte';
+    import NotificationsSettings from './notifications/NotificationsSettings.svelte';
 
     const directus = <Directus>getContext('directus');
 
@@ -84,7 +84,7 @@
         {#if error}
             <p class="body error">Erreur lors de l'activation des notifications : {error}</p>
         {:else}
-            <NotificationsSelection/>
+            <NotificationsSettings/>
         {/if}
     {/await}
 {/if}
