@@ -123,3 +123,16 @@ export interface Recruitment {
     subtitle?: string;
     description: string;
 }
+
+export interface Notification {
+    id: string;
+    user_created: string;
+    date_created: Date;
+    category: string;
+    title: string;
+    body: string;
+    sent_notifications: number;
+    failed_notifications: number;
+    logs: string;
+    sent: boolean;
+}
