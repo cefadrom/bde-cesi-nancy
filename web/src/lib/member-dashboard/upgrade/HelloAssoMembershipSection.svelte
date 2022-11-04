@@ -3,21 +3,20 @@
     import LoadingSpinner from '@bde-cesi-nancy/components/src/LoadingSpinner/LoadingSpinner.svelte';
     import Popup from '@bde-cesi-nancy/components/src/Popup/Popup.svelte';
     import { getContext, onDestroy, onMount } from 'svelte';
-    import type { Directus } from '$lib/types';
+    import type { Directus, UserProfile } from '$lib/types';
     import { goto } from '$app/navigation';
-    import type { Promotion, User } from '@bde-cesi-nancy/types';
     import { getUserProfile } from '$lib/api/getUserProfile';
 
     export let type: 'adhesion' | 'cotisation';
 
     const directus = getContext<Directus>('directus');
-    const me = getContext<User<Promotion>>('me');
+    const me = getContext<UserProfile>('me');
 
     let loaded = false;
     let showCancelPopup = false;
     let showValidationPopup = false;
     let firstTimeCheckingMembership = true;
-    let newMe: User<Promotion> | null = null;
+    let newMe: UserProfile | null = null;
     let validationState: 'loading' | 'success' | 'error' = 'loading';
 
     let eventSource: EventSource | null = null;

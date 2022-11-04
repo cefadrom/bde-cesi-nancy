@@ -1,12 +1,11 @@
 <script lang="ts">
-    import type { User } from '@bde-cesi-nancy/types';
     import { getContext } from 'svelte';
+    import type { UserProfile } from '$lib/types';
     import NotificationCategory from './NotificationCategory.svelte';
 
     const COMMUNICATION_ROLE_ID = 'f9f0c60b-7d00-4c4a-8d69-22cfa2859d75';
-    const ADMIN_ROLE_ID = 'a313d7c6-db3e-4def-b14d-ae8d7e952bb5';
 
-    const me = getContext<User>('me');
+    const me = getContext<UserProfile>('me');
 
     let error: string | null = null;
 
@@ -31,11 +30,11 @@
 <NotificationCategory on:error={handleError} key="club">Nouveau club</NotificationCategory>
 <NotificationCategory on:error={handleError} key="event">Nouvel évènement</NotificationCategory>
 
-{#if $me.role === COMMUNICATION_ROLE_ID || $me.role === ADMIN_ROLE_ID}
+{#if $me.role.id === COMMUNICATION_ROLE_ID || $me.role.admin_access}
     <NotificationCategory on:error={handleError} key="contact">Demande de contact</NotificationCategory>
 {/if}
 
-{#if $me.role === ADMIN_ROLE_ID}
+{#if $me.role.admin_access}
     <NotificationCategory on:error={handleError} key="unauthorized-login">Connexion non autorisée</NotificationCategory>
     <NotificationCategory on:error={handleError} key="helloasso-log">Log HelloAsso</NotificationCategory>
 {/if}

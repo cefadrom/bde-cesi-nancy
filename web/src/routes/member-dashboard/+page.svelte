@@ -4,10 +4,10 @@
     import Meta from '$lib/Meta.svelte';
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
     import MemberCard from '@bde-cesi-nancy/components/src/MemberCard/MemberCard.svelte';
-    import type { User } from '@bde-cesi-nancy/types';
     import { getContext } from 'svelte';
+    import type { UserProfile } from '$lib/types';
 
-    const me = getContext<User>('me');
+    const me = getContext<UserProfile>('me');
 </script>
 
 

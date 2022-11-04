@@ -1,5 +1,5 @@
 // Directus collections
-export interface User<P = string, M = string> {
+export interface User<P = string, M = string, R = string> {
     id: string,
     first_name: string,
     last_name: string,
@@ -20,6 +20,18 @@ export interface User<P = string, M = string> {
     membership_status: 'aucun' | 'adherent' | 'cotisant',
     membership: M | null,
     subscriptions: string[] | null,
+}
+
+export interface Role {
+    id: string,
+    name: string,
+    admin_access: boolean,
+    icon: string | null,
+    description: string | null,
+    ip_access: string | null,
+    enforce_tfa: boolean,
+    app_access: boolean,
+    users: string[],
 }
 
 // Custom collections
