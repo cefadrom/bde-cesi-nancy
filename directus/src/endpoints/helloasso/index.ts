@@ -43,6 +43,7 @@ export default {
         router.post('/', async (req, res) => {
 
             const order = req.body as Notification;
+            const logService = new ItemsService('helloasso_logs', { schema: (req as any).schema });
 
             // Verify that the notification is for a new membership
             const {
@@ -53,7 +54,7 @@ export default {
             } = extractMembershipFromNotification(order);
 
             if (!extractFromNotificationSuccess || !notificationMembership) {
-                await helloAssoLog(context.database, order, false, extractFromNotificationError);
+                await helloAssoLog(logService, order, false, extractFromNotificationError);
                 return res.sendStatus(204);
             }
 
@@ -66,7 +67,7 @@ export default {
             } = await fetchMembershipDetails(notificationMembership, paymentID, helloAssoTokens, HELLO_ASSO_ENDPOINT);
 
             if (!fetchMembershipSuccess || !membership) {
-                await helloAssoLog(context.database, order, false, fetchMembershipError);
+                await helloAssoLog(logService, order, false, fetchMembershipError);
                 return res.sendStatus(204);
             }
 
@@ -77,7 +78,7 @@ export default {
             } = verifyOrganizationAndForm(membership, HELLO_ASSO_ALLOWED_MEMBERSHIPS_FORMS, HELLO_ASSO_ORGANIZATION);
 
             if (!verifyOrganizationAndFormSuccess) {
-                await helloAssoLog(context.database, order, false, verifyOrganizationAndFormError);
+                await helloAssoLog(logService, order, false, verifyOrganizationAndFormError);
                 return res.sendStatus(204);
             }
 
@@ -90,13 +91,13 @@ export default {
             } = await saveMembership(context.database, membership, payment);
 
             if (!saveMembershipSuccess || !dbMembership) {
-                await helloAssoLog(context.database, order, false, saveMembershipError);
+                await helloAssoLog(logService, order, false, saveMembershipError);
                 return res.sendStatus(204);
             }
 
             // If no user is found, still call it a success but show an error
             if (!membershipUser) {
-                await helloAssoLog(context.database, order, true, 'No user found', dbMembership.id);
+                await helloAssoLog(logService, order, true, 'No user found', dbMembership.id);
                 return res.sendStatus(204);
             }
 
@@ -106,7 +107,7 @@ export default {
             if (userUpgraded)
                 eventEmitter.emit('membership', { userID: membershipUser.id } as MembershipEmitterPayload);
 
-            await helloAssoLog(context.database, order, true, null, dbMembership.id);
+            await helloAssoLog(logService, order, true, null, dbMembership.id);
             return res.sendStatus(204);
         });
 
