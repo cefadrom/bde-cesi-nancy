@@ -2,13 +2,12 @@
     import HelloAssoMembershipSection from '$lib/member-dashboard/upgrade/HelloAssoMembershipSection.svelte';
     import UpgradeInstructionsSection from '$lib/member-dashboard/upgrade/UpgradeInstructionsSection.svelte';
     import Meta from '$lib/Meta.svelte';
-    import type { Directus } from '$lib/types';
-    import type { User } from '@bde-cesi-nancy/types';
+    import type { Directus, UserProfile } from '$lib/types';
     import { getContext, onMount } from 'svelte';
     import { goto } from '$app/navigation';
 
     const directus = getContext<Directus>('directus');
-    const me = getContext<User>('me');
+    const me = getContext<UserProfile>('me');
 
     onMount(() => {
         if (![ 'aucun', 'adherent' ].includes($me.membership_status))

@@ -2,10 +2,9 @@
     import { page } from '$app/stores';
     import { env } from '$env/dynamic/public';
     import '$lib/global.css';
-    import type { LoginStatus } from '$lib/types';
+    import type { LoginStatus, UserProfile } from '$lib/types';
     import Footer from '@bde-cesi-nancy/components/src/Footer/Footer.svelte';
     import Header from '@bde-cesi-nancy/components/src/Header/Header.svelte';
-    import type { User, Promotion } from '@bde-cesi-nancy/types';
     import { Directus } from '@directus/sdk';
     import { onMount, setContext } from 'svelte';
     import { writable } from 'svelte/store';
@@ -14,7 +13,7 @@
     export let data: { hasRefreshToken: boolean };
 
     const directus = new Directus(env.PUBLIC_DIRECTUS_URL);
-    const me = writable<User<Promotion> | null>(null);
+    const me = writable<UserProfile | null>(null);
     const loginStatus = writable<LoginStatus>('LOGGING_IN');
 
     setContext('directus', directus);

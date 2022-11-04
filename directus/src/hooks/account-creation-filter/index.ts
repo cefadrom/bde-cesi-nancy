@@ -1,12 +1,11 @@
 import type { CesiAccount, UnauthorizedLogin, User } from '@bde-cesi-nancy/types';
 import type { ActionHandler, FilterHandler } from '@directus/shared/src/types/events';
 import type { HookConfig } from '@types';
-import { v4 as uuid } from 'uuid';
 
 
-export default (({ filter, action }, { database, exceptions }) => {
+export default (({ filter, action }, { database, exceptions, services }) => {
 
-    filter('users.create', (async (payload: IUserCreateInput) => {
+    filter('users.create', (async (payload: IUserCreateInput, meta, { schema }) => {
 
         if (payload.provider !== 'microsoft')
             return;
@@ -19,12 +18,11 @@ export default (({ filter, action }, { database, exceptions }) => {
         if (CESIUser)
             return;
 
-        await database<UnauthorizedLogin>('unauthorized_logins').insert({
-            id: uuid(),
-            date_created: new Date(),
+        const unauthorizedLoginsService = new services.ItemsService('unauthorized_logins', { schema });
+        await unauthorizedLoginsService.createOne({
             email: payload.email,
             name: `${payload.last_name} ${payload.first_name}`,
-        });
+        } as Omit<UnauthorizedLogin, 'id' | 'date_created'>);
 
         throw new exceptions.ForbiddenException(`User with email ${payload.email} is not a CESI user`);
 

@@ -1,6 +1,5 @@
 import type { Contact } from '@bde-cesi-nancy/types';
 import type { EndpointConfig } from '@types';
-import { v4 as uuid } from 'uuid';
 import { contactFormSchema } from './utils/contact-form-schema';
 
 export default {
@@ -32,10 +31,12 @@ export default {
                     error: 'Vous avez atteint le nombre maximum de demandes de contact. Réessayez demain.',
                 });
 
-            await context.database<Contact>('contact').insert({
-                id: uuid(),
-                date_created: new Date(),
-                user_created: req.accountability.user || null,
+            const contactService = new context.services.ItemsService(
+                'contact',
+                { schema: (req as any).schema },
+            );
+
+            const newContactID: string = await contactService.createOne({
                 name: `${value.lastName} ${value.firstName}`,
                 email: value.email,
                 ip,
@@ -43,6 +44,11 @@ export default {
                 subject: value.subject,
                 message: value.message,
             });
+
+            // Directus doesn't allow to set the user_created field, so we have to do it manually
+            await context.database<Contact>('contact')
+                .update({ user_created: req.accountability.user })
+                .where({ id: newContactID });
 
             return res.sendStatus(201);
         });

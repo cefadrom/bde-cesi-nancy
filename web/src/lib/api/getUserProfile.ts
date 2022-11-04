@@ -1,6 +1,8 @@
-import type { Directus } from '$lib/types';
-import type { User, Promotion } from '@bde-cesi-nancy/types';
+import type { Directus, UserProfile } from '$lib/types';
 
 export function getUserProfile(directus: Directus) {
-    return directus.users.me.read({ fields: [ '*', 'promotion.*' ] }) as Promise<User<Promotion>>;
+    return directus.users.me.read(
+        {
+            fields: [ '*', 'promotion.*', 'role.id', 'role.name', 'role.admin_access' ],
+        }) as Promise<UserProfile>;
 }

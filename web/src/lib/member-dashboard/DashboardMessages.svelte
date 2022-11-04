@@ -26,6 +26,12 @@
         <a class="no-br link" href="/contact?category=info&subject=Information+erronée">Contacte-nous !</a>
     </p>
 
+    <h3 class="header-3">Reçoit les dernières news !</h3>
+    <p>
+        Accède aux dernières news en
+        <a class="link" href="/member-dashboard/settings">activant les <span class="no-br">notifications !</span></a>
+    </p>
+
     {#if status === 'aucun'}
         <h3 class="header-3">Tu n’es pas encore adhérent à <span class="no-br">l’association 🥺</span></h3>
         <p>En devenant adhérent <span class="bold">gratuitement</span>, tu <span class="no-br">pourra :</span></p>

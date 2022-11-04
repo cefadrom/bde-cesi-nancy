@@ -8,8 +8,8 @@
 
     const dispatch = createEventDispatcher();
 
-    function onToggle(event) {
-        dispatch('toggle', event);
+    function onToggle() {
+        dispatch('toggle', checked);
     }
 </script>
 

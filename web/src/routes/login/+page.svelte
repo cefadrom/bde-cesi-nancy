@@ -2,16 +2,15 @@
     import { goto } from '$app/navigation';
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
     import Meta from '$lib/Meta.svelte';
-    import type { Directus, LoginStatus } from '$lib/types';
+    import type { Directus, LoginStatus, UserProfile } from '$lib/types';
     import LoadingSpinner from '@bde-cesi-nancy/components/src/LoadingSpinner/LoadingSpinner.svelte';
-    import type { Promotion, User } from '@bde-cesi-nancy/types';
     import { getContext, onMount } from 'svelte';
     import { getUserProfile } from '$lib/api/getUserProfile';
 
     export let data: { error?: string };
 
     const directus = getContext<Directus>('directus');
-    const me = getContext<User<Promotion>>('me');
+    const me = getContext<UserProfile>('me');
     const loginStatus = getContext<LoginStatus>('loginStatus');
 
     let error: string | null = null;
