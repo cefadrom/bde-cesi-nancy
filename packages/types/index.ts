@@ -15,7 +15,7 @@ export interface User<P = string, M = string, R = string> {
     theme: 'auto' | 'light' | 'dark',
     tfa_secret: string | null,
     status: string,
-    role: string,
+    role: R,
     promotion: P,
     membership_status: 'aucun' | 'adherent' | 'cotisant',
     membership: M | null,
