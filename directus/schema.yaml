@@ -264,7 +264,7 @@ collections:
       collapse: open
       collection: notifications
       color: null
-      display_template: null
+      display_template: '{{title}}'
       group: accounts
       hidden: false
       icon: notifications_active
@@ -4249,6 +4249,68 @@ fields:
       table: notifications
     type: string
   - collection: notifications
+    field: collection
+    meta:
+      collection: notifications
+      conditions: []
+      display: labels
+      display_options:
+        choices:
+          - text: Clubs
+            value: clubs
+          - text: Évènements
+            value: events
+          - text: Demandes de contact
+            value: contact
+          - text: Connexions non autorisées
+            value: unauthorized_logins
+          - text: Logs Helloasso
+            value: helloasso_logs
+      field: collection
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowNone: true
+        choices:
+          - text: Clubs
+            value: clubs
+          - text: Évènements
+            value: events
+          - text: Demandes de contact
+            value: contact
+          - text: Connexions non autorisées
+            value: unauthorized_logins
+          - text: Logs Helloasso
+            value: helloasso_logs
+      readonly: false
+      required: false
+      sort: 9
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: collection
+      numeric_precision: null
+      numeric_scale: null
+      table: notifications
+    type: string
+  - collection: notifications
     field: date_created
     meta:
       collection: notifications
@@ -4344,7 +4406,7 @@ fields:
       display_options: null
       readonly: false
       hidden: false
-      sort: 8
+      sort: 12
       width: full
       translations: null
       note: null
@@ -4391,7 +4453,7 @@ fields:
         min: 0
       readonly: true
       required: false
-      sort: 10
+      sort: 14
       special: null
       translations:
         - language: fr-FR
@@ -4458,6 +4520,141 @@ fields:
       table: notifications
     type: uuid
   - collection: notifications
+    field: image
+    meta:
+      collection: notifications
+      conditions: null
+      display: image
+      display_options: null
+      field: image
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 11
+      special:
+        - file
+      translations:
+        - language: fr-FR
+          translation: Image de couverture
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: char
+      default_value: null
+      foreign_key_column: id
+      foreign_key_table: directus_files
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 36
+      name: image
+      numeric_precision: null
+      numeric_scale: null
+      table: notifications
+    type: uuid
+  - collection: notifications
+    field: item
+    meta:
+      collection: notifications
+      conditions: null
+      display: null
+      display_options: null
+      field: item
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        font: monospace
+        softLength: 36
+        trim: true
+      readonly: false
+      required: false
+      sort: 10
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Élément
+      validation:
+        _and:
+          - item:
+              _regex: >-
+                ^[0-9(a-f|A-F)]{8}-[0-9(a-f|A-F)]{4}-4[0-9(a-f|A-F)]{3}-[89ab][0-9(a-f|A-F)]{3}-[0-9(a-f|A-F)]{12}$
+      validation_message: Doit être un UUID v4 valide
+      width: half
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 36
+      name: item
+      numeric_precision: null
+      numeric_scale: null
+      table: notifications
+    type: string
+  - collection: notifications
+    field: link
+    meta:
+      collection: notifications
+      conditions: null
+      display: null
+      display_options: null
+      field: link
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        trim: true
+      readonly: false
+      required: false
+      sort: 8
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Lien d'ouverture
+      validation:
+        _and:
+          - link:
+              _regex: ^(/|https?://|mailto:)
+      validation_message: Le lien n'est pas valide (doit commencer par /, https:// ou mailto:)
+      width: full
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: link
+      numeric_precision: null
+      numeric_scale: null
+      table: notifications
+    type: string
+  - collection: notifications
     field: logs
     meta:
       collection: notifications
@@ -4483,7 +4680,7 @@ fields:
         trim: true
       readonly: false
       required: false
-      sort: 11
+      sort: 15
       special: null
       translations: null
       validation: null
@@ -4523,7 +4720,7 @@ fields:
         label: Envoyé
       readonly: false
       required: false
-      sort: 12
+      sort: 16
       special:
         - cast-boolean
       translations: null
@@ -4576,7 +4773,7 @@ fields:
         min: 0
       readonly: true
       required: false
-      sort: 9
+      sort: 13
       special: null
       translations:
         - language: fr-FR
@@ -5657,6 +5854,27 @@ relations:
       on_delete: SET NULL
       on_update: NO ACTION
       table: memberships
+  - collection: notifications
+    field: image
+    meta:
+      junction_field: null
+      many_collection: notifications
+      many_field: image
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    related_collection: directus_files
+    schema:
+      column: image
+      constraint_name: notifications_image_foreign
+      foreign_key_column: id
+      foreign_key_table: directus_files
+      on_delete: SET NULL
+      on_update: NO ACTION
+      table: notifications
   - collection: notifications
     field: user_created
     meta:

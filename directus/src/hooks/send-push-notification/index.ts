@@ -28,11 +28,18 @@ export default (({ action }, { database, env }) => {
             .leftJoin('directus_users', 'directus_users.id', 'push_subscriptions.user_created')
             .where(database.raw(`JSON_CONTAINS(subscriptions, '"${notification.category}"')`));
 
-        const notificationPayload = JSON.stringify({
-            title: notification.title,
+        let notificationPayload: NotificationOptions = {
             body: notification.body,
-            category: notification.category,
-        });
+            data: {
+                title: notification.title,
+                category: notification.category,
+                link: notification.link,
+            },
+            icon: '/pwa/android-chrome-512x512.png',
+            image: notification.image && `${env.PUBLIC_URL}/assets/${notification.image}`,
+            badge: '/brand/simple.svg',
+            lang: 'fr',
+        };
 
         let sentNotifications = 0, failedNotifications = 0, logs = '';
 
@@ -46,7 +53,7 @@ export default (({ action }, { database, env }) => {
                             p256dh: push.p256dh,
                         },
                     },
-                    notificationPayload,
+                    JSON.stringify(notificationPayload),
                     {
                         vapidDetails: {
                             subject: env.VAPID_SUBJECT!,

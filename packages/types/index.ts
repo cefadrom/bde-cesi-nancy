@@ -131,8 +131,12 @@ export interface Notification {
     category: string;
     title: string;
     body: string;
-    sent_notifications: number;
-    failed_notifications: number;
-    logs: string;
+    link?: string;
+    collection?: string;
+    item?: string;
+    image?: string;
+    sent_notifications?: number;
+    failed_notifications?: number;
+    logs?: string;
     sent: boolean;
 }
