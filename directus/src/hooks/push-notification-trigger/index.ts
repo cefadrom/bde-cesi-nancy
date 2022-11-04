@@ -63,7 +63,7 @@ export default (({ action }, { services, database, env }) => {
             title: `Nouveau club : ${club.name} !`,
             body: club.description,
             category: 'club',
-            link: '/clubs',
+            link: '/clubs#clubs',
             image: club.thumbnail,
             collection: 'clubs',
             item: key,

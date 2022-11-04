@@ -22,7 +22,7 @@
 </style>
 
 
-<SectionContainer gray>
+<SectionContainer gray anchor="clubs">
     <h2 class="header-2">Liste des clubs</h2>
     <div>
         {#each clubs as club (club.id)}
