@@ -14,7 +14,7 @@ interface PushSubscription {
 
 
 export default (({ action }, { database, env }) => {
-    action('notifications.items.create', async ({ payload }) => {
+    action('notifications.items.create', async ({ payload, key }) => {
         const notification = payload as Notification;
         const pushes: PushSubscription[] = await database('push_subscriptions')
             .select(
@@ -75,12 +75,6 @@ export default (({ action }, { database, env }) => {
             }
         }
 
-        const dbNotification = await database<Notification>('notifications')
-            .select('id')
-            .where(notification)
-            .orderBy('date_created', 'desc')
-            .first();
-
         await database<Notification>('notifications')
             .update({
                 sent_notifications: sentNotifications,
@@ -88,6 +82,6 @@ export default (({ action }, { database, env }) => {
                 logs,
                 sent: true,
             })
-            .where('id', dbNotification?.id || 'UNKNOWN');
+            .where('id', key);
     });
 }) as HookConfig;
