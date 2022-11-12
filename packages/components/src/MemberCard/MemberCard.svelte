@@ -172,7 +172,7 @@
      style:transform="scale({cardScale})">
     <div class="card-front">
         <div class="card-header">
-            <img src="/brand/simple.svg" alt="BDE CESI Nancy"/>
+            <img src="/brand/simple.svg" alt="BDE CESI Nancy" draggable="false"/>
             {#if black}
                 <h3 class="header-3">Carte Black cotisant</h3>
             {:else}
@@ -190,6 +190,7 @@
     </div>
     <div class="card-back">
         <img src={black ? "/brand/professional-dark.svg" : "/brand/professional.svg"}
+             draggable="false"
              alt="Bureau des élèves CESI Nancy">
     </div>
 </div>
