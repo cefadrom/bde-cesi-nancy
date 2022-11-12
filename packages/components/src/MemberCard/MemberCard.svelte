@@ -137,6 +137,8 @@
 
     .card-qrcode {
         scale: 1.2;
+        height: 128px;
+        width: 128px;
     }
 
     .card-back {
