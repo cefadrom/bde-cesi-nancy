@@ -65,6 +65,10 @@
         margin: 0 0 .5rem;
     }
 
+    .description {
+        white-space: pre-wrap;
+    }
+
     .ctas {
         display: flex;
         gap: 1rem;
@@ -114,7 +118,7 @@
             </div>
         </div>
 
-        <div class="body">
+        <div class="description body">
             {event.description}
         </div>
 
