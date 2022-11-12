@@ -1,6 +1,7 @@
 <script>
     import { browser } from '$app/environment';
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
+    import DisconnectSettingsSection from '$lib/member-dashboard/settings/DisconnectSettingsSection.svelte';
     import NotificationSettingsSection from '$lib/member-dashboard/settings/NotificationSettingsSection.svelte';
     import Meta from '$lib/Meta.svelte';
 </script>
@@ -30,4 +31,7 @@
     {:else}
         <NotificationSettingsSection/>
     {/if}
+
+    <h3 class="header-3">Déconnexion</h3>
+    <DisconnectSettingsSection/>
 </SectionContainer>
