@@ -18,6 +18,7 @@ services:
             PUBLIC_DIRECTUS_URL: "${PUBLIC_DIRECTUS_URL}"
             PUBLIC_VAPID_KEY: "${PUBLIC_VAPID_KEY}"
             DIRECTUS_LOCAL_URL: "${DIRECTUS_LOCAL_URL}"
+            REFRESH_TOKEN_COOKIE_DOMAIN: "${REFRESH_TOKEN_COOKIE_DOMAIN}"
 
     directus:
         container_name: bde-directus

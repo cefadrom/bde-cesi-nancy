@@ -1,13 +1,11 @@
 import { dev } from '$app/environment';
-import { env as _env } from '$env/dynamic/private';
-import { env } from '$env/dynamic/public';
+import { env } from '$env/dynamic/private';
 import { fetchUserProfile } from '$lib/api/fetchUserProfile';
 import type { UserProfile } from '$lib/types';
 import { Directus, MemoryStorage } from '@directus/sdk';
 import type { ServerLoad } from '@sveltejs/kit';
 
-const { PUBLIC_DIRECTUS_URL } = env;
-const { REFRESH_TOKEN_COOKIE_DOMAIN } = _env;
+const { REFRESH_TOKEN_COOKIE_DOMAIN, DIRECTUS_LOCAL_URL } = env;
 
 export interface RootLayoutLoad {
     me: UserProfile | null;
@@ -22,7 +20,7 @@ export const load: ServerLoad = async ({ cookies, request }) => {
     // when navigating inside the app
     if (refreshToken && new URL(request.url).pathname !== '/login') {
         try {
-            const directus = new Directus(PUBLIC_DIRECTUS_URL!, {
+            const directus = new Directus(DIRECTUS_LOCAL_URL!, {
                 storage: new MemoryStorage(),
             });
             directus.storage.set('auth_refresh_token', refreshToken);
@@ -46,6 +44,7 @@ export const load: ServerLoad = async ({ cookies, request }) => {
                 },
             );
         } catch {
+            cookies.delete('directus_refresh_token');
         }
     }
 
