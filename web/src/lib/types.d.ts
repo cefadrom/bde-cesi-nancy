@@ -6,6 +6,6 @@ export type Directus = IDirectus;
 export type LoginStatus = 'LOGGED_OUT' | 'LOGGING_IN' | 'LOGGED_IN';
 
 export type UserProfile = Pick<
-    User<Promotion, string, Pick<Role, 'id' | 'name' | 'admin_access'>>,
-    'id' | 'first_name' | 'last_name' | 'email' | 'membership_status' | 'subscriptions'
+    User<Promotion, null, Pick<Role, 'id' | 'name' | 'admin_access'>>,
+    'id' | 'first_name' | 'last_name' | 'email' | 'membership_status' | 'subscriptions' | 'promotion' | 'role'
 >;
