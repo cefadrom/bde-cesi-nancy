@@ -29,8 +29,8 @@
     <h3 class="header-3">Hébergement</h3>
 
     <p>
-        Le Site est hébergé par la société Autre, situé 9, Boulevard de Strasbourg 83000 Toulon, (contact téléphonique
-        ou email : +33422141360).
+        Le Site est hébergé par la société PulseHeberg, située au 9, Boulevard de Strasbourg 83000 Toulon, (contact
+        téléphonique ou email : +33422141360).
     </p>
 
     <h3 class="header-3">Nous contacter</h3>
