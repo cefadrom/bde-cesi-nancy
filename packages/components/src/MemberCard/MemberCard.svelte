@@ -2,7 +2,7 @@
     import type { Promotion, User } from '@bde-cesi-nancy/types';
     import { onMount } from 'svelte';
 
-    export let user: User<Promotion>;
+    export let user: Pick<User<Promotion>, 'id' | 'first_name' | 'last_name' | 'email' | 'promotion'>;
     export let black = false;
 
     let showBack = false;
@@ -45,7 +45,7 @@
     let cardMarginBottom = 0;
 
     function handleCardResize() {
-        const parentWidth = pxToRem(cardContainer.parentElement.clientWidth);
+        const parentWidth = pxToRem(cardContainer.parentElement!.clientWidth);
         cardScale = Math.min(1, parentWidth / MAX_CARD_WIDTH_REM);
         cardMarginBottom = -MAX_CARD_HEIGHT_REM * (1 - cardScale);
     }

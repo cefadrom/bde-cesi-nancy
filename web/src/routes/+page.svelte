@@ -20,4 +20,4 @@
 {#if data.recruitment?.length}
     <Recruitment posts={data.recruitment}/>
 {/if}
-<OrganizationChartSection gray={data.recruitment?.length}/>
+<OrganizationChartSection gray={data.recruitment?.length > 0}/>

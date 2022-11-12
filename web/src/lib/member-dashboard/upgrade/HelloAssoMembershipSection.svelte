@@ -23,7 +23,7 @@
     let eventSource: EventSource | null = null;
 
     onMount(() => {
-        document.querySelector('html').classList.add('no-body-scroll');
+        document.querySelector('html')!.classList.add('no-body-scroll');
 
         // Notify user when the server sends he's now a member (using SSE)
         eventSource = new EventSource(`${directus.url}/helloasso/hook/${$me.id}`);
@@ -31,17 +31,17 @@
             if (data !== 'ok')
                 return;
             handleValidation(false);
-            eventSource.close();
+            eventSource!.close();
             eventSource = null;
         };
         eventSource.onerror = (event: Event) => {
             console.error(event);
-            eventSource.close();
+            eventSource?.close();
             eventSource = null;
         };
     });
     onDestroy(() => {
-        document.querySelector('html').classList.remove('no-body-scroll');
+        document.querySelector('html')!.classList.remove('no-body-scroll');
         eventSource?.close();
     });
 
@@ -167,22 +167,22 @@
 </div>
 
 <div class="iframe-container" class:loaded>
-    <iframe allowtransparency="true" id="haWidget" on:load={() => (loaded = true)}
-            onload="window.scroll(0, 0)"
-            scrolling="auto"
+    <iframe allowtransparency
+            on:load={() => (loaded = true)}
+            title="{type === 'adhesion' ? 'Adhésion' : 'Cotisation'} HelloAsso"
             src="https://www.helloasso.com/associations/bureau-des-eleves-cesi-nancy/adhesions/{type}-bde/widget"/>
 </div>
 
 <div class="iframe-action-row">
     <Button on:click={setCancelPopup(true)} variant="secondary">Annuler</Button>
-    <Button icon="{type === 'adhesion' ? 'flame' : 'flash'}-filled-white" on:click={handleValidation}>
+    <Button icon="{type === 'adhesion' ? 'flame' : 'flash'}-filled-white" on:click={() => handleValidation(true)}>
         Valider {type === 'adhesion' ? 'l\'adhésion' : 'la cotisation'}
     </Button>
 </div>
 
 
 {#if showCancelPopup}
-    <Popup title="Annuler" on:backdropclick={setCancelPopup(false)}>
+    <Popup title="Annuler" on:backdropclick={setCancelPopup(false)} on:escape={setCancelPopup(false)}>
         <p>
             Êtes-vous sûr de vouloir annuler
             <span class="no-br">{type === 'adhesion' ? 'l\'adhésion' : 'la cotisation'} ?</span>
@@ -199,7 +199,8 @@
 
 {#if showValidationPopup}
     <Popup title="Valider {type === 'adhesion' ? 'l\'adhésion' : 'la cotisation'}"
-           on:backdropclick={handleValidationPopupClose}>
+           on:backdropclick={handleValidationPopupClose}
+           on:escape={handleValidationPopupClose}>
         {#if validationState === 'loading'}
             <LoadingSpinner/>
         {:else if validationState === 'success'}

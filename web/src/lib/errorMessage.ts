@@ -4,6 +4,12 @@ export const messages = new Map<number, string>([
 ]);
 
 
-export const getErrorMessage = (status: number, error: Error) => messages.has(status)
-    ? messages.get(status)
-    : error.message;
+export function getErrorMessage(status: number, error: App.Error | null) {
+    if (messages.has(status))
+        return messages.get(status);
+
+    if (error)
+        return error.message;
+
+    return 'Une erreur inconnue est survenue... Hmm, étrange 🤔';
+}

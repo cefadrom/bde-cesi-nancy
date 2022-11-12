@@ -45,7 +45,7 @@
             await goto('/member-dashboard');
         } catch (err) {
             console.error(err);
-            error = err.message;
+            error = err instanceof Error ? err.message : (err as any).toString();
             $loginStatus = 'LOGGED_OUT';
         }
     });

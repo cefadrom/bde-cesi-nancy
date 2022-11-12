@@ -18,7 +18,7 @@
         error = null;
         state = 'loading';
 
-        if (!'Notification' in window || !'serviceWorker' in navigator) {
+        if (!('Notification' in window) || !('serviceWorker' in navigator)) {
             error = 'Les notifications ne sont pas supportées par votre navigateur';
             state = 'default';
             return;
@@ -50,7 +50,7 @@
             await directus.transport.post('/push/subscribe', subscription.toJSON());
         } catch (e) {
             console.error(e);
-            error = e instanceof Error ? e.message : e.toString();
+            error = e instanceof Error ? e.message : (e as any).toString();
         }
 
         state = 'done';

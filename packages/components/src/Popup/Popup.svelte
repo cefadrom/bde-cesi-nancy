@@ -9,6 +9,12 @@
     function handleBackdropClick() {
         dispatch('backdropclick');
     }
+
+    function handleKeypress(ev: KeyboardEvent) {
+        if (ev.key === 'Escape') {
+            dispatch('escape');
+        }
+    }
 </script>
 
 
@@ -69,7 +75,13 @@
 </style>
 
 
-<div class="popup-container" on:click|self={handleBackdropClick} transition:fade|local={{duration: 100}}>
+<svelte:window on:keydown={handleKeypress}/>
+
+
+<div class="popup-container"
+     on:click|self={handleBackdropClick}
+     transition:fade|local={{duration: 100}}
+     on:keypress={handleKeypress}>
     <div class="popup">
         {#if title}
             <h2 class="header-2">{title}</h2>
