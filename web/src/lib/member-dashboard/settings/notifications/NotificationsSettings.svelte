@@ -1,11 +1,10 @@
 <script lang="ts">
-    import { getContext } from 'svelte';
-    import type { UserProfile } from '$lib/types';
+    import { getUserProfile } from '$lib/context';
     import NotificationCategory from './NotificationCategory.svelte';
 
     const COMMUNICATION_ROLE_ID = 'f9f0c60b-7d00-4c4a-8d69-22cfa2859d75';
 
-    const me = getContext<UserProfile>('me');
+    const me = getUserProfile();
 
     let error: string | null = null;
 

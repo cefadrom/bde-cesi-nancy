@@ -1,6 +1,7 @@
 <script lang="ts">
     import { page } from '$app/stores';
     import { env } from '$env/dynamic/public';
+    import { DIRECTUS_KEY, LOGIN_STATUS_KEY, USER_PROFILE_KEY } from '$lib/context';
     import '$lib/global.css';
     import type { LoginStatus, UserProfile } from '$lib/types';
     import Footer from '@bde-cesi-nancy/components/src/Footer/Footer.svelte';
@@ -16,9 +17,9 @@
     const me = writable<UserProfile | null>(data.me);
     const loginStatus = writable<LoginStatus>(data.me ? 'LOGGED_IN' : 'LOGGED_OUT');
 
-    setContext('directus', directus);
-    setContext('me', me);
-    setContext('loginStatus', loginStatus);
+    setContext(DIRECTUS_KEY, directus);
+    setContext(USER_PROFILE_KEY, me);
+    setContext(LOGIN_STATUS_KEY, loginStatus);
 
     // Refresh the token for the logged-in user, so directus can access the API
     onMount(async () => {

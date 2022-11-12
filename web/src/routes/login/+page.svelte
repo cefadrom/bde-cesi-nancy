@@ -1,17 +1,17 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
+    import { fetchUserProfile } from '$lib/api/fetchUserProfile';
+    import { getDirectus, getLoginStatus, getUserProfile } from '$lib/context';
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
     import Meta from '$lib/Meta.svelte';
-    import type { Directus, LoginStatus, UserProfile } from '$lib/types';
     import LoadingSpinner from '@bde-cesi-nancy/components/src/LoadingSpinner/LoadingSpinner.svelte';
-    import { getContext, onMount } from 'svelte';
-    import { getUserProfile } from '$lib/api/getUserProfile';
+    import { onMount } from 'svelte';
 
     export let data: { error?: string };
 
-    const directus = getContext<Directus>('directus');
-    const me = getContext<UserProfile>('me');
-    const loginStatus = getContext<LoginStatus>('loginStatus');
+    const directus = getDirectus();
+    const me = getUserProfile();
+    const loginStatus = getLoginStatus();
 
     let error: string | null = null;
     let errorCode: null | 'FORBIDDEN' | 'NO_COOKIE' = null;
@@ -38,7 +38,7 @@
             await directus.auth.refresh();
 
             // Load user
-            $me = await getUserProfile(directus);
+            $me = await fetchUserProfile(directus);
             $loginStatus = 'LOGGED_IN';
 
             // Redirect to member page

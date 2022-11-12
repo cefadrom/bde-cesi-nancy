@@ -1,14 +1,13 @@
 <script lang="ts">
     import { env } from '$env/dynamic/public';
+    import { getUserProfile } from '$lib/context';
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
     import DashboardMessages from '$lib/member-dashboard/DashboardMessages.svelte';
     import Meta from '$lib/Meta.svelte';
-    import type { UserProfile } from '$lib/types';
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
     import MemberCard from '@bde-cesi-nancy/components/src/MemberCard/MemberCard.svelte';
-    import { getContext } from 'svelte';
 
-    const me = getContext<UserProfile>('me');
+    const me = getUserProfile();
 
     const COMMUNICATION_ROLE_ID = 'f9f0c60b-7d00-4c4a-8d69-22cfa2859d75';
     const CAFET_ROLE_ID = 'af32a550-a3c4-47fa-b418-bcd35b9a0ffe';

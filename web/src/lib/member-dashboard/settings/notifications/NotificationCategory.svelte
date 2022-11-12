@@ -1,10 +1,10 @@
 <script lang="ts">
-    import type { Directus, UserProfile } from '$lib/types';
+    import { getDirectus, getUserProfile } from '$lib/context';
     import Toggle from '@bde-cesi-nancy/components/src/Toggle/Toggle.svelte';
-    import { createEventDispatcher, getContext, onMount } from 'svelte';
+    import { createEventDispatcher, onMount } from 'svelte';
 
-    const directus = getContext<Directus>('directus');
-    const me = getContext<UserProfile>('me');
+    const directus = getDirectus();
+    const me = getUserProfile();
 
     export let key: string;
 

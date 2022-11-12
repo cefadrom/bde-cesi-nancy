@@ -1,16 +1,17 @@
 <script lang="ts">
+    import { goto } from '$app/navigation';
+    import { fetchUserProfile } from '$lib/api/fetchUserProfile';
+    import { getDirectus, getUserProfile } from '$lib/context';
+    import type { UserProfile } from '$lib/types';
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
     import LoadingSpinner from '@bde-cesi-nancy/components/src/LoadingSpinner/LoadingSpinner.svelte';
     import Popup from '@bde-cesi-nancy/components/src/Popup/Popup.svelte';
-    import { getContext, onDestroy, onMount } from 'svelte';
-    import type { Directus, UserProfile } from '$lib/types';
-    import { goto } from '$app/navigation';
-    import { getUserProfile } from '$lib/api/getUserProfile';
+    import { onDestroy, onMount } from 'svelte';
 
     export let type: 'adhesion' | 'cotisation';
 
-    const directus = getContext<Directus>('directus');
-    const me = getContext<UserProfile>('me');
+    const directus = getDirectus();
+    const me = getUserProfile();
 
     let loaded = false;
     let showCancelPopup = false;
@@ -68,7 +69,7 @@
         }
 
         try {
-            newMe = await getUserProfile(directus);
+            newMe = await fetchUserProfile(directus);
         } catch (e) {
             validationState = 'error';
             console.error(e);

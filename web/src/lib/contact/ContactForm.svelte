@@ -1,15 +1,15 @@
 <script lang="ts">
     import { page } from '$app/stores';
-    import type { LoginStatus, UserProfile } from '$lib/types';
+    import { getLoginStatus, getUserProfile } from '$lib/context';
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
     import Input from '@bde-cesi-nancy/components/src/Input/Input.svelte';
     import Select from '@bde-cesi-nancy/components/src/Select/Select.svelte';
     import TextArea from '@bde-cesi-nancy/components/src/TextArea/TextArea.svelte';
     import type { IContactFormData } from '@bde-cesi-nancy/types/api';
-    import { createEventDispatcher, getContext } from 'svelte';
+    import { createEventDispatcher } from 'svelte';
 
-    const me = getContext<UserProfile>('me');
-    const loginStatus = getContext<LoginStatus>('loginStatus');
+    const me = getUserProfile();
+    const loginStatus = getLoginStatus();
 
     export let disabled = false;
     export let error: string | null = null;

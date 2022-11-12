@@ -1,12 +1,11 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
-    import type { Directus, LoginStatus, UserProfile } from '$lib/types.js';
+    import { getDirectus, getLoginStatus, getUserProfile } from '$lib/context';
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
-    import { getContext } from 'svelte';
 
-    const directus = getContext<Directus>('directus');
-    const me = getContext<UserProfile>('me');
-    const loginStatus = getContext<LoginStatus>('loginStatus');
+    const directus = getDirectus();
+    const me = getUserProfile();
+    const loginStatus = getLoginStatus();
 
     let loading = false;
 

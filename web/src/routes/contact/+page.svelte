@@ -11,11 +11,10 @@
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
     import Meta from '$lib/Meta.svelte';
     import type { IContactFormData } from '@bde-cesi-nancy/types/api';
-    import type { Directus } from '$lib/types';
     import type { TransportError } from '@directus/sdk';
-    import { getContext } from 'svelte';
+    import { getDirectus } from '$lib/context';
 
-    const directus = getContext<Directus>('directus');
+    const directus = getDirectus();
 
     let isLoading = false;
     let error: string | null = null;

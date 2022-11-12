@@ -1,6 +1,6 @@
 import type { Directus, UserProfile } from '$lib/types';
 
-export function getUserProfile(directus: Directus) {
+export function fetchUserProfile(directus: Directus) {
     return directus.users.me.read(
         {
             fields: [

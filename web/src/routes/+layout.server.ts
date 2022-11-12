@@ -1,7 +1,7 @@
 import { dev } from '$app/environment';
 import { env as _env } from '$env/dynamic/private';
 import { env } from '$env/dynamic/public';
-import { getUserProfile } from '$lib/api/getUserProfile';
+import { fetchUserProfile } from '$lib/api/fetchUserProfile';
 import type { UserProfile } from '$lib/types';
 import { Directus, MemoryStorage } from '@directus/sdk';
 import type { ServerLoad } from '@sveltejs/kit';
@@ -32,7 +32,7 @@ export const load: ServerLoad = async ({ cookies, request }) => {
                 throw new Error('Cannot refresh token');
             }
 
-            me = await getUserProfile(directus);
+            me = await fetchUserProfile(directus);
 
             cookies.set(
                 'directus_refresh_token',

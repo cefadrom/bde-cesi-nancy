@@ -1,10 +1,11 @@
 <script lang="ts">
-    import { getContext } from 'svelte';
-    import HeaderLink from './HeaderLink.svelte';
     import type { User } from '@bde-cesi-nancy/types';
+    import { getContext } from 'svelte';
+    import type { Writable } from 'svelte/store';
+    import HeaderLink from './HeaderLink.svelte';
 
-    const loginStatus = getContext<string>('loginStatus');
-    const me = getContext<User>('me');
+    const loginStatus = getContext<Writable<string>>('loginStatus');
+    const me = getContext<Writable<User>>('me');
 </script>
 
 <style>
