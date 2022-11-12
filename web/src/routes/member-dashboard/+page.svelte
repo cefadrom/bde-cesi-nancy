@@ -1,13 +1,17 @@
 <script lang="ts">
+    import { env } from '$env/dynamic/public';
     import SectionContainer from '$lib/layout/SectionContainer.svelte';
     import DashboardMessages from '$lib/member-dashboard/DashboardMessages.svelte';
     import Meta from '$lib/Meta.svelte';
+    import type { UserProfile } from '$lib/types';
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
     import MemberCard from '@bde-cesi-nancy/components/src/MemberCard/MemberCard.svelte';
     import { getContext } from 'svelte';
-    import type { UserProfile } from '$lib/types';
 
     const me = getContext<UserProfile>('me');
+
+    const COMMUNICATION_ROLE_ID = 'f9f0c60b-7d00-4c4a-8d69-22cfa2859d75';
+    const CAFET_ROLE_ID = 'af32a550-a3c4-47fa-b418-bcd35b9a0ffe';
 </script>
 
 
@@ -73,5 +77,11 @@
         <a href="/member-dashboard/settings">
             <Button icon="settings-filled-white">Paramètres</Button>
         </a>
+
+        {#if $me.role.admin_access || $me.role.id === COMMUNICATION_ROLE_ID || $me.role.id === CAFET_ROLE_ID}
+            <a href="{env.PUBLIC_DIRECTUS_URL}/admin/">
+                <Button icon="cloud-filled-white">Directus</Button>
+            </a>
+        {/if}
     </div>
 </SectionContainer>
