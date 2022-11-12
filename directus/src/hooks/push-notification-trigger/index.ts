@@ -179,15 +179,19 @@ export default (({ action }, { services, database, env }) => {
 }) as HookConfig;
 
 
-const formatDate = (date: Date) => date.toLocaleDateString(
-    'fr',
-    {
-        day: 'numeric',
-        month: 'long',
-        // Display year if it's not the current year
-        year: date.getFullYear() === new Date().getFullYear() ? undefined : 'numeric',
-    },
-);
+function formatDate(date: Date | string) {
+    date = new Date(date);
+    return date.toLocaleDateString(
+        'fr',
+        {
+            day: 'numeric',
+            month: 'long',
+            // Display year if it's not the current year
+            year: date.getFullYear() === new Date().getFullYear() ? undefined : 'numeric',
+        },
+    );
+}
+
 
 function formatEventType(type: HelloassoLog['event_type']) {
     switch (type) {
