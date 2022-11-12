@@ -24,7 +24,7 @@
     <h3 class="header-3">Notifications</h3>
     {#if !browser}
         <p>Chargement...</p>
-    {:else if !'Notification' in window || !'serviceWorker' in navigator}
+    {:else if !('Notification' in window) || !('serviceWorker' in navigator)}
         <p class="body error">Les notifications ne sont pas supportées par votre navigateur.</p>
     {:else if !navigator.serviceWorker.controller}
         <p class="body error">Le service worker n'est pas enregistré. Veuillez rafraichir la page.</p>
