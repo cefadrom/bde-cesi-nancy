@@ -4,7 +4,7 @@
     import Button from '@bde-cesi-nancy/components/src/Button/Button.svelte';
 
     const directus = getDirectus();
-    const me = getUserProfile();
+    const me = getUserProfile<true>();
     const loginStatus = getLoginStatus();
 
     let loading = false;

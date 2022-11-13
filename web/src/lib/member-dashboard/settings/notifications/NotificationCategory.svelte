@@ -12,13 +12,14 @@
 
     let checked = false;
     onMount(() => {
-        checked = $me.subscriptions?.includes(key);
+        checked = $me.subscriptions?.includes(key) ?? false;
     });
 
     function setSubscriptionState(enabled: boolean) {
-        $me.subscriptions = enabled
-            ? [ ...($me.subscriptions || []), key ]
-            : $me.subscriptions?.filter((k) => k !== key);
+        if (enabled)
+            $me.subscriptions = [ ...($me.subscriptions || []), key ];
+        else
+            $me.subscriptions = ($me.subscriptions || []).filter((k) => k !== key);
 
         // Used to revert the state if the request fails
         checked = enabled;
@@ -34,7 +35,7 @@
             .patch(`/push/settings`, {
                 subscriptions: $me.subscriptions,
             })
-            .catch(({ errors }) => {
+            .catch(({ errors }: { errors: Error[] }) => {
                 // If the request fails, revert the local changes
                 setSubscriptionState(!event.detail);
                 dispatch('error', errors[0].message);

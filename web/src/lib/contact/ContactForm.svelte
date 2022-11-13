@@ -31,7 +31,7 @@
         autre: 'Autre',
     };
 
-    if ($page.url.searchParams.has('category') && categories[$page.url.searchParams.get('category')])
+    if ($page.url.searchParams.has('category') && Object.keys(categories).includes($page.url.searchParams.get('category')!))
         form.category = $page.url.searchParams.get('category')!;
 
     if ($page.url.searchParams.has('subject'))
