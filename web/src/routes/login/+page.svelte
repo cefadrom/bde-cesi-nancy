@@ -42,7 +42,10 @@
             $loginStatus = 'LOGGED_IN';
 
             // Redirect to member page
-            await goto('/member-dashboard');
+            await goto('/member-dashboard', {
+                replaceState: true,
+                invalidateAll: true,
+            });
         } catch (err) {
             console.error(err);
             error = err instanceof Error ? err.message : (err as any).toString();
