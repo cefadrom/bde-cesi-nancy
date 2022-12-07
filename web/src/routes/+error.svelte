@@ -23,6 +23,25 @@
         if (statusCodeClicks === 5)
             alert(JSON.stringify($page.error, null, 2).replace(/\\n/g, '\n'));
     }
+
+
+    const questString = 'pedroquest';
+    let currentQuestString = '';
+
+    function handlePageKeypress(e) {
+        currentQuestString += e.key;
+
+        if (!questString.startsWith(currentQuestString)) {
+            currentQuestString = '';
+            return;
+        }
+
+        if (currentQuestString !== questString)
+            return;
+
+        currentQuestString = '';
+        window.location = 'https://youtu.be/z-y5iKCKm7U';
+    }
 </script>
 
 
@@ -57,6 +76,9 @@
 
 
 <Meta noindex title="Erreur {$page.status}"/>
+
+
+<svelte:window on:keypress={handlePageKeypress}/>
 
 
 <div class="error-container">
