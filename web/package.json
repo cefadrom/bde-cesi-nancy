@@ -16,24 +16,24 @@
   "dependencies": {
     "@bde-cesi-nancy/components": "workspace:*",
     "@bde-cesi-nancy/types": "workspace:*",
-    "@directus/sdk": "^10.1.5",
-    "svelte": "^3.53.1"
+    "@directus/sdk": "^10.3.1",
+    "svelte": "^3.55.0"
   },
   "devDependencies": {
-    "@sveltejs/adapter-node": "^1.0.0-next.100",
-    "@sveltejs/kit": "^1.0.0-next.544",
-    "@typescript-eslint/eslint-plugin": "^5.42.1",
-    "@typescript-eslint/parser": "^5.42.1",
+    "@sveltejs/adapter-node": "^1.0.0",
+    "@sveltejs/kit": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
     "autoprefixer": "^10.4.13",
     "dotenv-cli": "^6.0.0",
-    "eslint": "^8.27.0",
+    "eslint": "^8.30.0",
     "eslint-plugin-svelte3": "^4.0.0",
-    "postcss": "^8.4.19",
-    "svelte-check": "^2.9.2",
-    "svelte-preprocess": "^4.10.7",
+    "postcss": "^8.4.20",
+    "svelte-check": "^3.0.1",
+    "svelte-preprocess": "^5.0.0",
     "tslib": "^2.4.1",
-    "typescript": "^4.8.4",
-    "vite": "^3.2.3"
+    "typescript": "^4.9.4",
+    "vite": "^4.0.3"
   },
   "type": "module",
   "browserslist": [
