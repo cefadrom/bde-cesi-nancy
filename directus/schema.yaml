@@ -1,5 +1,5 @@
 version: 1
-directus: 9.19.2
+directus: 9.22.1
 collections:
   - collection: HelloAsso
     meta:
@@ -17,7 +17,7 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: 2
+      sort: 3
       sort_field: null
       translations: null
       unarchive_value: null
@@ -121,7 +121,7 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: 4
+      sort: 5
       sort_field: null
       translations:
         - plural: clubs
@@ -151,7 +151,7 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: 3
+      sort: 4
       sort_field: null
       translations:
         - plural: demandes de contact
@@ -181,7 +181,7 @@ collections:
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: 5
+      sort: 6
       sort_field: null
       translations:
         - plural: évènements
@@ -225,6 +225,29 @@ collections:
       engine: InnoDB
       name: helloasso_logs
       schema: directus
+  - collection: home
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: home
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: home
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 2
+      sort_field: null
+      translations:
+        - language: fr-FR
+          translation: Accueil
+      unarchive_value: null
+    schema: null
   - collection: memberships
     meta:
       accountability: all
@@ -280,6 +303,36 @@ collections:
       comment: ''
       engine: InnoDB
       name: notifications
+      schema: directus
+  - collection: organization_chart
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: archived
+      archive_value: 'true'
+      collapse: open
+      collection: organization_chart
+      color: null
+      display_template: "{{account}} -\_{{pole}}"
+      group: home
+      hidden: false
+      icon: military_tech
+      item_duplication_fields: null
+      note: null
+      singleton: false
+      sort: 1
+      sort_field: sort
+      translations:
+        - plural: personnes
+          language: fr-FR
+          singular: personne
+          translation: Organigramme
+      unarchive_value: 'false'
+    schema:
+      collation: utf8mb4_0900_ai_ci
+      comment: ''
+      engine: InnoDB
+      name: organization_chart
       schema: directus
   - collection: promotions
     meta:
@@ -347,13 +400,13 @@ collections:
       collection: recruitment
       color: null
       display_template: null
-      group: null
+      group: home
       hidden: false
       icon: emoji_people
       item_duplication_fields: null
       note: null
       singleton: false
-      sort: 6
+      sort: 2
       sort_field: null
       translations:
         - plural: postes
@@ -2391,7 +2444,7 @@ fields:
       width: half
     schema:
       comment: ''
-      data_type: char
+      data_type: varchar
       default_value: null
       foreign_key_column: id
       foreign_key_table: memberships
@@ -4925,6 +4978,276 @@ fields:
       numeric_scale: null
       table: notifications
     type: string
+  - collection: organization_chart
+    field: account
+    meta:
+      collection: organization_chart
+      conditions: null
+      display: null
+      display_options: null
+      field: account
+      group: null
+      hidden: false
+      interface: input-autocomplete-api
+      note: null
+      options:
+        rate: 200
+        resultsPath: data
+        textPath: name
+        url: /items/cesi_accounts?search={{value}}&limit=10
+        valuePath: name
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Personne
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: account
+      numeric_precision: null
+      numeric_scale: null
+      table: organization_chart
+    type: string
+  - collection: organization_chart
+    field: archived
+    meta:
+      collection: organization_chart
+      conditions: null
+      display: boolean
+      display_options: null
+      field: archived
+      group: null
+      hidden: true
+      interface: boolean
+      note: null
+      options:
+        label: Archivé
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - cast-boolean
+      translations:
+        - language: fr-FR
+          translation: Archive
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: boolean
+      default_value: false
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: archived
+      numeric_precision: 3
+      numeric_scale: 0
+      table: organization_chart
+    type: boolean
+  - collection: organization_chart
+    field: id
+    meta:
+      collection: organization_chart
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      comment: ''
+      data_type: char
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: false
+      is_primary_key: true
+      is_unique: false
+      max_length: 36
+      name: id
+      numeric_precision: null
+      numeric_scale: null
+      table: organization_chart
+    type: uuid
+  - collection: organization_chart
+    field: pole
+    meta:
+      collection: organization_chart
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: Bureau
+            value: bureau
+          - text: Cafet
+            value: cafet
+          - text: Communication
+            value: communication
+          - text: Event
+            value: event
+      field: pole
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Bureau
+            value: bureau
+          - text: Cafet
+            value: cafet
+          - text: Communication
+            value: communication
+          - text: Event
+            value: event
+      readonly: false
+      required: true
+      sort: 5
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Pôle
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 255
+      name: pole
+      numeric_precision: null
+      numeric_scale: null
+      table: organization_chart
+    type: string
+  - collection: organization_chart
+    field: role
+    meta:
+      collection: organization_chart
+      conditions: null
+      display: null
+      display_options: null
+      field: role
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        softLength: 16
+        trim: true
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Rôle
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: varchar
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: 31
+      name: role
+      numeric_precision: null
+      numeric_scale: null
+      table: organization_chart
+    type: string
+  - collection: organization_chart
+    field: sort
+    meta:
+      collection: organization_chart
+      conditions: null
+      display: null
+      display_options: null
+      field: sort
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      comment: ''
+      data_type: int
+      default_value: null
+      foreign_key_column: null
+      foreign_key_table: null
+      generation_expression: null
+      has_auto_increment: false
+      is_generated: false
+      is_nullable: true
+      is_primary_key: false
+      is_unique: false
+      max_length: null
+      name: sort
+      numeric_precision: 10
+      numeric_scale: 0
+      table: organization_chart
+    type: integer
   - collection: promotions
     field: code
     meta:

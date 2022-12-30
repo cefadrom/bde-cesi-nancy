@@ -1,6 +1,10 @@
 <script lang="ts">
+    import type { OrganizationChart } from '@bde-cesi-nancy/types';
+    import ChartPerson from './ChartPerson.svelte';
+
     export let title: string;
     export let area: string;
+    export let persons: OrganizationChart[];
 </script>
 
 
@@ -35,12 +39,15 @@
     }
 </style>
 
-
-<div class="wrapper" style:grid-area={area}>
-    <div class="container">
-        <h3 class="header-3">{title}</h3>
-        <div class="body">
-            <slot/>
+{#if persons.length > 0}
+    <div class="wrapper" style:grid-area={area}>
+        <div class="container">
+            <h3 class="header-3">{title}</h3>
+            <div class="body">
+                {#each persons as person (person.id)}
+                    <ChartPerson name={person.account} role={person.role}/>
+                {/each}
+            </div>
         </div>
     </div>
-</div>
+{/if}

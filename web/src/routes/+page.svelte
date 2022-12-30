@@ -5,9 +5,9 @@
     import SponsorsSection from '$lib/home/SponsorsSection.svelte';
     import WelcomeSection from '$lib/home/WelcomeSection.svelte';
     import Meta from '$lib/Meta.svelte';
-    import type { Recruitment as RecruitmentPosts } from '@bde-cesi-nancy/types';
+    import type { PageData } from './$types';
 
-    export let data: { recruitment: RecruitmentPosts[] };
+    export let data: PageData;
 </script>
 
 
@@ -20,4 +20,4 @@
 {#if data.recruitment?.length}
     <Recruitment posts={data.recruitment}/>
 {/if}
-<OrganizationChartSection gray={data.recruitment?.length > 0}/>
+<OrganizationChartSection gray={data.recruitment?.length > 0} chart={data.organizationChart}/>

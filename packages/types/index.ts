@@ -152,3 +152,13 @@ export interface Notification {
     logs?: string;
     sent: boolean;
 }
+
+
+export interface OrganizationChart {
+    id: string;
+    sort: number;
+    archived: boolean;
+    account: string;
+    pole: 'bureau' | 'cafet' | 'communication' | 'event';
+    role: string;
+}

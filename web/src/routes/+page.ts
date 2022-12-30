@@ -1,19 +1,26 @@
 import { env } from '$env/dynamic/public';
-import type { Recruitment } from '@bde-cesi-nancy/types';
-import type { Load } from '@sveltejs/kit';
+import type { OrganizationChart, Recruitment } from '@bde-cesi-nancy/types';
+import type { PageLoad } from './$types';
 
 type RawRecruitmentData = { data?: Recruitment[] };
+type RawOrganisationChartData = { data?: OrganizationChart[] };
 
-/** @type {import('./$types').PageLoad} */
-export const load: Load = async ({ fetch }) => {
+export const load: PageLoad = async ({ fetch }) => {
     try {
-        const res = await fetch(`${env.PUBLIC_DIRECTUS_URL}/items/recruitment`);
-        const recruitment = await res.json() as RawRecruitmentData;
+        const [ recruitmentRes, organizationRes ] = await Promise.all([
+            fetch(`${env.PUBLIC_DIRECTUS_URL}/items/recruitment`),
+            fetch(`${env.PUBLIC_DIRECTUS_URL}/items/organization_chart`),
+        ]);
+        const [ recruitment, organizationChart ] = await Promise.all([
+            recruitmentRes.json() as RawRecruitmentData,
+            organizationRes.json() as RawOrganisationChartData,
+        ]);
         return {
-            recruitment: recruitment.data,
+            recruitment: recruitment.data || [],
+            organizationChart: organizationChart.data || [],
         };
     } catch (e) {
         console.error(e);
-        return { recruitment: [] };
+        return { recruitment: [], organizationChart: [] };
     }
 };
