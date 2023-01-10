@@ -1596,10 +1596,14 @@ fields:
       field: president_name
       group: null
       hidden: false
-      interface: input
+      interface: input-autocomplete-api
       note: null
       options:
-        trim: true
+        rate: 200
+        resultsPath: data
+        textPath: name
+        url: /items/cesi_accounts?search={{value}}&limit=10
+        valuePath: name
       readonly: false
       required: true
       sort: 8
