@@ -3,8 +3,11 @@
     import ChartPerson from './ChartPerson.svelte';
 
     export let title: string;
-    export let area: string;
-    export let persons: OrganizationChart[];
+    export let pole: OrganizationChart['pole'];
+    export let persons: OrganizationChart[] = [];
+
+    let polePersons: OrganizationChart[];
+    $: polePersons = persons.filter(person => person.pole === pole);
 </script>
 
 
@@ -40,11 +43,11 @@
 </style>
 
 {#if persons.length > 0}
-    <div class="wrapper" style:grid-area={area}>
+    <div class="wrapper">
         <div class="container">
             <h3 class="header-3">{title}</h3>
             <div class="body">
-                {#each persons as person (person.id)}
+                {#each polePersons as person (person.id)}
                     <ChartPerson name={person.account} role={person.role}/>
                 {/each}
             </div>

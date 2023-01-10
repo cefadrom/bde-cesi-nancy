@@ -2444,7 +2444,7 @@ fields:
       width: half
     schema:
       comment: ''
-      data_type: varchar
+      data_type: char
       default_value: null
       foreign_key_column: id
       foreign_key_table: memberships

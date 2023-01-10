@@ -21,8 +21,8 @@
 
     .chart {
         display: grid;
-        grid-template-columns: repeat(3, 25rem);
-        grid-template-rows: repeat(3, min-content);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         gap: 2rem;
     }
 
@@ -43,21 +43,15 @@
 
 
 <SectionContainer {gray}>
+
     <h2 class="header-2">Organigramme du <span class="no-br">BDE 🌐</span></h2>
 
     <div class="chart-container">
         <div class="chart">
-            <ChartSection area="1 / 2 / 2 / 3" title="Bureau"
-                          persons={chart.filter(person => person.pole === 'bureau')}/>
-
-            <ChartSection area="2 / 2 / 3 / 3" title="Pôle cafet'"
-                          persons={chart.filter(person => person.pole === 'cafet')}/>
-
-            <ChartSection area="3 / 2 / 4 / 3" title="Pôle comm'"
-                          persons={chart.filter(person => person.pole === 'communication')}/>
-
-            <ChartSection area="3 / 3 / 4 / 4" title="Pôle event'"
-                          persons={chart.filter(person => person.pole === 'event')}/>
+            <ChartSection title="Bureau" persons={chart} pole="bureau"/>
+            <ChartSection title="Pôle comm'" persons={chart} pole="communication"/>
+            <ChartSection title="Pôle cafet'" persons={chart} pole="cafet"/>
+            <ChartSection title="Pôle event'" persons={chart} pole="event"/>
         </div>
     </div>
 
