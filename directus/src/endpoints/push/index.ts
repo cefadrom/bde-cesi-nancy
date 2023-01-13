@@ -9,6 +9,7 @@ import { IValidSubscriptions, PushSettingsSchema } from './push-settings-schema'
 
 
 const COMMUNICATION_ROLE_ID = 'f9f0c60b-7d00-4c4a-8d69-22cfa2859d75';
+const BUREAU_ROLE_ID = '87ab5db5-589a-4834-8233-6cd3ca79aae6';
 
 function doSubscriptionInclude(subscription: IValidSubscriptions, include: IValidSubscriptions) {
     return include.some((i) => subscription.includes(i));
@@ -128,11 +129,11 @@ export default {
             const subscriptions: IValidSubscriptions = value.subscriptions;
 
             // Check if the subscriptions respect the user's role
-            // - contact is reserved for communication and admin
-            // - unauthorized-login and helloasso-log is reserved for admin
+            // - contact is reserved for communication, bureau and admin
+            // - unauthorized-login and helloasso-log is reserved for bureau and admin
             if (subscriptions &&
-                ((doSubscriptionInclude(subscriptions, [ 'contact' ]) && !admin && role !== COMMUNICATION_ROLE_ID)
-                    || (doSubscriptionInclude(subscriptions, [ 'unauthorized-login', 'helloasso-log' ]) && !admin)))
+                ((doSubscriptionInclude(subscriptions, [ 'contact' ]) && !admin && role !== COMMUNICATION_ROLE_ID && role !== BUREAU_ROLE_ID)
+                    || (doSubscriptionInclude(subscriptions, [ 'unauthorized-login', 'helloasso-log' ]) && !admin && role !== BUREAU_ROLE_ID)))
                 return res.status(403).json({
                     errors: [
                         { message: 'You don\'t have the permission to subscribe to this.' },

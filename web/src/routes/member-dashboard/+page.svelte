@@ -11,6 +11,7 @@
 
     const COMMUNICATION_ROLE_ID = 'f9f0c60b-7d00-4c4a-8d69-22cfa2859d75';
     const CAFET_ROLE_ID = 'af32a550-a3c4-47fa-b418-bcd35b9a0ffe';
+    const BUREAU_ROLE_ID = '87ab5db5-589a-4834-8233-6cd3ca79aae6';
 </script>
 
 
@@ -77,7 +78,7 @@
             <Button icon="settings-filled-white">Paramètres</Button>
         </a>
 
-        {#if $me.role.admin_access || $me.role.id === COMMUNICATION_ROLE_ID || $me.role.id === CAFET_ROLE_ID}
+        {#if $me.role.admin_access || $me.role.id === COMMUNICATION_ROLE_ID || $me.role.id === CAFET_ROLE_ID || $me.role.id === BUREAU_ROLE_ID}
             <a href="{env.PUBLIC_DIRECTUS_URL}/admin/">
                 <Button icon="cloud-filled-white">Directus</Button>
             </a>
