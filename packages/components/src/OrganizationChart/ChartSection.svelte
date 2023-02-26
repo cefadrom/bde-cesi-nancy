@@ -42,7 +42,7 @@
     }
 </style>
 
-{#if persons.length > 0}
+{#if polePersons.length > 0}
     <div class="wrapper">
         <div class="container">
             <h3 class="header-3">{title}</h3>

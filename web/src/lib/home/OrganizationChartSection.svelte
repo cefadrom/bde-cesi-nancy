@@ -22,7 +22,6 @@
     .chart {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
         gap: 2rem;
     }
 
@@ -49,9 +48,11 @@
     <div class="chart-container">
         <div class="chart">
             <ChartSection title="Bureau" persons={chart} pole="bureau"/>
-            <ChartSection title="Pôle comm'" persons={chart} pole="communication"/>
-            <ChartSection title="Pôle cafet'" persons={chart} pole="cafet"/>
-            <ChartSection title="Pôle event'" persons={chart} pole="event"/>
+            <ChartSection title="Pôle Comm'" persons={chart} pole="communication"/>
+            <ChartSection title="Pôle Cafet'" persons={chart} pole="cafet"/>
+            <ChartSection title="Pôle Event'" persons={chart} pole="event"/>
+            <ChartSection title="Pôle Marketing" persons={chart} pole="marketing"/>
+            <ChartSection title="Pôle Interpromo" persons={chart} pole="interpromo"/>
         </div>
     </div>
 
