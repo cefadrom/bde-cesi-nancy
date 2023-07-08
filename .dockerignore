@@ -16,10 +16,10 @@
 !web/vite.config.js
 
 # Directus
-!directus/src
-!directus/package.json
-!directus/rollup.config.js
-!directus/tsconfig.json
+!directus/extensions
+directus/extensions/dist
+!directus/migrations
+directus/migrations/dist
 
 # Components
 !packages/components/src

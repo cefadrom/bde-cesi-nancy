@@ -12,8 +12,10 @@ services:
         ports:
             - "8055:8055"
         volumes:
-            - ./directus/uploads:/directus/uploads
-            - ./directus/extensions:/directus/extensions
+            - ./directus/uploads:/directus/uploads:rw
+            - ./directus/extensions/dist:/directus/extensions/directus-extension-bde-cesi-nancy-bundle/dist:ro
+            - ./directus/extensions/package.json:/directus/extensions/directus-extension-bde-cesi-nancy-bundle/package.json:ro
+            - ./directus/migrations/dist:/directus/extensions/migrations:ro
         environment:
             GRAPHQL_INTROSPECTION: "true"
             MAX_RELATIONAL_DEPTH: "10"

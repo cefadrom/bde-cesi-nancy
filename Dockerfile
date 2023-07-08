@@ -2,9 +2,9 @@ ARG DIRECTUS_VERSION=latest
 
 
 # Install dependencies
-FROM node:16.16-alpine AS builder
+FROM node:18.16-alpine AS builder
 
-RUN wget -O - https://get.pnpm.io/v6.16.js | node - add --global pnpm
+RUN npm i -g pnpm
 
 WORKDIR /build
 COPY pnpm-lock.yaml .
@@ -12,13 +12,13 @@ COPY pnpm-lock.yaml .
 RUN pnpm fetch
 
 ADD . ./
-RUN pnpm install -r --offline
+RUN pnpm -r -F @bde-cesi-nancy/web -F directus-extension-bde-cesi-nancy-bundle -F directus-extension-bde-cesi-nancy-migrations install --offline --frozen-lockfile --ignore-scripts
 
-RUN pnpm --filter web --filter directus -r build
+RUN pnpm -r -F @bde-cesi-nancy/web -F directus-extension-bde-cesi-nancy-bundle -F directus-extension-bde-cesi-nancy-migrations run build
 
 
 # Build web app
-FROM node:16.16-alpine AS web
+FROM node:18.16-alpine AS web
 
 WORKDIR /app
 
@@ -34,6 +34,8 @@ CMD ["/bin/sh", "-c", "node build"]
 FROM directus/directus:${DIRECTUS_VERSION} AS directus
 
 WORKDIR /directus
-COPY --from=builder /build/directus/extensions /directus/extensions
+COPY --from=builder /build/directus/extensions/dist /directus/extensions/directus-extension-bde-cesi-nancy-bundle/dist
+COPY --from=builder /build/directus/extensions/package.json /directus/extensions/directus-extension-bde-cesi-nancy-bundle/package.json
+COPY --from=builder /build/directus/migrations/dist /directus/extensions/migrations
 
 CMD ["/bin/sh", "-c", "npx directus schema apply -y ./schema/schema.yaml && npx directus bootstrap && npx directus start"]

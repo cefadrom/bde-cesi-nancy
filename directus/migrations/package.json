@@ -1,0 +1,21 @@
+{
+	"name": "directus-extension-bde-cesi-nancy-migrations",
+	"author": "Julien W <julien.wolff1@viacesi.fr>",
+	"license": "GPLv3",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "All the migrations of BDE CESI Nancy for Directus",
+	"icon": "extension",
+	"scripts": {
+		"build": "swc src --only src/*.ts --out-dir dist",
+		"dev": "swc src --only src/*.ts --out-dir dist -w"
+	},
+	"devDependencies": {
+		"@bde-cesi-nancy/types": "workspace:*",
+		"@swc/cli": "^0.1.62",
+		"@swc/core": "^1.3.68",
+		"@types/node": "^20.4.1",
+		"knex": "^2.4.2",
+		"typescript": "^5.1.6"
+	}
+}

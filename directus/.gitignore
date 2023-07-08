@@ -1,7 +1,2 @@
-extensions
-node_modules
 database
 uploads
-package-lock.json
-yarn.lock
-pnpm-lock.yaml

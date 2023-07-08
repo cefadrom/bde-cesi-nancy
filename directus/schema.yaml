@@ -1,5 +1,6 @@
 version: 1
-directus: 9.22.1
+directus: 12.0.2
+vendor: mysql
 collections:
   - collection: HelloAsso
     meta:
@@ -16,12 +17,12 @@ collections:
       icon: sports_football
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 3
       sort_field: null
       translations: null
       unarchive_value: null
-    schema: null
   - collection: accounts
     meta:
       accountability: all
@@ -37,6 +38,7 @@ collections:
       icon: group
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 1
       sort_field: null
@@ -44,7 +46,6 @@ collections:
         - language: fr-FR
           translation: Comptes
       unarchive_value: null
-    schema: null
   - collection: cesi_accounts
     meta:
       accountability: all
@@ -60,6 +61,7 @@ collections:
       icon: admin_panel_settings
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 1
       sort_field: null
@@ -70,11 +72,7 @@ collections:
           translation: Compte CESI
       unarchive_value: null
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: cesi_accounts
-      schema: directus
   - collection: cesi_accounts_updates
     meta:
       accountability: all
@@ -90,6 +88,7 @@ collections:
       icon: update
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 3
       sort_field: null
@@ -100,11 +99,7 @@ collections:
           translation: Historique des MAJ des comptes
       unarchive_value: null
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: cesi_accounts_updates
-      schema: directus
   - collection: clubs
     meta:
       accountability: all
@@ -117,9 +112,10 @@ collections:
       display_template: '{{name}}'
       group: null
       hidden: false
-      icon: emoji_events
+      icon: theater_comedy
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 5
       sort_field: null
@@ -130,11 +126,7 @@ collections:
           translation: Clubs
       unarchive_value: null
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: clubs
-      schema: directus
   - collection: contact
     meta:
       accountability: all
@@ -150,6 +142,7 @@ collections:
       icon: forum
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 4
       sort_field: null
@@ -160,11 +153,7 @@ collections:
           translation: Demandes de contact
       unarchive_value: non lu
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: contact
-      schema: directus
   - collection: events
     meta:
       accountability: all
@@ -180,6 +169,7 @@ collections:
       icon: celebration
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 6
       sort_field: null
@@ -190,11 +180,7 @@ collections:
           translation: Évènements
       unarchive_value: null
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: events
-      schema: directus
   - collection: helloasso_logs
     meta:
       accountability: all
@@ -210,6 +196,7 @@ collections:
       icon: article
       item_duplication_fields: null
       note: Liste des requêtes webhook, et de si leur traitement à abouti
+      preview_url: null
       singleton: false
       sort: 2
       sort_field: null
@@ -220,11 +207,7 @@ collections:
           translation: Logs HelloAsso
       unarchive_value: 'false'
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: helloasso_logs
-      schema: directus
   - collection: home
     meta:
       accountability: all
@@ -240,6 +223,7 @@ collections:
       icon: home
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 2
       sort_field: null
@@ -247,7 +231,6 @@ collections:
         - language: fr-FR
           translation: Accueil
       unarchive_value: null
-    schema: null
   - collection: memberships
     meta:
       accountability: all
@@ -263,6 +246,7 @@ collections:
       icon: card_membership
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 1
       sort_field: null
@@ -273,11 +257,7 @@ collections:
           translation: Adhésions et cotisations
       unarchive_value: null
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: memberships
-      schema: directus
   - collection: notifications
     meta:
       accountability: all
@@ -293,17 +273,14 @@ collections:
       icon: notifications_active
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 6
       sort_field: null
       translations: null
       unarchive_value: null
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: notifications
-      schema: directus
   - collection: organization_chart
     meta:
       accountability: all
@@ -319,6 +296,7 @@ collections:
       icon: military_tech
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 1
       sort_field: sort
@@ -329,11 +307,7 @@ collections:
           translation: Organigramme
       unarchive_value: 'false'
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: organization_chart
-      schema: directus
   - collection: promotions
     meta:
       accountability: all
@@ -349,6 +323,7 @@ collections:
       icon: format_list_bulleted
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 2
       sort_field: null
@@ -359,11 +334,7 @@ collections:
           translation: Promotions
       unarchive_value: null
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: promotions
-      schema: directus
   - collection: push_subscriptions
     meta:
       accountability: all
@@ -379,17 +350,14 @@ collections:
       icon: subscriptions
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 5
       sort_field: null
       translations: null
       unarchive_value: null
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: push_subscriptions
-      schema: directus
   - collection: recruitment
     meta:
       accountability: all
@@ -405,6 +373,7 @@ collections:
       icon: emoji_people
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 2
       sort_field: null
@@ -415,11 +384,7 @@ collections:
           translation: Recrutement
       unarchive_value: null
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: recruitment
-      schema: directus
   - collection: unauthorized_logins
     meta:
       accountability: all
@@ -435,6 +400,7 @@ collections:
       icon: warning_amber
       item_duplication_fields: null
       note: null
+      preview_url: null
       singleton: false
       sort: 4
       sort_field: null
@@ -445,14 +411,11 @@ collections:
           translation: Connexions non autorisées
       unarchive_value: null
     schema:
-      collation: utf8mb4_0900_ai_ci
-      comment: ''
-      engine: InnoDB
       name: unauthorized_logins
-      schema: directus
 fields:
   - collection: cesi_accounts
     field: email
+    type: string
     meta:
       collection: cesi_accounts
       conditions: null
@@ -480,25 +443,24 @@ fields:
       validation_message: L'email doit être une adresse viacesi
       width: full
     schema:
-      comment: ''
+      name: email
+      table: cesi_accounts
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: true
       max_length: 127
-      name: email
       numeric_precision: null
       numeric_scale: null
-      table: cesi_accounts
-    type: string
+      is_nullable: true
+      is_unique: true
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts
     field: id
+    type: uuid
     meta:
       collection: cesi_accounts
       conditions: null
@@ -520,25 +482,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: cesi_accounts
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: cesi_accounts
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts
     field: name
+    type: string
     meta:
       collection: cesi_accounts
       conditions: null
@@ -562,25 +523,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: name
+      table: cesi_accounts
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 63
-      name: name
       numeric_precision: null
       numeric_scale: null
-      table: cesi_accounts
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts
     field: promotion
+    type: string
     meta:
       collection: cesi_accounts
       conditions: null
@@ -605,25 +565,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: promotion
+      table: cesi_accounts
       data_type: varchar
       default_value: null
-      foreign_key_column: code
-      foreign_key_table: promotions
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: promotion
       numeric_precision: null
       numeric_scale: null
-      table: cesi_accounts
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: promotions
+      foreign_key_column: code
   - collection: cesi_accounts_updates
     field: added_accounts
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -647,25 +606,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: added_accounts
+      table: cesi_accounts_updates
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: added_accounts
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: added_promotions
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -689,25 +647,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: added_promotions
+      table: cesi_accounts_updates
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: added_promotions
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: date_created
+    type: timestamp
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -732,25 +689,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: date_created
+      table: cesi_accounts_updates
       data_type: timestamp
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: date_created
       numeric_precision: null
       numeric_scale: null
-      table: cesi_accounts_updates
-    type: timestamp
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: deleted_accounts
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -774,25 +730,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: deleted_accounts
+      table: cesi_accounts_updates
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: deleted_accounts
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: deleted_promotions
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -816,25 +771,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: deleted_promotions
+      table: cesi_accounts_updates
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: deleted_promotions
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: divider-mcuc7s
+    type: alias
     meta:
       collection: cesi_accounts_updates
       field: divider-mcuc7s
@@ -858,10 +812,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: cesi_accounts_updates
     field: divider-rruy5d
+    type: alias
     meta:
       collection: cesi_accounts_updates
       field: divider-rruy5d
@@ -885,10 +838,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: cesi_accounts_updates
     field: divider-tpnmlo
+    type: alias
     meta:
       collection: cesi_accounts_updates
       field: divider-tpnmlo
@@ -912,10 +864,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: cesi_accounts_updates
     field: dump_date
+    type: date
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -938,25 +889,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: dump_date
+      table: cesi_accounts_updates
       data_type: date
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: dump_date
       numeric_precision: null
       numeric_scale: null
-      table: cesi_accounts_updates
-    type: date
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: dump_filename
+    type: string
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -979,25 +929,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: dump_filename
+      table: cesi_accounts_updates
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: dump_filename
       numeric_precision: null
       numeric_scale: null
-      table: cesi_accounts_updates
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: dump_lines
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -1021,25 +970,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: dump_lines
+      table: cesi_accounts_updates
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: dump_lines
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: dump_size
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -1063,25 +1011,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: dump_size
+      table: cesi_accounts_updates
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: dump_size
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: found_accounts
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -1105,25 +1052,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: found_accounts
+      table: cesi_accounts_updates
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: found_accounts
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: id
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -1144,25 +1090,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: cesi_accounts_updates
       data_type: int unsigned
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: true
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: null
-      name: id
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: operations_total
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -1186,25 +1131,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: operations_total
+      table: cesi_accounts_updates
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: operations_total
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: updated_accounts
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -1228,25 +1172,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: updated_accounts
+      table: cesi_accounts_updates
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: updated_accounts
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: updated_users
+    type: integer
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -1270,25 +1213,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: updated_users
+      table: cesi_accounts_updates
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: updated_users
       numeric_precision: 10
       numeric_scale: 0
-      table: cesi_accounts_updates
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: cesi_accounts_updates
     field: user_created
+    type: string
     meta:
       collection: cesi_accounts_updates
       conditions: null
@@ -1314,25 +1256,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: user_created
+      table: cesi_accounts_updates
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: user_created
       numeric_precision: null
       numeric_scale: null
-      table: cesi_accounts_updates
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
   - collection: clubs
     field: contact_email
+    type: string
     meta:
       collection: clubs
       conditions: null
@@ -1358,25 +1299,24 @@ fields:
       validation_message: L'email n'est pas valide
       width: full
     schema:
-      comment: ''
+      name: contact_email
+      table: clubs
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 127
-      name: contact_email
       numeric_precision: null
       numeric_scale: null
-      table: clubs
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: clubs
     field: date_created
+    type: timestamp
     meta:
       collection: clubs
       conditions: null
@@ -1399,25 +1339,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: date_created
+      table: clubs
       data_type: timestamp
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: date_created
       numeric_precision: null
       numeric_scale: null
-      table: clubs
-    type: timestamp
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: clubs
     field: date_updated
+    type: timestamp
     meta:
       collection: clubs
       conditions: null
@@ -1440,25 +1379,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: date_updated
+      table: clubs
       data_type: timestamp
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: date_updated
       numeric_precision: null
       numeric_scale: null
-      table: clubs
-    type: timestamp
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: clubs
     field: description
+    type: text
     meta:
       collection: clubs
       conditions: null
@@ -1485,25 +1423,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: description
+      table: clubs
       data_type: text
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 65535
-      name: description
       numeric_precision: null
       numeric_scale: null
-      table: clubs
-    type: text
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: clubs
     field: id
+    type: uuid
     meta:
       collection: clubs
       conditions: null
@@ -1525,25 +1462,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: clubs
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: clubs
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: clubs
     field: name
+    type: string
     meta:
       collection: clubs
       conditions: null
@@ -1569,25 +1505,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: name
+      table: clubs
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 127
-      name: name
       numeric_precision: null
       numeric_scale: null
-      table: clubs
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: clubs
     field: president_name
+    type: string
     meta:
       collection: clubs
       conditions: null
@@ -1596,14 +1531,10 @@ fields:
       field: president_name
       group: null
       hidden: false
-      interface: input-autocomplete-api
+      interface: input
       note: null
       options:
-        rate: 200
-        resultsPath: data
-        textPath: name
-        url: /items/cesi_accounts?search={{value}}&limit=10
-        valuePath: name
+        trim: true
       readonly: false
       required: true
       sort: 8
@@ -1615,25 +1546,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: president_name
+      table: clubs
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 127
-      name: president_name
       numeric_precision: null
       numeric_scale: null
-      table: clubs
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: clubs
     field: thumbnail
+    type: uuid
     meta:
       collection: clubs
       conditions: null
@@ -1660,25 +1590,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: thumbnail
+      table: clubs
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_files
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: thumbnail
       numeric_precision: null
       numeric_scale: null
-      table: clubs
-    type: uuid
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: clubs
     field: user_created
+    type: string
     meta:
       collection: clubs
       conditions: null
@@ -1701,25 +1630,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: user_created
+      table: clubs
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: user_created
       numeric_precision: null
       numeric_scale: null
-      table: clubs
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
   - collection: clubs
     field: user_updated
+    type: string
     meta:
       collection: clubs
       conditions: null
@@ -1742,25 +1670,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: user_updated
+      table: clubs
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: user_updated
       numeric_precision: null
       numeric_scale: null
-      table: clubs
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
   - collection: clubs
     field: visible
+    type: boolean
     meta:
       collection: clubs
       conditions: null
@@ -1785,25 +1712,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: visible
+      table: clubs
       data_type: boolean
       default_value: false
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: visible
       numeric_precision: 3
       numeric_scale: 0
-      table: clubs
-    type: boolean
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: category
+    type: string
     meta:
       collection: contact
       conditions: null
@@ -1848,25 +1774,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: category
+      table: contact
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 63
-      name: category
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: date_created
+    type: timestamp
     meta:
       collection: contact
       conditions: null
@@ -1891,25 +1816,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: date_created
+      table: contact
       data_type: timestamp
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: date_created
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: timestamp
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: date_updated
+    type: timestamp
     meta:
       collection: contact
       conditions: null
@@ -1932,25 +1856,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: date_updated
+      table: contact
       data_type: timestamp
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: date_updated
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: timestamp
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: divider-ugldjd
+    type: alias
     meta:
       collection: contact
       field: divider-ugldjd
@@ -1975,10 +1898,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: contact
     field: divider-xndzmy
+    type: alias
     meta:
       collection: contact
       field: divider-xndzmy
@@ -2003,10 +1925,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: contact
     field: email
+    type: string
     meta:
       collection: contact
       conditions: null
@@ -2028,25 +1949,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: email
+      table: contact
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: email
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: id
+    type: uuid
     meta:
       collection: contact
       conditions: null
@@ -2068,25 +1988,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: contact
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: ip
+    type: string
     meta:
       collection: contact
       conditions: null
@@ -2111,25 +2030,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: ip
+      table: contact
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 63
-      name: ip
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: message
+    type: text
     meta:
       collection: contact
       conditions: null
@@ -2151,25 +2069,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: message
+      table: contact
       data_type: text
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 65535
-      name: message
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: text
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: name
+    type: string
     meta:
       collection: contact
       conditions: null
@@ -2193,25 +2110,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: name
+      table: contact
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 127
-      name: name
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: status
+    type: string
     meta:
       collection: contact
       conditions: null
@@ -2248,25 +2164,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: status
+      table: contact
       data_type: varchar
       default_value: non lu
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: status
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: subject
+    type: string
     meta:
       collection: contact
       conditions: null
@@ -2290,25 +2205,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: subject
+      table: contact
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 127
-      name: subject
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: contact
     field: user_created
+    type: string
     meta:
       collection: contact
       conditions: null
@@ -2335,25 +2249,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: user_created
+      table: contact
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: user_created
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
   - collection: contact
     field: user_updated
+    type: string
     meta:
       collection: contact
       conditions: null
@@ -2376,25 +2289,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: user_updated
+      table: contact
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: user_updated
       numeric_precision: null
       numeric_scale: null
-      table: contact
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
   - collection: directus_users
     field: divider-adpygi
+    type: alias
     meta:
       collection: directus_users
       field: divider-adpygi
@@ -2418,10 +2330,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: directus_users
     field: membership
+    type: string
     meta:
       collection: directus_users
       conditions: null
@@ -2447,25 +2358,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
-      data_type: char
-      default_value: null
-      foreign_key_column: id
-      foreign_key_table: memberships
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
-      max_length: 36
       name: membership
+      table: directus_users
+      data_type: varchar
+      default_value: null
+      max_length: 36
       numeric_precision: null
       numeric_scale: null
-      table: directus_users
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: memberships
+      foreign_key_column: id
   - collection: directus_users
     field: membership_status
+    type: string
     meta:
       collection: directus_users
       conditions: null
@@ -2495,25 +2405,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: membership_status
+      table: directus_users
       data_type: varchar
       default_value: aucun
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 63
-      name: membership_status
       numeric_precision: null
       numeric_scale: null
-      table: directus_users
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: directus_users
     field: promotion
+    type: string
     meta:
       collection: directus_users
       conditions: null
@@ -2537,25 +2446,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: promotion
+      table: directus_users
       data_type: varchar
       default_value: null
-      foreign_key_column: code
-      foreign_key_table: promotions
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: promotion
       numeric_precision: null
       numeric_scale: null
-      table: directus_users
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: promotions
+      foreign_key_column: code
   - collection: directus_users
     field: subscriptions
+    type: json
     meta:
       collection: directus_users
       conditions: null
@@ -2594,25 +2502,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: subscriptions
+      table: directus_users
       data_type: json
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: subscriptions
       numeric_precision: null
       numeric_scale: null
-      table: directus_users
-    type: json
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: events
     field: cta_link
+    type: string
     meta:
       collection: events
       conditions: null
@@ -2642,25 +2549,24 @@ fields:
       validation_message: Le lien du CTA n'est pas valide
       width: full
     schema:
-      comment: ''
+      name: cta_link
+      table: events
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: cta_link
       numeric_precision: null
       numeric_scale: null
-      table: events
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: events
     field: cta_text
+    type: string
     meta:
       collection: events
       conditions: null
@@ -2685,25 +2591,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: cta_text
+      table: events
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 31
-      name: cta_text
       numeric_precision: null
       numeric_scale: null
-      table: events
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: events
     field: date_end
+    type: dateTime
     meta:
       collection: events
       conditions: null
@@ -2727,25 +2632,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: date_end
+      table: events
       data_type: datetime
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: date_end
       numeric_precision: null
       numeric_scale: null
-      table: events
-    type: dateTime
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: events
     field: date_start
+    type: dateTime
     meta:
       collection: events
       conditions: null
@@ -2769,25 +2673,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: date_start
+      table: events
       data_type: datetime
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: date_start
       numeric_precision: null
       numeric_scale: null
-      table: events
-    type: dateTime
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: events
     field: description
+    type: text
     meta:
       collection: events
       conditions: null
@@ -2811,25 +2714,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: description
+      table: events
       data_type: text
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 65535
-      name: description
       numeric_precision: null
       numeric_scale: null
-      table: events
-    type: text
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: events
     field: divider_cta
+    type: alias
     meta:
       collection: events
       field: divider_cta
@@ -2853,10 +2755,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: events
     field: divider_info
+    type: alias
     meta:
       collection: events
       field: divider_info
@@ -2880,10 +2781,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: events
     field: divider_time
+    type: alias
     meta:
       collection: events
       field: divider_time
@@ -2907,10 +2807,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: events
     field: hide_hours
+    type: boolean
     meta:
       collection: events
       conditions: null
@@ -2935,25 +2834,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: hide_hours
+      table: events
       data_type: boolean
       default_value: false
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: hide_hours
       numeric_precision: 3
       numeric_scale: 0
-      table: events
-    type: boolean
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: events
     field: id
+    type: uuid
     meta:
       collection: events
       conditions: null
@@ -2975,25 +2873,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: events
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: events
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: events
     field: name
+    type: string
     meta:
       collection: events
       conditions: null
@@ -3018,25 +2915,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: name
+      table: events
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: name
       numeric_precision: null
       numeric_scale: null
-      table: events
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: events
     field: notice_cta
+    type: alias
     meta:
       collection: events
       field: notice_cta
@@ -3063,10 +2959,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: events
     field: poster
+    type: uuid
     meta:
       collection: events
       conditions: null
@@ -3091,25 +2986,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: poster
+      table: events
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_files
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: poster
       numeric_precision: null
       numeric_scale: null
-      table: events
-    type: uuid
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: events
     field: visible
+    type: boolean
     meta:
       collection: events
       conditions: null
@@ -3134,25 +3028,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: visible
+      table: events
       data_type: boolean
       default_value: false
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: visible
       numeric_precision: 3
       numeric_scale: 0
-      table: events
-    type: boolean
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: helloasso_logs
     field: comment
+    type: text
     meta:
       collection: helloasso_logs
       conditions: null
@@ -3177,25 +3070,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: comment
+      table: helloasso_logs
       data_type: text
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 65535
-      name: comment
       numeric_precision: null
       numeric_scale: null
-      table: helloasso_logs
-    type: text
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: helloasso_logs
     field: created_at
+    type: dateTime
     meta:
       collection: helloasso_logs
       conditions: null
@@ -3221,25 +3113,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: created_at
+      table: helloasso_logs
       data_type: datetime
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: created_at
       numeric_precision: null
       numeric_scale: null
-      table: helloasso_logs
-    type: dateTime
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: helloasso_logs
     field: event_type
+    type: string
     meta:
       collection: helloasso_logs
       conditions: null
@@ -3276,25 +3167,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: event_type
+      table: helloasso_logs
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 63
-      name: event_type
       numeric_precision: null
       numeric_scale: null
-      table: helloasso_logs
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: helloasso_logs
     field: id
+    type: uuid
     meta:
       collection: helloasso_logs
       conditions: null
@@ -3316,25 +3206,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: helloasso_logs
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: helloasso_logs
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: helloasso_logs
     field: input
+    type: text
     meta:
       collection: helloasso_logs
       conditions: null
@@ -3359,25 +3248,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: input
+      table: helloasso_logs
       data_type: text
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 65535
-      name: input
       numeric_precision: null
       numeric_scale: null
-      table: helloasso_logs
-    type: text
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: helloasso_logs
     field: reject_reason
+    type: string
     meta:
       collection: helloasso_logs
       conditions: null
@@ -3400,25 +3288,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: reject_reason
+      table: helloasso_logs
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: reject_reason
       numeric_precision: null
       numeric_scale: null
-      table: helloasso_logs
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: helloasso_logs
     field: result_membership
+    type: string
     meta:
       collection: helloasso_logs
       conditions: null
@@ -3445,25 +3332,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: result_membership
+      table: helloasso_logs
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: memberships
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: result_membership
       numeric_precision: null
       numeric_scale: null
-      table: helloasso_logs
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: memberships
+      foreign_key_column: id
   - collection: helloasso_logs
     field: reviewed
+    type: boolean
     meta:
       collection: helloasso_logs
       conditions: null
@@ -3485,25 +3371,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: reviewed
+      table: helloasso_logs
       data_type: boolean
       default_value: false
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: reviewed
       numeric_precision: 3
       numeric_scale: 0
-      table: helloasso_logs
-    type: boolean
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: helloasso_logs
     field: success
+    type: boolean
     meta:
       collection: helloasso_logs
       conditions: null
@@ -3535,25 +3420,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: success
+      table: helloasso_logs
       data_type: boolean
       default_value: false
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: success
       numeric_precision: 3
       numeric_scale: 0
-      table: helloasso_logs
-    type: boolean
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: adherent_email
+    type: string
     meta:
       collection: memberships
       conditions: null
@@ -3581,25 +3465,24 @@ fields:
       validation_message: L'email de l'adhérent n'est pas valide
       width: half
     schema:
-      comment: ''
+      name: adherent_email
+      table: memberships
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 127
-      name: adherent_email
       numeric_precision: null
       numeric_scale: null
-      table: memberships
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: adherent_name
+    type: string
     meta:
       collection: memberships
       conditions: null
@@ -3624,25 +3507,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: adherent_name
+      table: memberships
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 127
-      name: adherent_name
       numeric_precision: null
       numeric_scale: null
-      table: memberships
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: divider-h2gj54
+    type: alias
     meta:
       collection: memberships
       field: divider-h2gj54
@@ -3667,10 +3549,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: memberships
     field: divider-lqxhw9
+    type: alias
     meta:
       collection: memberships
       field: divider-lqxhw9
@@ -3695,10 +3576,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: memberships
     field: divider-u8novh
+    type: alias
     meta:
       collection: memberships
       field: divider-u8novh
@@ -3723,10 +3603,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: memberships
     field: id
+    type: uuid
     meta:
       collection: memberships
       conditions: null
@@ -3748,25 +3627,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: memberships
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: memberships
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: membership_id
+    type: integer
     meta:
       collection: memberships
       conditions: null
@@ -3790,25 +3668,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: membership_id
+      table: memberships
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: true
       max_length: null
-      name: membership_id
       numeric_precision: 10
       numeric_scale: 0
-      table: memberships
-    type: integer
+      is_nullable: true
+      is_unique: true
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: membership_user
+    type: string
     meta:
       collection: memberships
       conditions: null
@@ -3836,25 +3713,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: membership_user
+      table: memberships
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: membership_user
       numeric_precision: null
       numeric_scale: null
-      table: memberships
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
   - collection: memberships
     field: order_amount
+    type: float
     meta:
       collection: memberships
       conditions: null
@@ -3879,25 +3755,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: order_amount
+      table: memberships
       data_type: float
       default_value: 0
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: order_amount
       numeric_precision: 5
       numeric_scale: 2
-      table: memberships
-    type: float
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: order_date
+    type: dateTime
     meta:
       collection: memberships
       conditions: null
@@ -3921,25 +3796,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: order_date
+      table: memberships
       data_type: datetime
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: order_date
       numeric_precision: null
       numeric_scale: null
-      table: memberships
-    type: dateTime
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: order_form
+    type: string
     meta:
       collection: memberships
       conditions: null
@@ -3972,25 +3846,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: order_form
+      table: memberships
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 63
-      name: order_form
       numeric_precision: null
       numeric_scale: null
-      table: memberships
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: order_id
+    type: integer
     meta:
       collection: memberships
       conditions: null
@@ -4014,25 +3887,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: order_id
+      table: memberships
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: true
       max_length: null
-      name: order_id
       numeric_precision: 10
       numeric_scale: 0
-      table: memberships
-    type: integer
+      is_nullable: true
+      is_unique: true
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: order_initial_amount
+    type: float
     meta:
       collection: memberships
       conditions: null
@@ -4057,25 +3929,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: order_initial_amount
+      table: memberships
       data_type: float
       default_value: 0
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: order_initial_amount
       numeric_precision: 5
       numeric_scale: 2
-      table: memberships
-    type: float
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: origin_log
+    type: alias
     meta:
       collection: memberships
       field: origin_log
@@ -4104,10 +3975,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: memberships
     field: payer_email
+    type: string
     meta:
       collection: memberships
       conditions: null
@@ -4135,25 +4005,24 @@ fields:
       validation_message: L'email du payeur n'est pas valide
       width: half
     schema:
-      comment: ''
+      name: payer_email
+      table: memberships
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 127
-      name: payer_email
       numeric_precision: null
       numeric_scale: null
-      table: memberships
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: payer_name
+    type: string
     meta:
       collection: memberships
       conditions: null
@@ -4178,25 +4047,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: payer_name
+      table: memberships
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 127
-      name: payer_name
       numeric_precision: null
       numeric_scale: null
-      table: memberships
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: body
+    type: text
     meta:
       collection: notifications
       conditions: null
@@ -4221,25 +4089,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: body
+      table: notifications
       data_type: text
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 65535
-      name: body
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: text
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: category
+    type: string
     meta:
       collection: notifications
       conditions: null
@@ -4288,25 +4155,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: category
+      table: notifications
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 63
-      name: category
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: collection
+    type: string
     meta:
       collection: notifications
       conditions: []
@@ -4350,25 +4216,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: collection
+      table: notifications
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: collection
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: date_created
+    type: timestamp
     meta:
       collection: notifications
       conditions: null
@@ -4393,25 +4258,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: date_created
+      table: notifications
       data_type: timestamp
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: date_created
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: timestamp
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: divider_notification
+    type: alias
     meta:
       collection: notifications
       field: divider_notification
@@ -4444,10 +4308,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: notifications
     field: divider_send
+    type: alias
     meta:
       collection: notifications
       field: divider_send
@@ -4480,10 +4343,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: notifications
     field: failed_notifications
+    type: integer
     meta:
       collection: notifications
       conditions:
@@ -4519,25 +4381,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: failed_notifications
+      table: notifications
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: failed_notifications
       numeric_precision: 10
       numeric_scale: 0
-      table: notifications
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: id
+    type: uuid
     meta:
       collection: notifications
       conditions: null
@@ -4559,25 +4420,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: notifications
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: image
+    type: uuid
     meta:
       collection: notifications
       conditions: null
@@ -4601,25 +4461,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: image
+      table: notifications
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_files
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: image
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: uuid
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: notifications
     field: item
+    type: string
     meta:
       collection: notifications
       conditions: null
@@ -4649,25 +4508,24 @@ fields:
       validation_message: Doit être un UUID v4 valide
       width: half
     schema:
-      comment: ''
+      name: item
+      table: notifications
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: item
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: link
+    type: string
     meta:
       collection: notifications
       conditions: null
@@ -4694,25 +4552,24 @@ fields:
       validation_message: Le lien n'est pas valide (doit commencer par /, https:// ou mailto:)
       width: full
     schema:
-      comment: ''
+      name: link
+      table: notifications
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: link
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: links-fjq15a
+    type: alias
     meta:
       collection: notifications
       field: links-fjq15a
@@ -4749,10 +4606,9 @@ fields:
       group: null
       validation: null
       validation_message: null
-    schema: null
-    type: alias
   - collection: notifications
     field: logs
+    type: text
     meta:
       collection: notifications
       conditions:
@@ -4784,25 +4640,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: logs
+      table: notifications
       data_type: text
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 65535
-      name: logs
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: text
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: sent
+    type: boolean
     meta:
       collection: notifications
       conditions: null
@@ -4825,25 +4680,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: sent
+      table: notifications
       data_type: boolean
       default_value: false
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: sent
       numeric_precision: 3
       numeric_scale: 0
-      table: notifications
-    type: boolean
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: sent_notifications
+    type: integer
     meta:
       collection: notifications
       conditions:
@@ -4879,25 +4733,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: sent_notifications
+      table: notifications
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: sent_notifications
       numeric_precision: 10
       numeric_scale: 0
-      table: notifications
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: title
+    type: string
     meta:
       collection: notifications
       conditions: null
@@ -4922,25 +4775,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: title
+      table: notifications
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 63
-      name: title
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: notifications
     field: user_created
+    type: string
     meta:
       collection: notifications
       conditions: null
@@ -4965,25 +4817,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: user_created
+      table: notifications
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: user_created
       numeric_precision: null
       numeric_scale: null
-      table: notifications
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
   - collection: organization_chart
     field: account
+    type: string
     meta:
       collection: organization_chart
       conditions: null
@@ -5011,25 +4862,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: account
+      table: organization_chart
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: account
       numeric_precision: null
       numeric_scale: null
-      table: organization_chart
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: organization_chart
     field: archived
+    type: boolean
     meta:
       collection: organization_chart
       conditions: null
@@ -5054,25 +4904,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: archived
+      table: organization_chart
       data_type: boolean
       default_value: false
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: archived
       numeric_precision: 3
       numeric_scale: 0
-      table: organization_chart
-    type: boolean
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: organization_chart
     field: id
+    type: uuid
     meta:
       collection: organization_chart
       conditions: null
@@ -5094,25 +4943,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: organization_chart
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: organization_chart
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: organization_chart
     field: pole
+    type: string
     meta:
       collection: organization_chart
       conditions: null
@@ -5127,10 +4975,6 @@ fields:
             value: communication
           - text: Event
             value: event
-          - text: Marketing
-            value: marketing
-          - text: Interpromo
-            value: interpromo
       field: pole
       group: null
       hidden: false
@@ -5146,10 +4990,6 @@ fields:
             value: communication
           - text: Event
             value: event
-          - text: Marketing
-            value: marketing
-          - text: Interpromo
-            value: interpromo
       readonly: false
       required: true
       sort: 5
@@ -5161,25 +5001,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: pole
+      table: organization_chart
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: pole
       numeric_precision: null
       numeric_scale: null
-      table: organization_chart
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: organization_chart
     field: role
+    type: string
     meta:
       collection: organization_chart
       conditions: null
@@ -5204,25 +5043,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: role
+      table: organization_chart
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 31
-      name: role
       numeric_precision: null
       numeric_scale: null
-      table: organization_chart
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: organization_chart
     field: sort
+    type: integer
     meta:
       collection: organization_chart
       conditions: null
@@ -5243,25 +5081,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: sort
+      table: organization_chart
       data_type: int
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: sort
       numeric_precision: 10
       numeric_scale: 0
-      table: organization_chart
-    type: integer
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: promotions
     field: code
+    type: string
     meta:
       collection: promotions
       conditions: null
@@ -5289,25 +5126,24 @@ fields:
       validation_message: Le code analytique doit être du CESI Nancy
       width: full
     schema:
-      comment: ''
+      name: code
+      table: promotions
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 255
-      name: code
       numeric_precision: null
       numeric_scale: null
-      table: promotions
-    type: string
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: promotions
     field: name
+    type: string
     meta:
       collection: promotions
       conditions: null
@@ -5332,25 +5168,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: name
+      table: promotions
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 127
-      name: name
       numeric_precision: null
       numeric_scale: null
-      table: promotions
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: push_subscriptions
     field: auth
+    type: string
     meta:
       collection: push_subscriptions
       conditions: null
@@ -5373,25 +5208,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: auth
+      table: push_subscriptions
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: auth
       numeric_precision: null
       numeric_scale: null
-      table: push_subscriptions
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: push_subscriptions
     field: date_created
+    type: timestamp
     meta:
       collection: push_subscriptions
       conditions: null
@@ -5415,25 +5249,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: date_created
+      table: push_subscriptions
       data_type: timestamp
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: date_created
       numeric_precision: null
       numeric_scale: null
-      table: push_subscriptions
-    type: timestamp
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: push_subscriptions
     field: endpoint
+    type: string
     meta:
       collection: push_subscriptions
       conditions: null
@@ -5454,25 +5287,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: endpoint
+      table: push_subscriptions
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: false
-      is_unique: false
       max_length: 1023
-      name: endpoint
       numeric_precision: null
       numeric_scale: null
-      table: push_subscriptions
-    type: string
+      is_nullable: false
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: push_subscriptions
     field: id
+    type: uuid
     meta:
       collection: push_subscriptions
       conditions: null
@@ -5494,25 +5326,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: push_subscriptions
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: push_subscriptions
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: push_subscriptions
     field: p256dh
+    type: string
     meta:
       collection: push_subscriptions
       conditions: null
@@ -5535,25 +5366,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: p256dh
+      table: push_subscriptions
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: p256dh
       numeric_precision: null
       numeric_scale: null
-      table: push_subscriptions
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: push_subscriptions
     field: user_created
+    type: string
     meta:
       collection: push_subscriptions
       conditions: null
@@ -5579,25 +5409,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: user_created
+      table: push_subscriptions
       data_type: char
       default_value: null
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 36
-      name: user_created
       numeric_precision: null
       numeric_scale: null
-      table: push_subscriptions
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
   - collection: recruitment
     field: description
+    type: text
     meta:
       collection: recruitment
       conditions: null
@@ -5622,25 +5451,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: description
+      table: recruitment
       data_type: text
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 65535
-      name: description
       numeric_precision: null
       numeric_scale: null
-      table: recruitment
-    type: text
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: recruitment
     field: id
+    type: uuid
     meta:
       collection: recruitment
       conditions: null
@@ -5662,25 +5490,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: id
+      table: recruitment
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: recruitment
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: recruitment
     field: subtitle
+    type: string
     meta:
       collection: recruitment
       conditions: null
@@ -5706,25 +5533,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: subtitle
+      table: recruitment
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 63
-      name: subtitle
       numeric_precision: null
       numeric_scale: null
-      table: recruitment
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: recruitment
     field: title
+    type: string
     meta:
       collection: recruitment
       conditions: null
@@ -5749,25 +5575,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: title
+      table: recruitment
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 63
-      name: title
       numeric_precision: null
       numeric_scale: null
-      table: recruitment
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: recruitment
     field: visible
+    type: boolean
     meta:
       collection: recruitment
       conditions: null
@@ -5792,25 +5617,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: visible
+      table: recruitment
       data_type: boolean
       default_value: false
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: visible
       numeric_precision: 3
       numeric_scale: 0
-      table: recruitment
-    type: boolean
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: unauthorized_logins
     field: date_created
+    type: timestamp
     meta:
       collection: unauthorized_logins
       conditions: null
@@ -5835,25 +5659,24 @@ fields:
       validation_message: null
       width: full
     schema:
-      comment: ''
+      name: date_created
+      table: unauthorized_logins
       data_type: timestamp
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: null
-      name: date_created
       numeric_precision: null
       numeric_scale: null
-      table: unauthorized_logins
-    type: timestamp
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: unauthorized_logins
     field: email
+    type: string
     meta:
       collection: unauthorized_logins
       conditions: null
@@ -5877,25 +5700,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: email
+      table: unauthorized_logins
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: email
       numeric_precision: null
       numeric_scale: null
-      table: unauthorized_logins
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: unauthorized_logins
     field: id
+    type: uuid
     meta:
       collection: unauthorized_logins
       conditions: null
@@ -5917,25 +5739,24 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: id
+      table: unauthorized_logins
       data_type: char
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: false
-      is_primary_key: true
-      is_unique: false
       max_length: 36
-      name: id
       numeric_precision: null
       numeric_scale: null
-      table: unauthorized_logins
-    type: uuid
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: unauthorized_logins
     field: name
+    type: string
     meta:
       collection: unauthorized_logins
       conditions: null
@@ -5959,26 +5780,25 @@ fields:
       validation_message: null
       width: half
     schema:
-      comment: ''
+      name: name
+      table: unauthorized_logins
       data_type: varchar
       default_value: null
-      foreign_key_column: null
-      foreign_key_table: null
-      generation_expression: null
-      has_auto_increment: false
-      is_generated: false
-      is_nullable: true
-      is_primary_key: false
-      is_unique: false
       max_length: 255
-      name: name
       numeric_precision: null
       numeric_scale: null
-      table: unauthorized_logins
-    type: string
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
 relations:
   - collection: cesi_accounts
     field: promotion
+    related_collection: promotions
     meta:
       junction_field: null
       many_collection: cesi_accounts
@@ -5989,17 +5809,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: promotions
     schema:
-      column: promotion
-      constraint_name: cesi_accounts_promotion_foreign
-      foreign_key_column: code
-      foreign_key_table: promotions
-      on_delete: SET NULL
-      on_update: NO ACTION
       table: cesi_accounts
+      column: promotion
+      foreign_key_table: promotions
+      foreign_key_column: code
+      constraint_name: cesi_accounts_promotion_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: cesi_accounts_updates
     field: user_created
+    related_collection: directus_users
     meta:
       junction_field: null
       many_collection: cesi_accounts_updates
@@ -6010,17 +5830,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_users
     schema:
-      column: user_created
-      constraint_name: cesi_accounts_updates_user_created_foreign
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
       table: cesi_accounts_updates
+      column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: cesi_accounts_updates_user_created_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
   - collection: clubs
     field: thumbnail
+    related_collection: directus_files
     meta:
       junction_field: null
       many_collection: clubs
@@ -6031,17 +5851,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_files
     schema:
+      table: clubs
       column: thumbnail
-      constraint_name: clubs_thumbnail_foreign
-      foreign_key_column: id
       foreign_key_table: directus_files
-      on_delete: NO ACTION
+      foreign_key_column: id
+      constraint_name: clubs_thumbnail_foreign
       on_update: NO ACTION
-      table: clubs
+      on_delete: NO ACTION
   - collection: clubs
     field: user_created
+    related_collection: directus_users
     meta:
       junction_field: null
       many_collection: clubs
@@ -6052,17 +5872,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_users
     schema:
+      table: clubs
       column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
       constraint_name: clubs_user_created_foreign
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
       on_update: NO ACTION
-      table: clubs
+      on_delete: NO ACTION
   - collection: clubs
     field: user_updated
+    related_collection: directus_users
     meta:
       junction_field: null
       many_collection: clubs
@@ -6073,17 +5893,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_users
     schema:
-      column: user_updated
-      constraint_name: clubs_user_updated_foreign
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
       table: clubs
+      column: user_updated
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: clubs_user_updated_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
   - collection: contact
     field: user_created
+    related_collection: directus_users
     meta:
       junction_field: null
       many_collection: contact
@@ -6094,17 +5914,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_users
     schema:
-      column: user_created
-      constraint_name: contact_user_created_foreign
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
       table: contact
+      column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: contact_user_created_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
   - collection: contact
     field: user_updated
+    related_collection: directus_users
     meta:
       junction_field: null
       many_collection: contact
@@ -6115,17 +5935,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_users
     schema:
-      column: user_updated
-      constraint_name: contact_user_updated_foreign
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
       table: contact
+      column: user_updated
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: contact_user_updated_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
   - collection: directus_users
     field: membership
+    related_collection: memberships
     meta:
       junction_field: null
       many_collection: directus_users
@@ -6136,17 +5956,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: memberships
     schema:
-      column: membership
-      constraint_name: directus_users_membership_foreign
-      foreign_key_column: id
-      foreign_key_table: memberships
-      on_delete: SET NULL
-      on_update: NO ACTION
       table: directus_users
+      column: membership
+      foreign_key_table: memberships
+      foreign_key_column: id
+      constraint_name: directus_users_membership_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: directus_users
     field: promotion
+    related_collection: promotions
     meta:
       junction_field: null
       many_collection: directus_users
@@ -6157,17 +5977,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: promotions
     schema:
-      column: promotion
-      constraint_name: directus_users_promotion_foreign
-      foreign_key_column: code
-      foreign_key_table: promotions
-      on_delete: SET NULL
-      on_update: NO ACTION
       table: directus_users
+      column: promotion
+      foreign_key_table: promotions
+      foreign_key_column: code
+      constraint_name: directus_users_promotion_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: events
     field: poster
+    related_collection: directus_files
     meta:
       junction_field: null
       many_collection: events
@@ -6178,17 +5998,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_files
     schema:
-      column: poster
-      constraint_name: events_poster_foreign
-      foreign_key_column: id
-      foreign_key_table: directus_files
-      on_delete: NO ACTION
-      on_update: NO ACTION
       table: events
+      column: poster
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: events_poster_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
   - collection: helloasso_logs
     field: result_membership
+    related_collection: memberships
     meta:
       junction_field: null
       many_collection: helloasso_logs
@@ -6199,17 +6019,17 @@ relations:
       one_deselect_action: nullify
       one_field: origin_log
       sort_field: null
-    related_collection: memberships
     schema:
-      column: result_membership
-      constraint_name: helloasso_logs_result_membership_foreign
-      foreign_key_column: id
-      foreign_key_table: memberships
-      on_delete: SET NULL
-      on_update: NO ACTION
       table: helloasso_logs
+      column: result_membership
+      foreign_key_table: memberships
+      foreign_key_column: id
+      constraint_name: helloasso_logs_result_membership_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: memberships
     field: membership_user
+    related_collection: directus_users
     meta:
       junction_field: null
       many_collection: memberships
@@ -6220,17 +6040,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_users
     schema:
-      column: membership_user
-      constraint_name: memberships_membership_user_foreign
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      on_delete: SET NULL
-      on_update: NO ACTION
       table: memberships
+      column: membership_user
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: memberships_membership_user_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: notifications
     field: image
+    related_collection: directus_files
     meta:
       junction_field: null
       many_collection: notifications
@@ -6241,17 +6061,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_files
     schema:
-      column: image
-      constraint_name: notifications_image_foreign
-      foreign_key_column: id
-      foreign_key_table: directus_files
-      on_delete: SET NULL
-      on_update: NO ACTION
       table: notifications
+      column: image
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: notifications_image_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: notifications
     field: user_created
+    related_collection: directus_users
     meta:
       junction_field: null
       many_collection: notifications
@@ -6262,17 +6082,17 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_users
     schema:
-      column: user_created
-      constraint_name: notifications_user_created_foreign
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
       table: notifications
+      column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: notifications_user_created_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
   - collection: push_subscriptions
     field: user_created
+    related_collection: directus_users
     meta:
       junction_field: null
       many_collection: push_subscriptions
@@ -6283,12 +6103,11 @@ relations:
       one_deselect_action: nullify
       one_field: null
       sort_field: null
-    related_collection: directus_users
     schema:
-      column: user_created
-      constraint_name: push_subscriptions_user_created_foreign
-      foreign_key_column: id
-      foreign_key_table: directus_users
-      on_delete: NO ACTION
-      on_update: NO ACTION
       table: push_subscriptions
+      column: user_created
+      foreign_key_table: directus_users
+      foreign_key_column: id
+      constraint_name: push_subscriptions_user_created_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
