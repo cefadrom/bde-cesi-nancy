@@ -1,5 +1,5 @@
 version: 1
-directus: 12.0.2
+directus: 10.9.3
 vendor: mysql
 collections:
   - collection: HelloAsso
@@ -23,6 +23,7 @@ collections:
       sort_field: null
       translations: null
       unarchive_value: null
+      versioning: false
   - collection: accounts
     meta:
       accountability: all
@@ -46,6 +47,7 @@ collections:
         - language: fr-FR
           translation: Comptes
       unarchive_value: null
+      versioning: false
   - collection: cesi_accounts
     meta:
       accountability: all
@@ -71,6 +73,7 @@ collections:
           singular: compte CESI
           translation: Compte CESI
       unarchive_value: null
+      versioning: false
     schema:
       name: cesi_accounts
   - collection: cesi_accounts_updates
@@ -98,6 +101,7 @@ collections:
           singular: mise à jour des comptes
           translation: Historique des MAJ des comptes
       unarchive_value: null
+      versioning: false
     schema:
       name: cesi_accounts_updates
   - collection: clubs
@@ -112,7 +116,7 @@ collections:
       display_template: '{{name}}'
       group: null
       hidden: false
-      icon: theater_comedy
+      icon: sports_esports
       item_duplication_fields: null
       note: null
       preview_url: null
@@ -125,6 +129,7 @@ collections:
           singular: club
           translation: Clubs
       unarchive_value: null
+      versioning: false
     schema:
       name: clubs
   - collection: contact
@@ -152,6 +157,7 @@ collections:
           singular: demande de contact
           translation: Demandes de contact
       unarchive_value: non lu
+      versioning: false
     schema:
       name: contact
   - collection: events
@@ -179,6 +185,7 @@ collections:
           singular: évènement
           translation: Évènements
       unarchive_value: null
+      versioning: false
     schema:
       name: events
   - collection: helloasso_logs
@@ -206,6 +213,7 @@ collections:
           singular: log HelloAsso
           translation: Logs HelloAsso
       unarchive_value: 'false'
+      versioning: false
     schema:
       name: helloasso_logs
   - collection: home
@@ -231,6 +239,7 @@ collections:
         - language: fr-FR
           translation: Accueil
       unarchive_value: null
+      versioning: false
   - collection: memberships
     meta:
       accountability: all
@@ -251,11 +260,12 @@ collections:
       sort: 1
       sort_field: null
       translations:
-        - plural: adhésoins / cotisations
+        - plural: adhésions / cotisations
           language: fr-FR
           singular: adhésion / cotisation
           translation: Adhésions et cotisations
       unarchive_value: null
+      versioning: false
     schema:
       name: memberships
   - collection: notifications
@@ -279,6 +289,7 @@ collections:
       sort_field: null
       translations: null
       unarchive_value: null
+      versioning: false
     schema:
       name: notifications
   - collection: organization_chart
@@ -306,6 +317,7 @@ collections:
           singular: personne
           translation: Organigramme
       unarchive_value: 'false'
+      versioning: false
     schema:
       name: organization_chart
   - collection: promotions
@@ -333,6 +345,7 @@ collections:
           singular: promotion
           translation: Promotions
       unarchive_value: null
+      versioning: false
     schema:
       name: promotions
   - collection: push_subscriptions
@@ -356,6 +369,7 @@ collections:
       sort_field: null
       translations: null
       unarchive_value: null
+      versioning: false
     schema:
       name: push_subscriptions
   - collection: recruitment
@@ -383,6 +397,7 @@ collections:
           singular: poste
           translation: Recrutement
       unarchive_value: null
+      versioning: false
     schema:
       name: recruitment
   - collection: unauthorized_logins
@@ -410,6 +425,7 @@ collections:
           singular: connexion non autorisée
           translation: Connexions non autorisées
       unarchive_value: null
+      versioning: false
     schema:
       name: unauthorized_logins
 fields:
@@ -1407,7 +1423,7 @@ fields:
       hidden: false
       interface: input-multiline
       note: >-
-        Courte decription du club, une ou deux petites phrases. Évitez de
+        Courte description du club, une ou deux petites phrases. Évitez de
         dépasser la limite.
       options:
         softLength: 64
@@ -1506,47 +1522,6 @@ fields:
       width: full
     schema:
       name: name
-      table: clubs
-      data_type: varchar
-      default_value: null
-      max_length: 127
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: clubs
-    field: president_name
-    type: string
-    meta:
-      collection: clubs
-      conditions: null
-      display: null
-      display_options: null
-      field: president_name
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        trim: true
-      readonly: false
-      required: true
-      sort: 8
-      special: null
-      translations:
-        - language: fr-FR
-          translation: Président.e du club
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: president_name
       table: clubs
       data_type: varchar
       default_value: null
@@ -1719,6 +1694,51 @@ fields:
       max_length: null
       numeric_precision: 3
       numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: clubs
+    field: president_name
+    type: string
+    meta:
+      collection: clubs
+      conditions: null
+      display: null
+      display_options: null
+      field: president_name
+      group: null
+      hidden: false
+      interface: input-autocomplete-api
+      note: null
+      options:
+        rate: 200
+        resultsPath: data
+        textPath: name
+        url: /items/cesi_accounts?search={{value}}&limit=10
+        valuePath: name
+      readonly: false
+      required: true
+      sort: 8
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Président.e du club
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: president_name
+      table: clubs
+      data_type: varchar
+      default_value: null
+      max_length: 127
+      numeric_precision: null
+      numeric_scale: null
       is_nullable: true
       is_unique: false
       is_primary_key: false
@@ -2126,60 +2146,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: contact
-    field: status
-    type: string
-    meta:
-      collection: contact
-      conditions: null
-      display: labels
-      display_options:
-        choices:
-          - text: Non lu
-            value: non lu
-          - text: En cours de résolution
-            value: resolution
-          - text: Résolu
-            value: resolu
-      field: status
-      group: null
-      hidden: false
-      interface: select-dropdown
-      note: null
-      options:
-        choices:
-          - text: Non lu
-            value: non lu
-          - text: En cours de résolution
-            value: resolution
-          - text: Résolu
-            value: resolu
-      readonly: false
-      required: true
-      sort: 10
-      special: null
-      translations:
-        - language: fr-FR
-          translation: Statut
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: status
-      table: contact
-      data_type: varchar
-      default_value: non lu
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: contact
     field: subject
     type: string
     meta:
@@ -2304,6 +2270,60 @@ fields:
       has_auto_increment: false
       foreign_key_table: directus_users
       foreign_key_column: id
+  - collection: contact
+    field: status
+    type: string
+    meta:
+      collection: contact
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: Non lu
+            value: non lu
+          - text: En cours de résolution
+            value: resolution
+          - text: Résolu
+            value: resolu
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Non lu
+            value: non lu
+          - text: En cours de résolution
+            value: resolution
+          - text: Résolu
+            value: resolu
+      readonly: false
+      required: true
+      sort: 10
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Statut
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: status
+      table: contact
+      data_type: varchar
+      default_value: non lu
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: directus_users
     field: divider-adpygi
     type: alias
@@ -2331,38 +2351,36 @@ fields:
       validation: null
       validation_message: null
   - collection: directus_users
-    field: membership
+    field: promotion
     type: string
     meta:
       collection: directus_users
       conditions: null
       display: null
       display_options: null
-      field: membership
+      field: promotion
       group: null
       hidden: false
       interface: select-dropdown-m2o
       note: null
       options:
         enableCreate: false
-        template: '#{{membership_id}} ({{order_form}})'
+        template: '{{code}} ({{name}})'
       readonly: false
-      required: false
-      sort: 5
+      required: true
+      sort: 3
       special:
         - m2o
-      translations:
-        - language: fr-FR
-          translation: Adhésion / cotisation
+      translations: null
       validation: null
       validation_message: null
-      width: half
+      width: full
     schema:
-      name: membership
+      name: promotion
       table: directus_users
       data_type: varchar
       default_value: null
-      max_length: 36
+      max_length: 255
       numeric_precision: null
       numeric_scale: null
       is_nullable: true
@@ -2371,8 +2389,8 @@ fields:
       is_generated: false
       generation_expression: null
       has_auto_increment: false
-      foreign_key_table: memberships
-      foreign_key_column: id
+      foreign_key_table: promotions
+      foreign_key_column: code
   - collection: directus_users
     field: membership_status
     type: string
@@ -2421,36 +2439,38 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: directus_users
-    field: promotion
+    field: membership
     type: string
     meta:
       collection: directus_users
       conditions: null
       display: null
       display_options: null
-      field: promotion
+      field: membership
       group: null
       hidden: false
       interface: select-dropdown-m2o
       note: null
       options:
         enableCreate: false
-        template: '{{code}} ({{name}})'
+        template: '#{{membership_id}} ({{order_form}})'
       readonly: false
-      required: true
-      sort: 3
+      required: false
+      sort: 5
       special:
         - m2o
-      translations: null
+      translations:
+        - language: fr-FR
+          translation: Adhésion / cotisation
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
-      name: promotion
+      name: membership
       table: directus_users
-      data_type: varchar
+      data_type: char
       default_value: null
-      max_length: 255
+      max_length: 36
       numeric_precision: null
       numeric_scale: null
       is_nullable: true
@@ -2459,8 +2479,8 @@ fields:
       is_generated: false
       generation_expression: null
       has_auto_increment: false
-      foreign_key_table: promotions
-      foreign_key_column: code
+      foreign_key_table: memberships
+      foreign_key_column: id
   - collection: directus_users
     field: subscriptions
     type: json
@@ -2505,6 +2525,169 @@ fields:
       name: subscriptions
       table: directus_users
       data_type: json
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: id
+    type: uuid
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 2
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: events
+      data_type: char
+      default_value: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: name
+    type: string
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        softLength: 255
+        trim: true
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Nom
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: events
+      data_type: varchar
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: date_start
+    type: dateTime
+    meta:
+      collection: events
+      conditions: null
+      display: datetime
+      display_options:
+        format: short
+      field: date_start
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 8
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Date de début
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: date_start
+      table: events
+      data_type: datetime
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: date_end
+    type: dateTime
+    meta:
+      collection: events
+      conditions: null
+      display: datetime
+      display_options:
+        format: short
+      field: date_end
+      group: null
+      hidden: false
+      interface: datetime
+      note: Si l'évènement n'a pas de date de fin, laisser vide
+      options: null
+      readonly: false
+      required: false
+      sort: 9
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Date de fin
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: date_end
+      table: events
+      data_type: datetime
       default_value: null
       max_length: null
       numeric_precision: null
@@ -2596,88 +2779,6 @@ fields:
       data_type: varchar
       default_value: null
       max_length: 31
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: date_end
-    type: dateTime
-    meta:
-      collection: events
-      conditions: null
-      display: datetime
-      display_options:
-        format: short
-      field: date_end
-      group: null
-      hidden: false
-      interface: datetime
-      note: Si l'évènement n'a pas de date de fin, laisser vide
-      options: null
-      readonly: false
-      required: false
-      sort: 9
-      special: null
-      translations:
-        - language: fr-FR
-          translation: Date de fin
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: date_end
-      table: events
-      data_type: datetime
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: date_start
-    type: dateTime
-    meta:
-      collection: events
-      conditions: null
-      display: datetime
-      display_options:
-        format: short
-      field: date_start
-      group: null
-      hidden: false
-      interface: datetime
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 8
-      special: null
-      translations:
-        - language: fr-FR
-          translation: Date de début
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: date_start
-      table: events
-      data_type: datetime
-      default_value: null
-      max_length: null
       numeric_precision: null
       numeric_scale: null
       is_nullable: true
@@ -2793,7 +2894,7 @@ fields:
       interface: presentation-divider
       options:
         icon: schedule
-        title: Horraires
+        title: Horaires
       display: null
       display_options: null
       readonly: false
@@ -2841,87 +2942,6 @@ fields:
       max_length: null
       numeric_precision: 3
       numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: id
-    type: uuid
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: input
-      note: null
-      options: null
-      readonly: true
-      required: false
-      sort: 2
-      special:
-        - uuid
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: events
-      data_type: char
-      default_value: null
-      max_length: 36
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: name
-    type: string
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: name
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        softLength: 255
-        trim: true
-      readonly: false
-      required: true
-      sort: 3
-      special: null
-      translations:
-        - language: fr-FR
-          translation: Nom
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: name
-      table: events
-      data_type: varchar
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
       is_nullable: true
       is_unique: false
       is_primary_key: false
@@ -3044,145 +3064,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: helloasso_logs
-    field: comment
-    type: text
-    meta:
-      collection: helloasso_logs
-      conditions: null
-      display: null
-      display_options:
-        conditionalFormatting: null
-      field: comment
-      group: null
-      hidden: false
-      interface: input-multiline
-      note: null
-      options:
-        trim: true
-      readonly: false
-      required: false
-      sort: 10
-      special: null
-      translations:
-        - language: fr-FR
-          translation: Commentaire
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: comment
-      table: helloasso_logs
-      data_type: text
-      default_value: null
-      max_length: 65535
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: helloasso_logs
-    field: created_at
-    type: dateTime
-    meta:
-      collection: helloasso_logs
-      conditions: null
-      display: datetime
-      display_options:
-        format: short
-      field: created_at
-      group: null
-      hidden: false
-      interface: datetime
-      note: null
-      options:
-        includeSeconds: true
-      readonly: true
-      required: true
-      sort: 3
-      special:
-        - date-created
-      translations:
-        - language: fr-FR
-          translation: Date d'émission
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: created_at
-      table: helloasso_logs
-      data_type: datetime
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: helloasso_logs
-    field: event_type
-    type: string
-    meta:
-      collection: helloasso_logs
-      conditions: null
-      display: labels
-      display_options:
-        choices:
-          - text: Commande
-            value: Order
-          - text: Paiement
-            value: Payment
-          - text: Formulaire
-            value: Form
-      field: event_type
-      group: null
-      hidden: false
-      interface: select-dropdown
-      note: null
-      options:
-        choices:
-          - text: Commande
-            value: Order
-          - text: Paiement
-            value: Payment
-          - text: Formulaire
-            value: Form
-      readonly: true
-      required: true
-      sort: 7
-      special: null
-      translations:
-        - language: fr-FR
-          translation: Type
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: event_type
-      table: helloasso_logs
-      data_type: varchar
-      default_value: null
-      max_length: 63
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: helloasso_logs
     field: id
     type: uuid
     meta:
@@ -3253,6 +3134,98 @@ fields:
       data_type: text
       default_value: null
       max_length: 65535
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: helloasso_logs
+    field: success
+    type: boolean
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: boolean
+      display_options:
+        colorOff: '#E35169'
+        colorOn: '#2ECDA7'
+        iconOff: report_gmailerrorred
+      field: success
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options:
+        colorOff: '#E35169'
+        colorOn: '#2ECDA7'
+        iconOff: report_gmailerrorred
+        iconOn: check
+        label: Résultat de l'opération
+      readonly: true
+      required: false
+      sort: 4
+      special:
+        - cast-boolean
+      translations:
+        - language: fr-FR
+          translation: Succès
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: success
+      table: helloasso_logs
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: 3
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: helloasso_logs
+    field: created_at
+    type: dateTime
+    meta:
+      collection: helloasso_logs
+      conditions: null
+      display: datetime
+      display_options:
+        format: short
+      field: created_at
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options:
+        includeSeconds: true
+      readonly: true
+      required: true
+      sort: 3
+      special:
+        - date-created
+      translations:
+        - language: fr-FR
+          translation: Date d'émission
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: created_at
+      table: helloasso_logs
+      data_type: datetime
+      default_value: null
+      max_length: null
       numeric_precision: null
       numeric_scale: null
       is_nullable: true
@@ -3387,89 +3360,37 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: helloasso_logs
-    field: success
-    type: boolean
+    field: comment
+    type: text
     meta:
       collection: helloasso_logs
       conditions: null
-      display: boolean
-      display_options:
-        colorOff: '#E35169'
-        colorOn: '#2ECDA7'
-        iconOff: report_gmailerrorred
-      field: success
-      group: null
-      hidden: false
-      interface: boolean
-      note: null
-      options:
-        colorOff: '#E35169'
-        colorOn: '#2ECDA7'
-        iconOff: report_gmailerrorred
-        iconOn: check
-        label: Résultat de l'opération
-      readonly: true
-      required: false
-      sort: 4
-      special:
-        - cast-boolean
-      translations:
-        - language: fr-FR
-          translation: Succès
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: success
-      table: helloasso_logs
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: 3
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: memberships
-    field: adherent_email
-    type: string
-    meta:
-      collection: memberships
-      conditions: null
       display: null
-      display_options: null
-      field: adherent_email
+      display_options:
+        conditionalFormatting: null
+      field: comment
       group: null
       hidden: false
-      interface: input
+      interface: input-multiline
       note: null
       options:
-        softLength: 127
         trim: true
       readonly: false
-      required: true
+      required: false
       sort: 10
       special: null
       translations:
         - language: fr-FR
-          translation: Email de l'adhérent / du cotisant
-      validation:
-        _and:
-          - adherent_email:
-              _contains: '@'
-      validation_message: L'email de l'adhérent n'est pas valide
-      width: half
+          translation: Commentaire
+      validation: null
+      validation_message: null
+      width: full
     schema:
-      name: adherent_email
-      table: memberships
-      data_type: varchar
+      name: comment
+      table: helloasso_logs
+      data_type: text
       default_value: null
-      max_length: 127
+      max_length: 65535
       numeric_precision: null
       numeric_scale: null
       is_nullable: true
@@ -3480,38 +3401,50 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: memberships
-    field: adherent_name
+  - collection: helloasso_logs
+    field: event_type
     type: string
     meta:
-      collection: memberships
+      collection: helloasso_logs
       conditions: null
-      display: null
-      display_options: null
-      field: adherent_name
+      display: labels
+      display_options:
+        choices:
+          - text: Commande
+            value: Order
+          - text: Paiement
+            value: Payment
+          - text: Formulaire
+            value: Form
+      field: event_type
       group: null
       hidden: false
-      interface: input
+      interface: select-dropdown
       note: null
       options:
-        softLength: 127
-        trim: true
-      readonly: false
+        choices:
+          - text: Commande
+            value: Order
+          - text: Paiement
+            value: Payment
+          - text: Formulaire
+            value: Form
+      readonly: true
       required: true
-      sort: 9
+      sort: 7
       special: null
       translations:
         - language: fr-FR
-          translation: Nom de l'adhérent / du cotisant
+          translation: Type
       validation: null
       validation_message: null
-      width: half
+      width: full
     schema:
-      name: adherent_name
-      table: memberships
+      name: event_type
+      table: helloasso_logs
       data_type: varchar
       default_value: null
-      max_length: 127
+      max_length: 63
       numeric_precision: null
       numeric_scale: null
       is_nullable: true
@@ -3523,32 +3456,44 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: memberships
-    field: divider-h2gj54
-    type: alias
+    field: id
+    type: uuid
     meta:
       collection: memberships
-      field: divider-h2gj54
-      special:
-        - alias
-        - no-data
-      interface: presentation-divider
-      options:
-        icon: bug_report
-        title: Debug
-        inlineTitle: true
+      conditions: null
       display: null
       display_options: null
-      readonly: false
-      hidden: false
-      sort: 14
-      width: full
-      translations: null
-      note: null
-      conditions: null
-      required: false
+      field: id
       group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special:
+        - uuid
+      translations: null
       validation: null
       validation_message: null
+      width: full
+    schema:
+      name: id
+      table: memberships
+      data_type: char
+      default_value: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: memberships
     field: divider-lqxhw9
     type: alias
@@ -3604,39 +3549,41 @@ fields:
       validation: null
       validation_message: null
   - collection: memberships
-    field: id
-    type: uuid
+    field: order_id
+    type: integer
     meta:
       collection: memberships
       conditions: null
       display: null
       display_options: null
-      field: id
+      field: order_id
       group: null
-      hidden: true
+      hidden: false
       interface: input
       note: null
-      options: null
+      options:
+        min: 0
       readonly: true
-      required: false
-      sort: 1
-      special:
-        - uuid
-      translations: null
+      required: true
+      sort: 3
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Numéro de commande
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
-      name: id
+      name: order_id
       table: memberships
-      data_type: char
+      data_type: int
       default_value: null
-      max_length: 36
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: true
+      max_length: null
+      numeric_precision: 10
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: true
+      is_primary_key: false
       is_generated: false
       generation_expression: null
       has_auto_increment: false
@@ -3677,93 +3624,6 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: true
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: memberships
-    field: membership_user
-    type: string
-    meta:
-      collection: memberships
-      conditions: null
-      display: related-values
-      display_options:
-        template: "{{last_name}}\_{{first_name}}"
-      field: membership_user
-      group: null
-      hidden: false
-      interface: select-dropdown-m2o
-      note: null
-      options:
-        enableCreate: false
-        enableSelect: false
-        template: "{{last_name}}\_{{first_name}}"
-      readonly: true
-      required: false
-      sort: 15
-      special:
-        - m2o
-      translations:
-        - language: fr-FR
-          translation: Compte associé
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: membership_user
-      table: memberships
-      data_type: char
-      default_value: null
-      max_length: 36
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_users
-      foreign_key_column: id
-  - collection: memberships
-    field: order_amount
-    type: float
-    meta:
-      collection: memberships
-      conditions: null
-      display: money
-      display_options: null
-      field: order_amount
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        min: 0
-        step: 0.01
-      readonly: true
-      required: true
-      sort: 7
-      special: null
-      translations:
-        - language: fr-FR
-          translation: Montant payé
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: order_amount
-      table: memberships
-      data_type: float
-      default_value: 0
-      max_length: null
-      numeric_precision: 5
-      numeric_scale: 2
-      is_nullable: true
-      is_unique: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3862,40 +3722,86 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: memberships
-    field: order_id
-    type: integer
+    field: adherent_name
+    type: string
     meta:
       collection: memberships
       conditions: null
       display: null
       display_options: null
-      field: order_id
+      field: adherent_name
       group: null
       hidden: false
       interface: input
       note: null
       options:
-        min: 0
-      readonly: true
+        softLength: 127
+        trim: true
+      readonly: false
       required: true
-      sort: 3
+      sort: 9
       special: null
       translations:
         - language: fr-FR
-          translation: Numéro de commande
+          translation: Nom de l'adhérent / du cotisant
       validation: null
       validation_message: null
       width: half
     schema:
-      name: order_id
+      name: adherent_name
       table: memberships
-      data_type: int
+      data_type: varchar
       default_value: null
-      max_length: null
-      numeric_precision: 10
-      numeric_scale: 0
+      max_length: 127
+      numeric_precision: null
+      numeric_scale: null
       is_nullable: true
-      is_unique: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: memberships
+    field: adherent_email
+    type: string
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: adherent_email
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        softLength: 127
+        trim: true
+      readonly: false
+      required: true
+      sort: 10
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Email de l'adhérent / du cotisant
+      validation:
+        _and:
+          - adherent_email:
+              _contains: '@'
+      validation_message: L'email de l'adhérent n'est pas valide
+      width: half
+    schema:
+      name: adherent_email
+      table: memberships
+      data_type: varchar
+      default_value: null
+      max_length: 127
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3945,73 +3851,39 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: memberships
-    field: origin_log
-    type: alias
-    meta:
-      collection: memberships
-      field: origin_log
-      special:
-        - o2m
-      interface: list-o2m
-      options:
-        limit: 2
-        template: "{{event_type}}\_{{id}}"
-        enableLink: true
-        enableCreate: false
-        enableSelect: false
-      display: related-values
-      display_options:
-        template: '{{event_type}}'
-      readonly: true
-      hidden: false
-      sort: 16
-      width: full
-      translations:
-        - language: fr-FR
-          translation: Log d'origine
-      note: null
-      conditions: null
-      required: false
-      group: null
-      validation: null
-      validation_message: null
-  - collection: memberships
-    field: payer_email
-    type: string
+    field: order_amount
+    type: float
     meta:
       collection: memberships
       conditions: null
-      display: null
+      display: money
       display_options: null
-      field: payer_email
+      field: order_amount
       group: null
       hidden: false
       interface: input
       note: null
       options:
-        softLength: 127
-        trim: true
-      readonly: false
+        min: 0
+        step: 0.01
+      readonly: true
       required: true
-      sort: 13
+      sort: 7
       special: null
       translations:
         - language: fr-FR
-          translation: Email du payeur
-      validation:
-        _and:
-          - email:
-              _contains: '@'
-      validation_message: L'email du payeur n'est pas valide
+          translation: Montant payé
+      validation: null
+      validation_message: null
       width: half
     schema:
-      name: payer_email
+      name: order_amount
       table: memberships
-      data_type: varchar
-      default_value: null
-      max_length: 127
-      numeric_precision: null
-      numeric_scale: null
+      data_type: float
+      default_value: 0
+      max_length: null
+      numeric_precision: 5
+      numeric_scale: 2
       is_nullable: true
       is_unique: false
       is_primary_key: false
@@ -4062,6 +3934,154 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: memberships
+    field: payer_email
+    type: string
+    meta:
+      collection: memberships
+      conditions: null
+      display: null
+      display_options: null
+      field: payer_email
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        softLength: 127
+        trim: true
+      readonly: false
+      required: true
+      sort: 13
+      special: null
+      translations:
+        - language: fr-FR
+          translation: Email du payeur
+      validation:
+        _and:
+          - email:
+              _contains: '@'
+      validation_message: L'email du payeur n'est pas valide
+      width: half
+    schema:
+      name: payer_email
+      table: memberships
+      data_type: varchar
+      default_value: null
+      max_length: 127
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: memberships
+    field: divider-h2gj54
+    type: alias
+    meta:
+      collection: memberships
+      field: divider-h2gj54
+      special:
+        - alias
+        - no-data
+      interface: presentation-divider
+      options:
+        icon: bug_report
+        title: Debug
+        inlineTitle: true
+      display: null
+      display_options: null
+      readonly: false
+      hidden: false
+      sort: 14
+      width: full
+      translations: null
+      note: null
+      conditions: null
+      required: false
+      group: null
+      validation: null
+      validation_message: null
+  - collection: memberships
+    field: origin_log
+    type: alias
+    meta:
+      collection: memberships
+      field: origin_log
+      special:
+        - o2m
+      interface: list-o2m
+      options:
+        limit: 2
+        template: "{{event_type}}\_{{id}}"
+        enableLink: true
+        enableCreate: false
+        enableSelect: false
+      display: related-values
+      display_options:
+        template: '{{event_type}}'
+      readonly: true
+      hidden: false
+      sort: 16
+      width: full
+      translations:
+        - language: fr-FR
+          translation: Log d'origine
+      note: null
+      conditions: null
+      required: false
+      group: null
+      validation: null
+      validation_message: null
+  - collection: memberships
+    field: membership_user
+    type: string
+    meta:
+      collection: memberships
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{last_name}}\_{{first_name}}"
+      field: membership_user
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        enableSelect: false
+        template: "{{last_name}}\_{{first_name}}"
+      readonly: true
+      required: false
+      sort: 15
+      special:
+        - m2o
+      translations:
+        - language: fr-FR
+          translation: Compte associé
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: membership_user
+      table: memberships
+      data_type: varchar
+      default_value: null
+      max_length: 36
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_users
+      foreign_key_column: id
   - collection: notifications
     field: body
     type: text
@@ -4819,7 +4839,7 @@ fields:
     schema:
       name: user_created
       table: notifications
-      data_type: char
+      data_type: varchar
       default_value: null
       max_length: 36
       numeric_precision: null
@@ -4975,6 +4995,10 @@ fields:
             value: communication
           - text: Event
             value: event
+          - text: Marketing
+            value: marketing
+          - text: Interpromo
+            value: interpromo
       field: pole
       group: null
       hidden: false
@@ -4990,6 +5014,10 @@ fields:
             value: communication
           - text: Event
             value: event
+          - text: Marketing
+            value: marketing
+          - text: Interpromo
+            value: interpromo
       readonly: false
       required: true
       sort: 5
@@ -5411,7 +5439,7 @@ fields:
     schema:
       name: user_created
       table: push_subscriptions
-      data_type: char
+      data_type: varchar
       default_value: null
       max_length: 36
       numeric_precision: null
@@ -5944,27 +5972,6 @@ relations:
       on_update: NO ACTION
       on_delete: NO ACTION
   - collection: directus_users
-    field: membership
-    related_collection: memberships
-    meta:
-      junction_field: null
-      many_collection: directus_users
-      many_field: membership
-      one_allowed_collections: null
-      one_collection: memberships
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    schema:
-      table: directus_users
-      column: membership
-      foreign_key_table: memberships
-      foreign_key_column: id
-      constraint_name: directus_users_membership_foreign
-      on_update: NO ACTION
-      on_delete: SET NULL
-  - collection: directus_users
     field: promotion
     related_collection: promotions
     meta:
@@ -5983,6 +5990,27 @@ relations:
       foreign_key_table: promotions
       foreign_key_column: code
       constraint_name: directus_users_promotion_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: directus_users
+    field: membership
+    related_collection: memberships
+    meta:
+      junction_field: null
+      many_collection: directus_users
+      many_field: membership
+      one_allowed_collections: null
+      one_collection: memberships
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: directus_users
+      column: membership
+      foreign_key_table: memberships
+      foreign_key_column: id
+      constraint_name: directus_users_membership_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: events
