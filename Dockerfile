@@ -2,7 +2,7 @@ ARG DIRECTUS_VERSION=latest
 
 
 # Install dependencies
-FROM node:18.16-alpine AS builder
+FROM node:20.11-alpine AS builder
 
 RUN npm i -g pnpm
 
@@ -18,7 +18,7 @@ RUN pnpm -r -F @bde-cesi-nancy/web -F directus-extension-bde-cesi-nancy-bundle -
 
 
 # Build web app
-FROM node:18.16-alpine AS web
+FROM node:20.11-alpine AS web
 
 WORKDIR /app
 
