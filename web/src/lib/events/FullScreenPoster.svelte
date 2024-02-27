@@ -70,8 +70,8 @@
 </style>
 
 
-<div class="poster" on:click={close} transition:fade|local={{duration: 100}}>
+<div class="poster" on:click={close} transition:fade={{duration: 100}}>
     <div class="loader"/>
     <img class="poster-img" src={poster} alt={title}/>
-    <img class="close" src="icons/close-filled-black.svg" alt="x"/>
+    <img class="close" src="/icons/close-filled-black.svg" alt="x"/>
 </div>

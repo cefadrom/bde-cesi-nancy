@@ -170,7 +170,7 @@
     <iframe allowtransparency
             on:load={() => (loaded = true)}
             title="{type === 'adhesion' ? 'Adhésion' : 'Cotisation'} HelloAsso"
-            src="https://www.helloasso.com/associations/bureau-des-eleves-cesi-nancy/adhesions/{type}-bde/widget"/>
+            src="/https://www.helloasso.com/associations/bureau-des-eleves-cesi-nancy/adhesions/{type}-bde/widget"/>
 </div>
 
 <div class="iframe-action-row">

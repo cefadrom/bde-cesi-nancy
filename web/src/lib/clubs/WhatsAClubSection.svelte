@@ -54,7 +54,7 @@
         ou de plusieurs activités.
     </AboutSectionQuestion>
     <div class="img-container">
-        <img alt="Étudiants qui discutent" src="illustrations/group-chatting.svg"/>
+        <img alt="Étudiants qui discutent" src="/illustrations/group-chatting.svg"/>
     </div>
     <AboutSectionQuestion question="Quel est son but ?" right>
         Réunir les apprenants autour de passions communes et permettre l’organisation d’évènements divers avec un cadre

@@ -49,7 +49,7 @@
         toutes les manifestations extra-scolaires sur le campus.
     </AboutSectionQuestion>
     <div class="img-container">
-        <img alt="Étudiants" loading="lazy" src="illustrations/student-friends.svg"/>
+        <img alt="Étudiants" loading="lazy" src="/illustrations/student-friends.svg"/>
     </div>
     <AboutSectionQuestion question="Quel est son rôle ?" right>
         Le rôle du BDE est de fournir un cadre légal à toute organisation des manifestations. Il s’occupe aussi

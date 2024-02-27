@@ -57,7 +57,7 @@
         engagement</u> !
     </AboutSectionQuestion>
     <div class="img-container">
-        <img alt="Page de personnalisation de compte" src="illustrations/members-settings.svg"/>
+        <img alt="Page de personnalisation de compte" src="/illustrations/members-settings.svg"/>
     </div>
     <AboutSectionQuestion question="Quels sont les avantages ?" right>
         Vous pourrez avoir des réductions à l’épicerie, participer aux évènements de l’association, participer aux

@@ -14,5 +14,5 @@
 
 
 <a href={loginURL}>
-    <img src="microsoft/signin-large.svg" alt="Se connecter avec Microsoft" height="41"/>
+    <img src="/microsoft/signin-large.svg" alt="Se connecter avec Microsoft" height="41"/>
 </a>
