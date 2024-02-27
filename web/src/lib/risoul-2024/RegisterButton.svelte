@@ -1,13 +1,19 @@
 <script lang="ts">
+    export let padding = false;
+
     const LINK = 'https://groupes.odyc.fr/grouptravel/registration/welcome.aspx?reqGuid=549EDD00-F1B3-42B4-BB90-4784F1FF95F0';
 </script>
 
 
 <style>
-    .top-btn-row {
+    .btn-container {
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+
+    .padding {
+        padding: 2rem 0;
     }
 
     button {
@@ -51,7 +57,7 @@
 </style>
 
 
-<div class="top-btn-row">
+<div class="btn-container" class:padding>
     <a href={LINK}>
         <button>INSCRIS-TOI !!</button>
     </a>

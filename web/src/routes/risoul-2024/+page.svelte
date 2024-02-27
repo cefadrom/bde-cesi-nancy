@@ -3,6 +3,7 @@
     import IntroSection from "$lib/risoul-2024/IntroSection.svelte";
     import RegisterButton from "$lib/risoul-2024/RegisterButton.svelte";
     import HookSection from "$lib/risoul-2024/HookSection.svelte";
+    import InformationSection from "$lib/risoul-2024/InformationSection.svelte";
 </script>
 
 
@@ -11,3 +12,5 @@
 <IntroSection/>
 <RegisterButton/>
 <HookSection/>
+<InformationSection/>
+<RegisterButton padding/>
