@@ -59,6 +59,6 @@
 
 <div class="btn-container" class:padding>
     <a href={LINK}>
-        <button>INSCRIS-TOI !!</button>
+        <button>INSCRIVEZ-VOUS !!</button>
     </a>
 </div>
