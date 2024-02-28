@@ -2,7 +2,8 @@
   "name": "@bde-cesi-nancy/web",
   "dependencies": {
     "@directus/sdk": "^10.1.4",
-    "qr-code-styling": "1.6.0-rc.1"
+    "qr-code-styling": "1.6.0-rc.1",
+    "swiper": "^11.0.7"
   },
   "type": "module"
 }

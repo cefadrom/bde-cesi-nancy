@@ -4,6 +4,7 @@
     import RegisterButton from "$lib/risoul-2024/RegisterButton.svelte";
     import HookSection from "$lib/risoul-2024/HookSection.svelte";
     import InformationSection from "$lib/risoul-2024/InformationSection.svelte";
+    import ImagesCarrouselSection from "$lib/risoul-2024/ImagesCarrouselSection.svelte";
 </script>
 
 
@@ -14,3 +15,4 @@
 <HookSection/>
 <InformationSection/>
 <RegisterButton padding/>
+<ImagesCarrouselSection/>
