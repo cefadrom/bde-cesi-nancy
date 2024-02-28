@@ -86,7 +86,7 @@
             <img alt="Jeunes posés dans la neige"
                  class="swiper-slide"
                  class:carrouselLoading loading="lazy"
-                 src="/risoul-2024/jeunes-posés-dans-la-neige.webp"/>
+                 src="/risoul-2024/jeunes-poses-dans-la-neige.webp"/>
             <img alt="Ski et Snow"
                  class="swiper-slide"
                  class:carrouselLoading loading="lazy"
