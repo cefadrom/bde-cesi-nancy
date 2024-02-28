@@ -23,7 +23,7 @@
         }
     }
 
-    p {
+    .info-container p {
         margin-bottom: .2rem;
     }
 
@@ -32,6 +32,16 @@
         padding-left: 1.5rem;
         margin-top: .2rem;
         margin-bottom: 0;
+    }
+
+    .question-section {
+        margin-top: 3rem;
+    }
+
+    @media all and (max-width: 850px) {
+        .question-section {
+            margin-top: 2rem;
+        }
     }
 </style>
 
@@ -92,4 +102,11 @@
             </p>
         </SkiInformation>
     </div>
+
+    <p class="body question-section">
+        Des questions ? N’hésitez pas à contacter le BDE CESI Nancy via leur adresse mail
+        (<a class="link" href="mailto:bde-cesi-nancy@viacesi.fr">bde-cesi-nancy@viacesi.fr</a>),
+        ou via le numéro de téléphone suivant :
+        <a class="link" href="tel:06.47.87.66.88">06.47.87.66.88</a>.
+    </p>
 </SectionContainer>
