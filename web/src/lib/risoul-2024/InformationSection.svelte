@@ -59,7 +59,7 @@
             </ul>
         </SkiInformation>
 
-        <SkiInformation title="Dates">
+        <SkiInformation title="Trajets">
             <p class="body">
                 Aller : départ du CESI Nancy le jeudi 21 mars à 21h00 et arrivée à la station de Risoul le vendredi
                 22 mars vers 8-9h00
