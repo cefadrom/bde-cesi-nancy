@@ -19,6 +19,11 @@ services:
             PUBLIC_VAPID_KEY: "${PUBLIC_VAPID_KEY}"
             DIRECTUS_LOCAL_URL: "${DIRECTUS_LOCAL_URL}"
             REFRESH_TOKEN_COOKIE_DOMAIN: "${REFRESH_TOKEN_COOKIE_DOMAIN}"
+        healthcheck:
+            test: [ "CMD", "wget", "-q", "--spider", "http://localhost:3000" ]
+            interval: 10s
+            timeout: 5s
+            retries: 3
 
     directus:
         container_name: bde-directus
@@ -33,8 +38,10 @@ services:
                 DIRECTUS_VERSION: "${DIRECTUS_VERSION}"
         hostname: bde-directus
         depends_on:
-            - mysql
-            - redis
+            mysql:
+                condition: service_healthy
+            redis:
+                condition: service_healthy
         networks:
             - web
             - internal
@@ -93,6 +100,11 @@ services:
             PUBLIC_VAPID_KEY: "${PUBLIC_VAPID_KEY}"
             PRIVATE_VAPID_KEY: "${PRIVATE_VAPID_KEY}"
             VAPID_SUBJECT: "${VAPID_SUBJECT}"
+        healthcheck:
+            test: [ "CMD", "wget", "-q", "--spider", "http://localhost:8055/server/health" ]
+            interval: 10s
+            timeout: 5s
+            retries: 3
 
     mysql:
         container_name: bde-mysql
@@ -108,6 +120,11 @@ services:
             MYSQL_DATABASE: "directus"
             MYSQL_USER: "${MYSQL_USER}"
             MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+        healthcheck:
+            test: "mysqladmin ping -h localhost -u${MYSQL_USER} -p${MYSQL_PASSWORD}"
+            interval: 5s
+            timeout: 5s
+            retries: 3
 
     redis:
         container_name: bde-redis
@@ -116,6 +133,11 @@ services:
         hostname: bde-redis
         networks:
             - internal
+        healthcheck:
+            test: "redis-cli ping"
+            interval: 5s
+            timeout: 5s
+            retries: 3
 
 
 networks:
