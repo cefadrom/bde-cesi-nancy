@@ -28,9 +28,9 @@
 
 <section>
     <picture>
-        <source media="(min-width: 1920px) or (min-height: 1080px)" srcset="students/students-1440.jpg">
-        <source media="(min-width: 1080px) or (min-height: 720px)" srcset="students/students-1920.jpg">
-        <source media="(max-width: 1080px) and (max-height: 720px)" srcset="students/students-720.jpg">
+        <source media="(min-width: 1920px) or (min-height: 1080px)" srcset="/students/students-1440.jpg">
+        <source media="(min-width: 1080px) or (min-height: 720px)" srcset="/students/students-1920.jpg">
+        <source media="(max-width: 1080px) and (max-height: 720px)" srcset="/students/students-720.jpg">
         <img alt="Étudiants" src="/students/students-1920.jpg">
     </picture>
 
