@@ -7,8 +7,8 @@
 	"description": "All the migrations of BDE CESI Nancy for Directus",
 	"icon": "extension",
 	"scripts": {
-		"build": "swc src --only src/*.ts --out-dir dist",
-		"dev": "swc src --only src/*.ts --out-dir dist -w"
+		"build": "swc src --strip-leading-paths --only src/*.ts --out-dir dist",
+		"dev": "swc src --strip-leading-paths --only src/*.ts --out-dir dist -w"
 	},
 	"devDependencies": {
 		"@bde-cesi-nancy/types": "workspace:*",
