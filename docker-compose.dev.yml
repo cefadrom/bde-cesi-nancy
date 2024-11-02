@@ -1,6 +1,3 @@
-version: '3.9'
-
-
 services:
     web:
         deploy:
@@ -32,8 +29,6 @@ services:
     mysql:
         ports:
             - "3306:3306"
-        volumes:
-            - ./directus/database:/var/lib/mysql
 
 
 networks:
@@ -46,7 +41,5 @@ networks:
 
 
 volumes:
-    mysql:
-        external: false
     directus_uploads:
         external: false
